@@ -15,17 +15,14 @@ const connect = async () => {
   }
 };
 
+mongoose.connection.on("disconnected", () => {
+  console.log("mondogdb disconnected");
+});
+
+mongoose.connection.on("connected", () => {
+  console.log("mondogdb connected");
+});
 app.listen(8000, () => {
   connect();
   console.log("app started");
 });
-
-// //db
-// mongoose
-//   .connect(process.env.DATABASE, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => {
-//     console.log("database connected");
-//   });
