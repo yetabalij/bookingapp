@@ -15,13 +15,6 @@ const connect = async () => {
   }
 };
 
-mongoose.connection.on("disconnected", () => {
-  console.log("mondogdb disconnected");
-});
-
-mongoose.connection.on("connected", () => {
-  console.log("mondogdb connected");
-});
 app.listen(8000, () => {
   connect();
   console.log("app started");
