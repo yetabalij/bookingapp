@@ -12,50 +12,46 @@ exports.createHotel = async (req, res, next) => {
   }
 };
 
-//CREATE
-exports.createHotel = async (req, res, next) => {
-  const newHotel = new Hotel(req.body);
+//UPDATE
+exports.updateHotel = async (req, res, next) => {
   try {
-    const savedHotel = await newHotel.save();
-    res.status(200).json(savedHotel);
+    const updatedHotel = await Hotel.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      { new: true }
+    );
+    res.status(200).json(updatedHotel);
   } catch (err) {
-    next(err);
-    //res.status(err).json("something went woring");
+    res.status(500).json(err);
   }
 };
 
-//CREATE
-exports.createHotel = async (req, res, next) => {
-  const newHotel = new Hotel(req.body);
+//DELETE
+exports.deleteHotel = async (req, res, next) => {
   try {
-    const savedHotel = await newHotel.save();
-    res.status(200).json(savedHotel);
+    await Hotel.findByIdAndDelete(req.params.id);
+    res.status(200).json("Hotel has been deleted");
   } catch (err) {
-    next(err);
-    //res.status(err).json("something went woring");
+    res.status(500).json(err);
   }
 };
 
-//CREATE
-exports.createHotel = async (req, res, next) => {
-  const newHotel = new Hotel(req.body);
+//GET
+exports.getHotel = async (req, res, next) => {
   try {
-    const savedHotel = await newHotel.save();
-    res.status(200).json(savedHotel);
+    const hotel = await Hotel.findById(req.params.id);
+    res.status(200).json(hotel);
   } catch (err) {
-    next(err);
-    //res.status(err).json("something went woring");
+    res.status(500).json(err);
   }
 };
 
-//CREATE
-exports.createHotel = async (req, res, next) => {
-  const newHotel = new Hotel(req.body);
+//GET ALL HOTELS
+exports.getAllHotel = async (req, res, next) => {
   try {
-    const savedHotel = await newHotel.save();
-    res.status(200).json(savedHotel);
+    const hotels = await Hotel.find(req.params.id);
+    res.status(200).json(hotels);
   } catch (err) {
-    next(err);
-    //res.status(err).json("something went woring");
+    res.status(500).json(err);
   }
 };
