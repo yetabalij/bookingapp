@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const mogran = require("morgan");
 
 //imported routeres
 const authRoute = require("../api/routes/auth");
@@ -11,6 +12,10 @@ const authUsers = require("../api/routes/users");
 dotenv.config();
 
 const app = express();
+
+//middlwares
+app.use(express.json());
+app.use(mogran("dev"));
 
 //router middlewares
 app.use("/api/auth", authRoute);
