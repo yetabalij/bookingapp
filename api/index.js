@@ -23,6 +23,19 @@ app.use("/api/hotels", authHotels);
 app.use("/api/rooms", authRooms);
 app.use("/api/users", authUsers);
 
+//error middleware
+app.use((err, req, res, next) => {
+  const errorStatus = err.status || 500;
+  const errorMessage = err.message || "Something went wrong.";
+  return res.status(errorStatus).json({
+    success: false,
+    status: errorStatus,
+    message: errorMessage,
+    stack: err.stack,
+  });
+});
+
+//db connection
 const connect = async () => {
   try {
     await mongoose.connect(process.env.DATABASE);
@@ -32,6 +45,7 @@ const connect = async () => {
   }
 };
 
+//app listening
 app.listen(8000, () => {
   connect();
   console.log("app started");
