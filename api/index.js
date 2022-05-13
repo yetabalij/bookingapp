@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const mogran = require("morgan");
+const cookieParser = require("cookie-parser");
 
 //imported routeres
 const authRoute = require("../api/routes/auth");
@@ -15,6 +16,7 @@ const app = express();
 
 //middlwares
 app.use(express.json());
+app.use(cookieParser());
 app.use(mogran("dev"));
 
 //router middlewares
