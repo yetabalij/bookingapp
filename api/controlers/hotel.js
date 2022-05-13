@@ -8,7 +8,6 @@ exports.createHotel = async (req, res, next) => {
     res.status(200).json(savedHotel);
   } catch (err) {
     next(err);
-    //res.status(err).json("something went woring");
   }
 };
 
@@ -22,7 +21,7 @@ exports.updateHotel = async (req, res, next) => {
     );
     res.status(200).json(updatedHotel);
   } catch (err) {
-    res.status(500).json(err);
+    next(err);
   }
 };
 
@@ -32,7 +31,7 @@ exports.deleteHotel = async (req, res, next) => {
     await Hotel.findByIdAndDelete(req.params.id);
     res.status(200).json("Hotel has been deleted");
   } catch (err) {
-    res.status(500).json(err);
+    next(err);
   }
 };
 
@@ -42,7 +41,7 @@ exports.getHotel = async (req, res, next) => {
     const hotel = await Hotel.findById(req.params.id);
     res.status(200).json(hotel);
   } catch (err) {
-    res.status(500).json(err);
+    next(err);
   }
 };
 
@@ -52,6 +51,6 @@ exports.getAllHotel = async (req, res, next) => {
     const hotels = await Hotel.find(req.params.id);
     res.status(200).json(hotels);
   } catch (err) {
-    res.status(500).json(err);
+    next(err);
   }
 };
