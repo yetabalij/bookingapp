@@ -6,9 +6,9 @@ const cookieParser = require("cookie-parser");
 
 //imported routeres
 const authRoute = require("../api/routes/auth");
-const authHotels = require("../api/routes/hotels");
-const authRooms = require("../api/routes/rooms");
-const authUsers = require("../api/routes/users");
+const hotelsRoute = require("../api/routes/hotels");
+const roomsRoute = require("../api/routes/rooms");
+const usersRoute = require("../api/routes/users");
 
 dotenv.config();
 
@@ -21,9 +21,9 @@ app.use(mogran("dev"));
 
 //router middlewares
 app.use("/api/auth", authRoute);
-app.use("/api/hotels", authHotels);
-app.use("/api/rooms", authRooms);
-app.use("/api/users", authUsers);
+app.use("/api/hotels", hotelsRoute);
+app.use("/api/rooms", roomsRoute);
+app.use("/api/users", usersRoute);
 
 //error middleware
 app.use((err, req, res, next) => {
