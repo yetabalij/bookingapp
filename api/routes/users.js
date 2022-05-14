@@ -1,9 +1,20 @@
 const express = require("express");
+const {
+  updateUser,
+  deleteUser,
+  getUser,
+  getAllUsers,
+} = require("./../controlers/user");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("users");
-});
+//UPDATE
+router.put("/:id", updateUser);
+//DELETE
+router.delete("/:id", deleteUser);
+//GET
+router.get("/:id", getUser);
+//GET ALL
+router.get("/", getAllUsers);
 
 module.exports = router;
