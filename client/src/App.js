@@ -4,6 +4,7 @@ import Flights from "./pages/Flights";
 import CarRentals from "./pages/CarRentals";
 import Attractions from "./pages/Attractions";
 import AirportTaxi from "./pages/AirportTaxi";
+import Help from "./pages/help";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/carrentals" element={<CarRentals />} />
         <Route path="/attractions" element={<Attractions />} />
         <Route path="/airporttaxi" element={<AirportTaxi />} />
+        <Route path="/help" element={<Help />} />
       </Routes>
     </BrowserRouter>
   );
