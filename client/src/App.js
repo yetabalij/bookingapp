@@ -4,7 +4,10 @@ import Flights from "./pages/Flights";
 import CarRentals from "./pages/CarRentals";
 import Attractions from "./pages/Attractions";
 import AirportTaxi from "./pages/AirportTaxi";
-import Help from "./pages/help";
+import Help from "./pages/Help";
+import ListYourPropertyHome from "./pages/ListYourPropertyHome";
+import Register from "./pages/Register";
+import Signin from "./pages/Signin";
 
 function App() {
   return (
@@ -16,6 +19,12 @@ function App() {
         <Route path="/attractions" element={<Attractions />} />
         <Route path="/airporttaxi" element={<AirportTaxi />} />
         <Route path="/help" element={<Help />} />
+        <Route
+          path="/listyourpropertyhome"
+          element={<ListYourPropertyHome />}
+        />
+        <Route path="/register" element={<Register />} />
+        <Route path="/signin" element={<Signin />} />
       </Routes>
     </BrowserRouter>
   );
