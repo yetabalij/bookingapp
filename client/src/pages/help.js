@@ -1,7 +1,12 @@
 import React from "react";
+import NavBar from "../components/NavBar";
 
-const help = () => {
-  return <div>help</div>;
+const Help = () => {
+  return (
+    <div>
+      <NavBar></NavBar>help
+    </div>
+  );
 };
 
-export default help;
+export default Help;
