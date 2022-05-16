@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion, faBed } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const NavBarContainer = styled.div`
   ${tw`
     h-32
-    bg-blue-900
+    bg-primary-color
     flex
     flex-col
     justify-evenly
@@ -99,6 +99,16 @@ const Navigation = styled.div`
     justify-items-center
   `}
 `;
+const UlContainer = styled.ul`
+  ${tw`
+    
+  `}
+`;
+const LiContainer = styled.li`
+  ${tw`
+  
+  `}
+`;
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -130,7 +140,13 @@ const NavBar = () => {
             <BtnSignin onClick={() => navigate("/signin")}>Sign in</BtnSignin>
           </BrandRight>
         </Brand>
-        <Navigation>Navigation</Navigation>
+        <Navigation>
+          <UlContainer>
+            <LiContainer>
+              <Link to="/">Navigation</Link>
+            </LiContainer>
+          </UlContainer>
+        </Navigation>
       </NavBarContainer>
     </div>
   );
