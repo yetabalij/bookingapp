@@ -6,8 +6,9 @@ import { faBed } from "@fortawesome/free-solid-svg-icons";
 
 const HotelPickerContainer = styled.div`
   ${tw`
+    overflow-hidden
     flex
-    w-3/5
+    md:w-3/5
     ml-auto
     mr-auto
     mt--6
@@ -20,7 +21,8 @@ const HotelPickerContainer = styled.div`
 `;
 const InputContainer = styled.div`
   ${tw`
-        flex
+        grid
+        xl:flex
     `}
 `;
 const LocationInputContainer = styled.div`
@@ -33,7 +35,7 @@ const LocationInputContainer = styled.div`
 `;
 const LocationInput = styled.select`
   ${tw`
-    w-96
+     md:w-96
     `}
   outline: none;
   padding: 15px;

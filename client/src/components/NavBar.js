@@ -29,7 +29,8 @@ const Brand = styled.div`
     flex
     justify-between
     justify-items-center
-    md:w-3/5
+    md:w-4/5
+    lg:w-3/5
     mx-auto
   `}
 `;
@@ -44,7 +45,8 @@ const BrandLeft = styled.div`
 const BrandText = styled.h2`
   ${tw`
     text-base
-    md:text-2xl
+    md:text-xl
+    lg:text-2xl
     font-medium
     text-white
     justify-items-center
@@ -102,7 +104,8 @@ const BtnSignin = styled.button`
 const Navigation = styled.div`
   ${tw`
     flex
-    md:w-3/5
+    md:w-4/5
+    lg:w-3/5
     ml-auto
     mr-auto
     justify-items-center
