@@ -1,6 +1,13 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleQuestion, faBed } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleQuestion,
+  faBed,
+  faPlaneDeparture,
+  faCar,
+  faMonument,
+  faTaxi,
+} from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Link } from "react-router-dom";
@@ -99,14 +106,17 @@ const Navigation = styled.div`
     justify-items-center
   `}
 `;
+
 const UlContainer = styled.ul`
   ${tw`
-    
+    flex
   `}
 `;
 const LiContainer = styled.li`
   ${tw`
-  
+    text-white
+    mr-4
+    justify-items-center
   `}
 `;
 
@@ -143,7 +153,54 @@ const NavBar = () => {
         <Navigation>
           <UlContainer>
             <LiContainer>
-              <Link to="/">Navigation</Link>
+              <Link to="/">
+                <FontAwesomeIcon
+                  style={{ color: "white", marginRight: "10px" }}
+                  icon={faBed}
+                  size="xl"
+                />
+                Stay
+              </Link>
+            </LiContainer>
+            <LiContainer>
+              <Link to="/flight">
+                <FontAwesomeIcon
+                  style={{ color: "white", marginRight: "10px" }}
+                  icon={faPlaneDeparture}
+                  size="xl"
+                />
+                Flights
+              </Link>
+            </LiContainer>
+            <LiContainer>
+              <Link to="/carrentals">
+                <FontAwesomeIcon
+                  style={{ color: "white", marginRight: "10px" }}
+                  icon={faCar}
+                  size="xl"
+                />
+                Car Rentals
+              </Link>
+            </LiContainer>
+            <LiContainer>
+              <Link to="/attractions">
+                <FontAwesomeIcon
+                  style={{ color: "white", marginRight: "10px" }}
+                  icon={faMonument}
+                  size="xl"
+                />
+                Attractions
+              </Link>
+            </LiContainer>
+            <LiContainer>
+              <Link to="/airporttaxi">
+                <FontAwesomeIcon
+                  style={{ color: "white", marginRight: "10px" }}
+                  icon={faTaxi}
+                  size="xl"
+                />
+                Airport Taxi
+              </Link>
             </LiContainer>
           </UlContainer>
         </Navigation>
