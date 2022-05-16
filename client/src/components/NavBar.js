@@ -117,6 +117,8 @@ const LiContainer = styled.li`
     text-white
     mr-4
     justify-items-center
+    font-medium
+    text-sm
   `}
 `;
 
