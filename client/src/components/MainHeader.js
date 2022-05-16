@@ -12,37 +12,40 @@ const MainHeaderContainer = styled.div`
 
 const ContentContainer = styled.div`
   ${tw`
-    w-3/5
-    ml-auto
-    mr-auto
-    pt-12
+    w-5/6
+    md:w-3/5
+    mx-auto
+    pt-4
+    md:pt-12
     justify-items-center
     `}
 `;
 const Title = styled.h1`
   ${tw`
         text-white
-        text-5xl
+        text-2xl
+        md:text-5xl
         font-semibold
     `}
 `;
 const ParagraphContainer = styled.div`
   ${tw`
-        w-4/5
+        md:w-4/5
     `}
 `;
 const Paragraph = styled.p`
   ${tw`
         text-white
-        text-2xl
-        pt-4
+        md:text-2xl
+        md:pt-4
         tracking-normal
     `}
 `;
 const SigninRegisterButton = styled.button`
   ${tw`
         bg-secondary-color
-        mt-10
+        mt-2
+        md:mt-10
         px-5
         py-3
         text-white
