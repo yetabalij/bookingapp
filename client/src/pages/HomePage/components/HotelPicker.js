@@ -88,7 +88,7 @@ const HotelPicker = () => {
             <DatePicker type="input" placeholder="some value"></DatePicker>
           </CheckInContainer>
           <CheckInContainer>
-            <button style={{ paddingLeft: "109px" }}>Search</button>
+            <button>Search</button>
           </CheckInContainer>
         </InputContainer>
       </HotelPickerContainer>

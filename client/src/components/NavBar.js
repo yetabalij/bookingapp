@@ -29,9 +29,8 @@ const Brand = styled.div`
     flex
     justify-between
     justify-items-center
-    w-3/5
-    ml-auto
-    mr-auto
+    md:w-3/5
+    mx-auto
   `}
 `;
 
@@ -44,7 +43,8 @@ const BrandLeft = styled.div`
 
 const BrandText = styled.h2`
   ${tw`
-    text-2xl
+    text-base
+    md:text-2xl
     font-medium
     text-white
     justify-items-center
@@ -60,7 +60,8 @@ const BrandRight = styled.div`
 `;
 const HelpContainer = styled.div`
   ${tw`
-    mr-6
+    mr-2
+    md:mr-6
     mt-2
     justify-items-center
   `}
@@ -69,8 +70,9 @@ const HelpContainer = styled.div`
 const ListYourPropertyContainer = styled.div`
   ${tw`
     text-white
-    px-3
-    py-2
+    px-1
+    md:px-3
+    md:py-2
     mr-4
     justify-items-center
   `}
@@ -100,7 +102,7 @@ const BtnSignin = styled.button`
 const Navigation = styled.div`
   ${tw`
     flex
-    w-3/5
+    md:w-3/5
     ml-auto
     mr-auto
     justify-items-center
@@ -115,9 +117,10 @@ const UlContainer = styled.ul`
 const LiContainer = styled.li`
   ${tw`
     text-white
-    mr-4
+    mr-1
+    md:mr-4
     justify-items-center
-    font-medium
+    md:font-medium
     text-sm
   `}
 `;
