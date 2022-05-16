@@ -29,7 +29,7 @@ const Brand = styled.div`
     flex
     justify-between
     justify-items-center
-    w-4/5
+    w-3/5
     ml-auto
     mr-auto
   `}
@@ -100,7 +100,7 @@ const BtnSignin = styled.button`
 const Navigation = styled.div`
   ${tw`
     flex
-    w-4/5
+    w-3/5
     ml-auto
     mr-auto
     justify-items-center
