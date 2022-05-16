@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -38,6 +38,21 @@ const LocationInput = styled.select`
   outline: none;
   padding: 15px;
 `;
+const CheckInContainer = styled.div`
+  ${tw`
+
+    `}
+  border-style: solid;
+  border-width: 2px;
+  border-color: #febb02;
+`;
+const DatePicker = styled.input`
+  ${tw`
+    
+    `}
+  outline: none;
+  padding: 15px;
+`;
 const HotelPicker = () => {
   return (
     <div>
@@ -63,6 +78,18 @@ const HotelPicker = () => {
               <option value="audi">Audi</option>
             </LocationInput>
           </LocationInputContainer>
+          <CheckInContainer>
+            <DatePicker type="date"></DatePicker>
+          </CheckInContainer>
+          <CheckInContainer>
+            <DatePicker type="date"></DatePicker>
+          </CheckInContainer>
+          <CheckInContainer>
+            <DatePicker type="input" placeholder="some value"></DatePicker>
+          </CheckInContainer>
+          <CheckInContainer>
+            <button style={{ paddingLeft: "109px" }}>Search</button>
+          </CheckInContainer>
         </InputContainer>
       </HotelPickerContainer>
     </div>
