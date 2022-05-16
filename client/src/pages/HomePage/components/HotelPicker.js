@@ -8,9 +8,9 @@ const HotelPickerContainer = styled.div`
   ${tw`
     overflow-hidden
     flex
-    md:w-3/5
-    ml-auto
-    mr-auto
+    md:w-4/5
+    2xl:w-3/5
+    mx-auto
     mt--6
     justify-items-center
     bg-white

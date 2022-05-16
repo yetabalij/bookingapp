@@ -30,7 +30,7 @@ const Brand = styled.div`
     justify-between
     justify-items-center
     md:w-4/5
-    lg:w-3/5
+    2xl:w-3/5
     mx-auto
   `}
 `;
@@ -105,9 +105,8 @@ const Navigation = styled.div`
   ${tw`
     flex
     md:w-4/5
-    lg:w-3/5
-    ml-auto
-    mr-auto
+    2xl:w-3/5
+    mx-auto
     justify-items-center
   `}
 `;
