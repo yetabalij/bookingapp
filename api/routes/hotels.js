@@ -5,7 +5,7 @@ const {
   deleteHotel,
   getHotel,
   getAllHotel,
-} = require("./../controlers/hotel");
+} = require("./../controlers/hotelsControler/hotel");
 const { verifyToken, verifyAdmin } = require("./../utils/verityToken");
 
 const router = express.Router();
