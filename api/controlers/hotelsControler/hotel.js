@@ -1,4 +1,5 @@
 const Hotel = require("./../../models/hotels");
+const Rooms = require("./../../models/rooms");
 
 //CREATE
 exports.createHotel = async (req, res, next) => {
@@ -54,3 +55,11 @@ exports.getAllHotel = async (req, res, next) => {
     next(err);
   }
 };
+
+// exports.searchHotels = async (req, res, next) => {
+//   try {
+//     const result = await Hotel.find(req.body.city);
+//   } catch (err) {
+//     next(err);
+//   }
+// };
