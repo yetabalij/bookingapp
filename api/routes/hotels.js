@@ -5,7 +5,8 @@ const {
   deleteHotel,
   getHotel,
   getAllHotel,
-} = require("./../controlers/hotel");
+} = require("./../controlers/hotelsControler/hotel");
+//const { example } = require("./../controlers/hotelsControler/queries");
 const { verifyToken, verifyAdmin } = require("./../utils/verityToken");
 
 const router = express.Router();
@@ -20,5 +21,8 @@ router.delete("/:id", verifyToken, verifyAdmin, deleteHotel);
 router.get("/:id", getHotel);
 //GET ALL
 router.get("/", getAllHotel);
+
+//example
+//router.get("/example", example);
 
 module.exports = router;
