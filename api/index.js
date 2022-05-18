@@ -9,6 +9,7 @@ const authRoute = require("../api/routes/auth");
 const hotelsRoute = require("../api/routes/hotels");
 const roomsRoute = require("../api/routes/rooms");
 const usersRoute = require("../api/routes/users");
+const exampleRouter = require("./routes/hotels/queries");
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 app.use("/api/users", usersRoute);
+app.use("/api", exampleRouter);
 
 //error middleware
 app.use((err, req, res, next) => {

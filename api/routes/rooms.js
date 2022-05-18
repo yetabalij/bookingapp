@@ -11,7 +11,7 @@ const { verifyToken, verifyAdmin } = require("./../utils/verityToken");
 const router = express.Router();
 
 //CREATE
-router.post("/:hotelid", verifyToken, verifyAdmin, createRoom);
+router.post("/create", verifyToken, verifyAdmin, createRoom);
 //UPDATE
 router.put("/:id", verifyToken, verifyAdmin, updateRoom);
 //DELETE
