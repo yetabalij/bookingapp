@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBed } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { searchResult } from "./../../../redux/features/searchSlice";
 
 const HotelPickerContainer = styled.div`
   ${tw`
@@ -53,43 +55,68 @@ const DatePicker = styled.input`
   outline: none;
   padding: 15px;
 `;
+
 const HotelPicker = () => {
+  const [city, setCity] = useState("");
+  //const dispach = useDispatch();
+
+  const onFormSubmitHandler = (e) => {
+    //e.preventDefaulet();
+    console.log(city);
+    //dispach(searchResult());
+  };
+
   return (
     <div>
       <HotelPickerContainer>
         <InputContainer>
-          <LocationInputContainer>
-            <FontAwesomeIcon
-              icon={faBed}
-              style={{ color: "gray", marginLeft: "20px" }}
-            />
-            <LocationInput>
-              <option
-                style={{ color: "gray" }}
-                value=""
-                selected
-                disabled
-                hidden
-              >
-                Where are you going?
-              </option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-            </LocationInput>
-          </LocationInputContainer>
+          {/* <form onSubmit={onFormSubmitHandler}> */}
+          <input
+            placeholder="example"
+            type="text"
+            name="city"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+          {/* <LocationInputContainer>
+              <FontAwesomeIcon
+                icon={faBed}
+                style={{ color: "gray", marginLeft: "20px" }}
+              />
+              <LocationInput>
+                <option
+                  style={{ color: "gray" }}
+                  value=""
+                  selected
+                  disabled
+                  hidden
+                >
+                  Where are you going?
+                </option>
+                <option value="Addis Ababa">Addis Ababa</option>
+                <option value="Asmara">Asmara</option>
+                <option value="Mombassa">Mombassa</option>
+              </LocationInput>
+            </LocationInputContainer>
+            <CheckInContainer>
+              <DatePicker type="date"></DatePicker>
+            </CheckInContainer>
+            <CheckInContainer>
+              <DatePicker type="date"></DatePicker>
+            </CheckInContainer>
+            <CheckInContainer>
+              <DatePicker type="input" placeholder="some value"></DatePicker>
+            </CheckInContainer> */}
           <CheckInContainer>
-            <DatePicker type="date"></DatePicker>
+            <button
+              onClick={onFormSubmitHandler}
+              type="submit"
+              //style={{ paddingLeft: "109px" }}
+            >
+              Search
+            </button>
           </CheckInContainer>
-          <CheckInContainer>
-            <DatePicker type="date"></DatePicker>
-          </CheckInContainer>
-          <CheckInContainer>
-            <DatePicker type="input" placeholder="some value"></DatePicker>
-          </CheckInContainer>
-          <CheckInContainer>
-            <button style={{ paddingLeft: "109px" }}>Search</button>
-          </CheckInContainer>
+          {/* </form> */}
         </InputContainer>
       </HotelPickerContainer>
     </div>
