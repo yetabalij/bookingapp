@@ -20,7 +20,7 @@ export const searchHotels = createAsyncThunk(
 const searchSlice = createSlice({
   name: "search",
   initialState: {
-    searchHotels: null,
+    Hotels: null,
     error: "",
     loading: false,
   },
@@ -31,7 +31,7 @@ const searchSlice = createSlice({
     },
     [searchHotels.fulfilled]: (state, action) => {
       state.loading = false;
-      state.searchHotels = action.payload;
+      state.Hotels = action.payload;
     },
     [searchHotels.rejected]: (state, action) => {
       state.loading = false;

@@ -69,7 +69,7 @@ const HotelPicker = () => {
   const navigate = useNavigate();
 
   const onFormSubmitHandler = (e) => {
-    //e.preventdefault();
+    //e.preventDefaulet();
     dispach(searchHotels({ formValue, navigate }));
   };
 
@@ -117,7 +117,7 @@ const HotelPicker = () => {
           <CheckInContainer>
             <button
               onClick={onFormSubmitHandler}
-              type="submit"
+              //type="submit"
               //style={{ paddingLeft: "109px" }}
             >
               Search
