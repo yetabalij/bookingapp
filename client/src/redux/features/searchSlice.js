@@ -3,16 +3,13 @@ import axios from "axios";
 
 export const searchHotels = createAsyncThunk(
   "search/result",
-  async (formValue) => {
-    //const {} = formValue;
-    //console.log(formValue);
+  async ({ formValue, navigate }) => {
     try {
       const response = await axios.post(
         "http://localhost:8000/api/search",
         formValue
       );
-      //console.log(city);
-      console.log(response.data);
+      navigate("/searchhotels");
       return response.data;
     } catch (err) {
       console.log(err);

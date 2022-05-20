@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBed } from "@fortawesome/free-solid-svg-icons";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faBed } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import { searchHotels } from "./../../../redux/features/searchSlice";
 
 const HotelPickerContainer = styled.div`
@@ -65,12 +66,11 @@ const HotelPicker = () => {
   };
 
   const dispach = useDispatch();
+  const navigate = useNavigate();
 
   const onFormSubmitHandler = (e) => {
-    //e.preventDefaulet();
-    //console.log(formValue);
-    //console.log(city);
-    dispach(searchHotels(formValue));
+    //e.preventdefault();
+    dispach(searchHotels({ formValue, navigate }));
   };
 
   return (
