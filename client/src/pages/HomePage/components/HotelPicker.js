@@ -60,12 +60,17 @@ const DatePicker = styled.input`
 
 const HotelPicker = () => {
   const [city, setCity] = useState("");
-  //const dispach = useDispatch();
+  const formValue = {
+    city: city,
+  };
+
+  const dispach = useDispatch();
 
   const onFormSubmitHandler = (e) => {
-    //e.preventDefaulet();
-    console.log(city);
-    //dispach(searchResult());
+    e.preventDefaulet();
+    console.log(formValue);
+    //console.log(city);
+    dispach(searchResult(formValue));
   };
 
   return (

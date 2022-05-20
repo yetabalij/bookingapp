@@ -3,6 +3,6 @@ const { searchHotels } = require("../../controlers/hotelsControler/queries");
 
 const router = express.Router();
 
-router.get("/search", searchHotels);
+router.post("/search", searchHotels);
 
 module.exports = router;
