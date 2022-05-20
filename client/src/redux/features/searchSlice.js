@@ -1,18 +1,19 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const searchResult = createAsyncThunk(
+export const searchHotels = createAsyncThunk(
   "search/result",
   async (formValue) => {
     //const {} = formValue;
+    //console.log(formValue);
     try {
       const response = await axios.post(
         "http://localhost:8000/api/search",
         formValue
       );
       //console.log(city);
-      console.log(response);
-      //     return response.data;
+      console.log(response.data);
+      return response.data;
     } catch (err) {
       console.log(err);
     }
@@ -22,20 +23,20 @@ export const searchResult = createAsyncThunk(
 const searchSlice = createSlice({
   name: "search",
   initialState: {
-    searchResult: null,
+    searchHotels: null,
     error: "",
     loading: false,
   },
   reducers: {},
   extraReducers: {
-    [searchResult.pending]: (state, action) => {
+    [searchHotels.pending]: (state, action) => {
       state.loading = true;
     },
-    [searchResult.fulfilled]: (state, action) => {
+    [searchHotels.fulfilled]: (state, action) => {
       state.loading = false;
-      state.searchResult = action.payload;
+      state.searchHotels = action.payload;
     },
-    [searchResult.rejected]: (state, action) => {
+    [searchHotels.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload.message;
     },

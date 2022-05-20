@@ -4,7 +4,7 @@ import tw from "twin.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBed } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { searchResult } from "./../../../redux/features/searchSlice";
+import { searchHotels } from "./../../../redux/features/searchSlice";
 
 const HotelPickerContainer = styled.div`
   ${tw`
@@ -67,10 +67,10 @@ const HotelPicker = () => {
   const dispach = useDispatch();
 
   const onFormSubmitHandler = (e) => {
-    e.preventDefaulet();
-    console.log(formValue);
+    //e.preventDefaulet();
+    //console.log(formValue);
     //console.log(city);
-    dispach(searchResult(formValue));
+    dispach(searchHotels(formValue));
   };
 
   return (
