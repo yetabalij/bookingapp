@@ -8,6 +8,7 @@ import Help from "./pages/Help";
 import ListYourPropertyHome from "./pages/ListYourPropertyHome";
 import Register from "./pages/Register";
 import Signin from "./pages/Signin";
+import SearchHotels from "./pages/SearchHotels";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         />
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/searchhotels" element={<SearchHotels />} />
       </Routes>
     </BrowserRouter>
   );

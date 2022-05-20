@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBed } from "@fortawesome/free-solid-svg-icons";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faBed } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { searchResult } from "./../../../redux/features/searchSlice";
+import { useNavigate } from "react-router";
+import { searchHotels } from "./../../../redux/features/searchSlice";
 
 const HotelPickerContainer = styled.div`
   ${tw`
@@ -60,12 +61,16 @@ const DatePicker = styled.input`
 
 const HotelPicker = () => {
   const [city, setCity] = useState("");
-  //const dispach = useDispatch();
+  const formValue = {
+    city: city,
+  };
+
+  const dispach = useDispatch();
+  const navigate = useNavigate();
 
   const onFormSubmitHandler = (e) => {
     //e.preventDefaulet();
-    console.log(city);
-    //dispach(searchResult());
+    dispach(searchHotels({ formValue, navigate }));
   };
 
   return (
@@ -112,7 +117,7 @@ const HotelPicker = () => {
           <CheckInContainer>
             <button
               onClick={onFormSubmitHandler}
-              type="submit"
+              //type="submit"
               //style={{ paddingLeft: "109px" }}
             >
               Search
