@@ -61,13 +61,16 @@ const DatePicker = styled.input`
 
 const HotelPicker = () => {
   const [maxPeople, setmaxPeople] = useState("");
+  const [city, setcity] = useState("");
   const formValue = {
     maxPeople: maxPeople,
+    city: city,
   };
 
   const dispach = useDispatch();
   const navigate = useNavigate();
 
+  //useEffect(() => {}, []);
   const onFormSubmitHandler = (e) => {
     //e.preventDefaulet();
     dispach(searchHotels({ formValue, navigate }));
@@ -79,11 +82,18 @@ const HotelPicker = () => {
         <InputContainer>
           {/* <form onSubmit={onFormSubmitHandler}> */}
           <input
-            placeholder="example"
+            placeholder="max People"
             type="text"
             name="maxPeople"
             value={maxPeople}
             onChange={(e) => setmaxPeople(e.target.value)}
+          />
+          <input
+            placeholder="city"
+            type="text"
+            name="city"
+            value={city}
+            onChange={(e) => setcity(e.target.value)}
           />
           {/* <LocationInputContainer>
               <FontAwesomeIcon
