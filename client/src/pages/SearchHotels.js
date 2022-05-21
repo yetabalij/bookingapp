@@ -4,16 +4,12 @@ import { useSelector } from "react-redux";
 
 const SearchHotels = () => {
   const { Hotels } = useSelector((state) => ({ ...state.searchHotels }));
-  const res = Hotels.map((item) => {
-    const { rooms } = item;
-    const room = rooms.map((room) => {
-      const { maxPeople } = room;
-      return maxPeople;
-    });
-    return room;
+  const res = Hotels.map((room) => {
+    if (room.hotel.city === "city 3" ) {
+      return console.log(room);
+    }
   });
-
-  console.log(res);
+  //console.log(Hotels);
   return <div>SearchHotels</div>;
 };
 
