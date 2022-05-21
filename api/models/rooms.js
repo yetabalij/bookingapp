@@ -22,16 +22,12 @@ const roomSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Hotel",
     },
-    reservedDate: [
-      {
-        checkIn: {
-          type: Date,
-        },
-        checkOut: {
-          type: Date,
-        },
-      },
-    ],
+    checkIn: {
+      type: Date,
+    },
+    checkOut: {
+      type: Date,
+    },
   },
   { timestamps: true }
 );
