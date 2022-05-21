@@ -60,9 +60,9 @@ const DatePicker = styled.input`
 `;
 
 const HotelPicker = () => {
-  const [city, setCity] = useState("");
+  const [maxPeople, setmaxPeople] = useState("");
   const formValue = {
-    city: city,
+    maxPeople: maxPeople,
   };
 
   const dispach = useDispatch();
@@ -81,9 +81,9 @@ const HotelPicker = () => {
           <input
             placeholder="example"
             type="text"
-            name="city"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
+            name="maxPeople"
+            value={maxPeople}
+            onChange={(e) => setmaxPeople(e.target.value)}
           />
           {/* <LocationInputContainer>
               <FontAwesomeIcon
