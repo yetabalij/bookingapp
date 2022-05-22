@@ -5,7 +5,7 @@ import CarRentals from "./pages/CarRentals";
 import Attractions from "./pages/Attractions";
 import AirportTaxi from "./pages/AirportTaxi";
 import Help from "./pages/Help";
-import ListYourPropertyHome from "./pages/ListYourPropertyHome";
+import ListYourPropertyHome from "./pages/ListYourPropertyPage/ListYourPropertyHome";
 import Register from "./pages/Register";
 import Signin from "./pages/Signin";
 import SearchHotels from "./pages/SearchHotels";
