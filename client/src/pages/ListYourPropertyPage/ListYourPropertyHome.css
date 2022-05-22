@@ -1,0 +1,53 @@
+.AppContainer {
+}
+.BodyContainer {
+}
+.HeaderContainer {
+  background-color: #003580;
+  justify-content: space-between;
+}
+@keyframes RedAnim {
+  50% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes WhiteAnim {
+  50% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.LeaftSection {
+  position: relative;
+}
+.LeftSectionOne {
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  animation-name: WhiteAnim;
+  animation-duration: 20s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+.LeftSectionTwo {
+  width: 400px;
+  height: 200px;
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-name: RedAnim;
+  animation-duration: 20s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+.RightSection {
+}
+.FooterContainer {
+  background-color: #003580;
+}
