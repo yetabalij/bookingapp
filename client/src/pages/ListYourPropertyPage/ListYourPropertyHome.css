@@ -6,44 +6,60 @@
   background-color: #003580;
   justify-content: space-between;
 }
-@keyframes RedAnim {
-  50% {
-    opacity: 1;
+@keyframes TextAnim {
+  0% {
+    margin-top: 0;
+  }
+  16% {
+    margin-top: -50px;
+  }
+  33% {
+    margin-top: -100px;
   }
   50% {
-    opacity: 0;
+    margin-top: -150px;
+  }
+  66% {
+    margin-top: -200px;
+  }
+  82% {
+    margin-top: -250px;
+  }
+  100% {
+    margin-top: 0;
   }
 }
-@keyframes WhiteAnim {
-  50% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}
+
 .LeaftSection {
+  height: 55vh;
   position: relative;
 }
 .LeftSectionOne {
+  overflow: hidden;
   width: 400px;
-  height: 200px;
-  background-color: white;
-  animation-name: WhiteAnim;
-  animation-duration: 20s;
-  animation-delay: 1s;
-  animation-iteration-count: infinite;
+  color: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 .LeftSectionTwo {
+  overflow: hidden;
   width: 400px;
-  height: 200px;
-  background-color: red;
+  color: white;
   position: absolute;
-  top: 0;
-  left: 0;
-  animation-name: RedAnim;
-  animation-duration: 20s;
-  animation-delay: 1s;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.animation {
+  height: 40px;
+  overflow: hidden;
+}
+.slide:first-child {
+  animation-name: TextAnim;
+  animation-duration: 12s;
+  animation-delay: 2s;
+  /*animation-play-state: running; */
   animation-iteration-count: infinite;
 }
 .RightSection {
