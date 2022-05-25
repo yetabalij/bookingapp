@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./../ListYourPropertyHome.css";
+import CreateNewListCard from "./CreateNewListCard";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
@@ -56,7 +57,9 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <div className="RightSection text-white">rightsection</div>
+            <div className="RightSection">
+              <CreateNewListCard />
+            </div>
           </div>
         </div>
       </div>

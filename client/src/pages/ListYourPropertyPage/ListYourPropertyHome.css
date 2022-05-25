@@ -32,15 +32,16 @@
   position: relative;
 }
 .LeftSectionOne {
-  width: 500px;
+  width: 550px;
   color: white;
+  /* background-color: #f1f1f1; */
   display: block;
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
 }
 .LeftSectionTwo {
-  width: 500px;
+  width: 550px;
   color: white;
   position: absolute;
   top: 50%;
