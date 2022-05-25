@@ -3,6 +3,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import Img from "./../../../images/house.svg";
 
 const Container = styled.div`
   ${tw`
@@ -56,7 +57,7 @@ const Button = styled.button`
 
 const RightSection = styled.div`
   ${tw`
-    
+        
     `}
 `;
 
@@ -127,7 +128,9 @@ const YourPeaceOfMind = () => {
           </Lists>
           <Button>Learn more</Button>
         </LeftSection>
-        <RightSection>right section</RightSection>
+        <RightSection>
+          <img src={Img} />
+        </RightSection>
       </Container>
     </div>
   );
