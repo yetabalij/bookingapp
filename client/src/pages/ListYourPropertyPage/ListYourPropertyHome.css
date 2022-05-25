@@ -5,6 +5,7 @@
 .HeaderContainer {
   background-color: #003580;
   justify-content: space-between;
+  padding-bottom: 70px;
 }
 @keyframes TextAnim {
   0% {
