@@ -50,7 +50,7 @@ const Benefits = () => {
               free.
             </p>
           </Lists>
-          <Lists>
+          <Lists className="pl-16">
             <ImgContainer>
               <img src={ImportDetails} alt="list property" />
             </ImgContainer>
@@ -70,7 +70,7 @@ const Benefits = () => {
               watch out for.
             </p>
           </Lists>
-          <Lists>
+          <Lists className="pl-16">
             <ImgContainer>
               <img src={Discount} alt="list property" />
             </ImgContainer>
