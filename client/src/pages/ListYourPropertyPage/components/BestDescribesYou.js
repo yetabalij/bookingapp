@@ -20,7 +20,7 @@ const Container = styled.div`
     lg:pt-3
     2xl:pt-12
     mt-12
-    mb-28
+    mb-20
     `}
 `;
 const TitleContainer = styled.div`
