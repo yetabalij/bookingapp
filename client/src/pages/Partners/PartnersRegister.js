@@ -22,7 +22,12 @@ const FormContainer = styled.div`
 
 const PartnersRegister = () => {
   const [CompState, setCompState] = useState(0);
-  const Components = ["email", "contact", "password"];
+  //const Components = ["email", "contact", "password"];
+  console.log(CompState);
+
+  const handleNavigation = () => {
+    setCompState((current) => current + 1);
+  };
 
   const FormRenderer = () => {
     if (CompState === 0) {
@@ -39,9 +44,9 @@ const PartnersRegister = () => {
       <NavBar />
       <Container>
         <FormContainer>
-          <form onSubmit={() => alert("hello")}>
+          <form>
             {FormRenderer()}
-            <button>
+            <button onClick={handleNavigation}>
               {CompState === 0
                 ? "Continue"
                 : CompState === 1
