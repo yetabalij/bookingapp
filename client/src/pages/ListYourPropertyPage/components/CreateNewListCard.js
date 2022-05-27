@@ -106,7 +106,7 @@ function CreateNewListCard() {
             By continuing, you agree to let Booking.com email you regarding your
             property registration.
           </p>
-          <GetStartedButton onClick={() => navigate("/createpartneraccount")}>
+          <GetStartedButton onClick={() => navigate("/partneregister")}>
             Get Started{" "}
             <FontAwesomeIcon
               style={{ color: "white" }}
@@ -119,7 +119,7 @@ function CreateNewListCard() {
         <ThiredSection>
           <p className="font-bold mt-4">Already started a registration?</p>
           <p className="text-blue-400 font-medium">
-            <Link to="/partnersignin">Continue your registration</Link>
+            <Link to="/partnersignin">LogIn</Link>
           </p>
         </ThiredSection>
       </CardContainer>
