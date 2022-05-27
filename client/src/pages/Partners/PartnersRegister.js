@@ -21,7 +21,7 @@ const FormContainer = styled.div`
 `;
 
 const PartnersRegister = () => {
-  const [CompState, setCompState] = useState(0);
+  const [CompState, setCompState] = useState(2);
   const Components = ["email", "contact", "password"];
 
   const FormRenderer = () => {
@@ -38,7 +38,12 @@ const PartnersRegister = () => {
     <div>
       <NavBar />
       <Container>
-        <FormContainer>{FormRenderer()}</FormContainer>
+        <FormContainer>
+          <form onSubmit={() => alert("hello")}>
+            {FormRenderer()}
+            <button>Continue</button>
+          </form>
+        </FormContainer>
       </Container>
     </div>
   );

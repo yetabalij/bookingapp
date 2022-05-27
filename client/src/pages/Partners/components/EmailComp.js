@@ -2,6 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 
+const FormContainer = styled.div`
+  ${tw`
+  
+  `}
+`;
+
 const EmailComp = () => {
   return (
     <div>
@@ -11,13 +17,12 @@ const EmailComp = () => {
       <p className="text-sm text-gray-500 mt-2 mb-8">
         Create an account to list and manage your property.
       </p>
-      <form>
+      <FormContainer>
         <label>Email address</label>
         <br />
         <input type="email" placeholder="email"></input>
         <br />
-        <button>Continue</button>
-      </form>
+      </FormContainer>
     </div>
   );
 };
