@@ -9,8 +9,8 @@ import ListYourPropertyHome from "./pages/ListYourPropertyPage/ListYourPropertyH
 import Register from "./pages/Register";
 import Signin from "./pages/Signin";
 import SearchHotels from "./pages/SearchHotels";
-import CreatePartnerAccount from "./pages/CreatePartnerAccount";
-import PartnerSignin from "./pages/PartnerSignin";
+import PartnerRegister from "./pages/Partners/PartnersRegister";
+import PartnerSignin from "./pages/Partners/PartnerSignin";
 
 function App() {
   return (
@@ -29,11 +29,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/searchhotels" element={<SearchHotels />} />
-        <Route
-          path="/createpartneraccount"
-          element={<CreatePartnerAccount />}
-        />
         <Route path="/partnersignin" element={<PartnerSignin />} />
+        <Route path="/partneregister" element={<PartnerRegister />} />
       </Routes>
     </BrowserRouter>
   );
