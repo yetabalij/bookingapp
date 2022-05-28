@@ -7,6 +7,14 @@ const FormContainer = styled.div`
   
   `}
 `;
+const Input = styled.input`
+  ${tw`
+  w-full
+  p-1
+  mb-3
+  `}
+  border: 1px solid gray;
+`;
 
 const EmailComp = () => {
   return (
@@ -20,7 +28,7 @@ const EmailComp = () => {
       <FormContainer>
         <label>Email address</label>
         <br />
-        <input type="email" placeholder="email"></input>
+        <Input type="email" placeholder="email"></Input>
         <br />
       </FormContainer>
     </div>
