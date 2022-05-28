@@ -5,6 +5,7 @@ import tw from "twin.macro";
 import EmailComp from "./components/EmailComp";
 import ContactComp from "./components/ContactComp";
 import PasswordComp from "./components/PasswordComp";
+import SignInComp from "./components/SignInComp";
 
 const Container = styled.div`
   ${tw`
@@ -15,15 +16,27 @@ const FormContainer = styled.div`
   ${tw`
     absolute 
     `}
-  top:8vh;
+  top:4vh;
   left: 50%;
   transform: translate(-50%, 0);
+`;
+const Button = styled.button`
+  ${tw`
+    w-full
+    bg-secondary-color
+    text-white
+    py-3
+  `}
 `;
 
 const PartnersRegister = () => {
   const [CompState, setCompState] = useState(0);
-  //const Components = ["email", "contact", "password"];
+  const [email, setEmail] = useState("");
 
+  const formValue = {
+    email: email,
+  };
+  console.log(formValue);
   const incrementCount = () => {
     setCompState(CompState + 1);
   };
@@ -34,7 +47,7 @@ const PartnersRegister = () => {
 
   const FormRenderer = () => {
     if (CompState === 0) {
-      return <EmailComp />;
+      return <EmailComp email={email} setEmail={setEmail} />;
     } else if (CompState === 1) {
       return <ContactComp />;
     } else {
@@ -48,9 +61,10 @@ const PartnersRegister = () => {
       <Container>
         <FormContainer>
           {FormRenderer()}
-          <button onClick={CompState < 2 ? incrementCount : submitHandler}>
+          <Button onClick={CompState < 2 ? incrementCount : submitHandler}>
             {CompState === 0 ? "Continue" : CompState === 1 ? "next" : "create"}
-          </button>
+          </Button>
+          {CompState === 0 && <SignInComp />}
         </FormContainer>
       </Container>
     </div>
