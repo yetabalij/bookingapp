@@ -16,7 +16,7 @@ const Input = styled.input`
   border: 1px solid gray;
 `;
 
-const EmailComp = () => {
+const EmailComp = ({ email, setEmail }) => {
   return (
     <div>
       <h1 className="text-2xl font-bold text-slate-800">
@@ -28,7 +28,12 @@ const EmailComp = () => {
       <FormContainer>
         <label>Email address</label>
         <br />
-        <Input type="email" placeholder="email"></Input>
+        <Input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="email"
+        ></Input>
         <br />
       </FormContainer>
     </div>
