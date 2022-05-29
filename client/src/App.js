@@ -15,6 +15,7 @@ import PartnerCommunity from "./pages/Partners/PartnerCommunity";
 import PartnersHelpCenter from "./pages/Partners/PartnersHelpCenter";
 import PrivacyStatemnt from "./../src/pages/PrivacyStatement/PrivacyStatement";
 import TermsAndConditions from "./../src/pages/TermsAndConditions/TermsAndConditions";
+import PartnersDashboard from "./../src/pages/Partners/PartnersDashboard";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/partnershelpcenter" element={<PartnersHelpCenter />} />
         <Route path="/privacystatement" element={<PrivacyStatemnt />} />
         <Route path="/termsandconditions" element={<TermsAndConditions />} />
+        <Route path="/partnersdashboard" element={<PartnersDashboard />} />
       </Routes>
     </BrowserRouter>
   );
