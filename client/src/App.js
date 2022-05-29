@@ -11,6 +11,10 @@ import Signin from "./pages/Signin";
 import SearchHotels from "./pages/SearchHotels";
 import PartnerRegister from "./pages/Partners/PartnersRegister";
 import PartnerSignin from "./pages/Partners/PartnerSignin";
+import PartnerCommunity from "./pages/Partners/PartnerCommunity";
+import PartnersHelpCenter from "./pages/Partners/PartnersHelpCenter";
+import PrivacyStatemnt from "./../src/pages/PrivacyStatement/PrivacyStatement";
+import TermsAndConditions from "./../src/pages/TermsAndConditions/TermsAndConditions";
 
 function App() {
   return (
@@ -31,6 +35,10 @@ function App() {
         <Route path="/searchhotels" element={<SearchHotels />} />
         <Route path="/partnersignin" element={<PartnerSignin />} />
         <Route path="/partneregister" element={<PartnerRegister />} />
+        <Route path="/partnercommunity" element={<PartnerCommunity />} />
+        <Route path="/partnershelpcenter" element={<PartnersHelpCenter />} />
+        <Route path="/privacystatement" element={<PrivacyStatemnt />} />
+        <Route path="/termsandconditions" element={<TermsAndConditions />} />
       </Routes>
     </BrowserRouter>
   );
