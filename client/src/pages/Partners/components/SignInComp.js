@@ -41,11 +41,11 @@ const SignInComp = () => {
         </p>
         <p className="text-xs">
           <span className="text-blue-500">
-            <Link to="/">Partner Help Center</Link>
+            <Link to="/partnershelpcenter">Partner Help Center</Link>
           </span>
           or ask another partner on the{" "}
           <span className="text-blue-500">
-            <Link to="/">Partner Community</Link>
+            <Link to="/partnercommunity">Partner Community</Link>
           </span>
           .
         </p>
@@ -58,11 +58,11 @@ const SignInComp = () => {
         </p>
         <p className="text-xs">
           <span className="text-blue-500">
-            <Link to="/">Terms and Conditions</Link>
+            <Link to="/termsandconditions">Terms and Conditions</Link>
           </span>
           and
           <span className="text-blue-500">
-            <Link to="/">Privacy Statement</Link>
+            <Link to="/privacystatement">Privacy Statement</Link>
           </span>
           .
         </p>
