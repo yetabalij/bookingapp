@@ -32,26 +32,40 @@ const Button = styled.button`
 const PartnersRegister = () => {
   const [CompState, setCompState] = useState(0);
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const username = `${firstName} ${lastName}`;
 
   const formValue = {
     email: email,
+    username: username,
+    password: password,
   };
-  console.log(formValue);
+
   const incrementCount = () => {
     setCompState(CompState + 1);
   };
 
   const submitHandler = () => {
-    console.log("submit handler");
+    console.log(formValue);
   };
 
   const FormRenderer = () => {
     if (CompState === 0) {
       return <EmailComp email={email} setEmail={setEmail} />;
     } else if (CompState === 1) {
-      return <ContactComp />;
+      return (
+        <ContactComp
+          firstName={firstName}
+          lastName={lastName}
+          setFirstName={setFirstName}
+          setLastName={setLastName}
+        />
+      );
     } else {
-      return <PasswordComp />;
+      return <PasswordComp password={password} setPassword={setPassword} />;
     }
   };
 
@@ -62,7 +76,7 @@ const PartnersRegister = () => {
         <FormContainer>
           {FormRenderer()}
           <Button onClick={CompState < 2 ? incrementCount : submitHandler}>
-            {CompState === 0 ? "Continue" : CompState === 1 ? "next" : "create"}
+            {CompState === 0 ? "Continue" : CompState === 1 ? "Next" : "Create"}
           </Button>
           {CompState === 0 && <SignInComp />}
         </FormContainer>
