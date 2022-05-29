@@ -35,7 +35,6 @@ const PartnersRegister = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
-
   const username = `${firstName} ${lastName}`;
 
   const formValue = {
