@@ -6,6 +6,9 @@ import EmailComp from "./components/EmailComp";
 import ContactComp from "./components/ContactComp";
 import PasswordComp from "./components/PasswordComp";
 import SignInComp from "./components/SignInComp";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { partnersRegister } from "../../redux/features/Partners/partnersAuthSlice";
 
 const Container = styled.div`
   ${tw`
@@ -37,6 +40,9 @@ const PartnersRegister = () => {
   const [password, setPassword] = useState("");
   const username = `${firstName} ${lastName}`;
 
+  const navigate = useNavigate();
+  const dispach = useDispatch();
+
   const formValue = {
     email: email,
     username: username,
@@ -48,7 +54,8 @@ const PartnersRegister = () => {
   };
 
   const submitHandler = () => {
-    console.log(formValue);
+    dispach(partnersRegister({ formValue, navigate }));
+    //console.log(formValue);
   };
 
   const FormRenderer = () => {
