@@ -14,7 +14,7 @@ exports.partnerRegister = async (req, res, next) => {
       role: "partner",
     });
     await newUser.save();
-    res.status(200).json({ newUser });
+    res.status(200).json(newUser);
   } catch (err) {
     next(err);
   }
