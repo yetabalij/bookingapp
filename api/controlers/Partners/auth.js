@@ -29,7 +29,7 @@ exports.partnerRegister = async (req, res, next) => {
   }
 };
 
-exports.partnerLogin = async (req, res) => {
+exports.partnerLogin = async (req, res, next) => {
   try {
     const user = await User.findOne({
       email: req.body.email,
