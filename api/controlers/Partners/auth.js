@@ -32,7 +32,7 @@ exports.partnerRegister = async (req, res, next) => {
 exports.partnerLogin = async (req, res) => {
   try {
     const user = await User.findOne({
-      username: req.body.username,
+      email: req.body.email,
     });
     if (!user) return next(createError(404, "User not found!"));
 
@@ -45,10 +45,10 @@ exports.partnerLogin = async (req, res) => {
       return next(createError(400, "wrong password or username"));
 
     const token = jwt.sign(
-      { id: user._id, isAdmin: user.isAdmin },
+      { id: user._id, username: user.username, role: user.role },
       process.env.JWT_SEKRETE
     );
-    const { password, isAdmin, ...otherDetails } = user._doc;
+    const { password, role, ...otherDetails } = user._doc;
     res
       .cookie("access_token", token, { httpOnly: true })
       .status(200)
