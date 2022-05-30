@@ -14,7 +14,16 @@ exports.partnerRegister = async (req, res, next) => {
       role: "partner",
     });
     await newUser.save();
-    res.status(200).json(newUser);
+
+    const token = jwt.sign(
+      { id: newUser._id, name: newUser.username, role: newUser.role },
+      process.env.JWT_SEKRETE
+    );
+    const { password, role, ...otherDetails } = newUser._doc;
+    res
+      .cookie("access_token", token, { httpOnly: true })
+      .status(200)
+      .json(otherDetails);
   } catch (err) {
     next(err);
   }
