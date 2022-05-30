@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { partnersLogin } from "./../../redux/features/Partners/partnersAuthSlice";
 
 const Container = styled.div`
   ${tw`
@@ -52,13 +54,18 @@ const HorizontalLine = styled.hr`
 const PartnerSignin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const fomrValue = {
+
+  const formValue = {
     email: email,
     password: password,
   };
-  console.log(fomrValue);
-
   const navigate = useNavigate();
+  const dispach = useDispatch();
+  //console.log(fomrValue);
+  const handleLogin = () => {
+    dispach(partnersLogin({ formValue, navigate }));
+  };
+
   return (
     <div>
       <Container>
@@ -83,7 +90,7 @@ const PartnerSignin = () => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="password"
           />
-          <Button>Login</Button>
+          <Button onClick={handleLogin}>Login</Button>
           <br />
           <HorizontalLine />
           <ButtonSignin onClick={() => navigate("/partneregister")}>
