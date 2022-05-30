@@ -24,13 +24,25 @@ const partnersAuthSclise = createSlice({
     error: "",
     loading: false,
   },
-  reducers: {},
+  reducers: {
+    setPartnerUser: (state, action) => {
+      state.Partners = action.payload;
+    },
+    setPartnerLogout: (state, action) => {
+      localStorage.clear();
+      state.Partners = null;
+    },
+  },
   extraReducers: {
     [partnersRegister.pending]: (state, action) => {
       state.loading = true;
     },
     [partnersRegister.fulfilled]: (state, action) => {
       state.loading = false;
+      localStorage.setItem(
+        "partnerProfile",
+        JSON.stringify({ ...action.payload })
+      );
       state.Partners = action.payload;
     },
     [partnersRegister.rejected]: (state, action) => {
@@ -40,4 +52,5 @@ const partnersAuthSclise = createSlice({
   },
 });
 
+export const { setPartnerLogout, setPartnerUser } = partnersAuthSclise.actions;
 export default partnersAuthSclise.reducer;
