@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Link } from "react-router-dom";
@@ -32,6 +33,7 @@ const Button = styled.button`
 `;
 
 const SignInComp = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <HorizontalLine />
@@ -50,7 +52,7 @@ const SignInComp = () => {
           .
         </p>
       </PContainer>
-      <Button>Sign in</Button>
+      <Button onClick={() => navigate("/partnersignin")}>Sign in</Button>
       <HorizontalLine />
       <PContainer>
         <p className="text-xs">
