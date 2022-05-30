@@ -1,4 +1,8 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setPartnerUser } from "./redux/features/Partners/partnersAuthSlice";
+
 import Home from "./pages/HomePage/Home";
 import Flights from "./pages/Flights";
 import CarRentals from "./pages/CarRentals";
@@ -19,6 +23,11 @@ import PartnersDashboard from "./../src/pages/Partners/PartnersDashboard";
 import Protected from "./components/Protected";
 
 function App() {
+  const dispach = useDispatch();
+  const partner = JSON.parse(localStorage.getItem("partnerProfile"));
+  useEffect(() => {
+    dispach(setPartnerUser(partner));
+  }, []);
   return (
     <BrowserRouter>
       <Routes>
@@ -41,7 +50,7 @@ function App() {
         <Route path="/partnershelpcenter" element={<PartnersHelpCenter />} />
         <Route path="/privacystatement" element={<PrivacyStatemnt />} />
         <Route path="/termsandconditions" element={<TermsAndConditions />} />
-        <Route element={<Protected />}>
+        <Route element={<Protected partner={partner} />}>
           <Route path="/partnersdashboard" element={<PartnersDashboard />} />
         </Route>
       </Routes>
