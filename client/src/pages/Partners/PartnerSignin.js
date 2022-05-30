@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -50,6 +50,14 @@ const HorizontalLine = styled.hr`
   border: 1px solid #f3f3f3;
 `;
 const PartnerSignin = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const fomrValue = {
+    email: email,
+    password: password,
+  };
+  console.log(fomrValue);
+
   const navigate = useNavigate();
   return (
     <div>
@@ -62,8 +70,8 @@ const PartnerSignin = () => {
           <br />
           <Input
             type="email"
-            //value={email}
-            //onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="email"
           />
           <br />
@@ -71,8 +79,8 @@ const PartnerSignin = () => {
           <br />
           <Input
             type="password"
-            //value={email}
-            //onChange={(e) => setEmail(e.target.value)}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="password"
           />
           <Button>Login</Button>
