@@ -5,21 +5,17 @@ const {
   getUser,
   getAllUsers,
 } = require("./../controlers/user");
-const {
-  verifyToken,
-  verifyUser,
-  verifyAdmin,
-} = require("./../utils/verityToken");
+//const {verifyToken,verifyUser,verifyAdmin,} = require("./../utils/verityToken");
 
 const router = express.Router();
 
 //UPDATE
-router.put("/:id", verifyToken, verifyUser, updateUser);
+router.put("/:id", updateUser);
 //DELETE
-router.delete("/:id", verifyToken, verifyUser, deleteUser);
+router.delete("/:id", deleteUser);
 //GET
-router.get("/:id", verifyToken, verifyUser, getUser);
+router.get("/:id", getUser);
 //GET ALL
-router.get("/", verifyToken, verifyAdmin, getAllUsers);
+router.get("/", getAllUsers);
 
 module.exports = router;
