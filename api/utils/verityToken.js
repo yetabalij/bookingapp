@@ -13,18 +13,18 @@ exports.verifyToken = (req, res, next) => {
   });
 };
 
-exports.verifyUser = (req, res, next) => {
-  if (req.user.id === req.params.id || req.user.isAdmin) {
+exports.verifPartner = (req, res, next) => {
+  if (req.user.role === "partner") {
     next();
   } else {
     return next(createError(403, "You are not authorized!"));
   }
 };
 
-exports.verifyAdmin = (req, res, next) => {
-  if (req.user.isAdmin) {
-    return next();
-  } else {
-    return next(createError(401, "You are not authorized!"));
-  }
-};
+// exports.verifyAdmin = (req, res, next) => {
+//   if (req.user.admin) {
+//     return next();
+//   } else {
+//     return next(createError(401, "You are not authorized!"));
+//   }
+// };
