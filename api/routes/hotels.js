@@ -7,16 +7,16 @@ const {
   getAllHotel,
 } = require("./../controlers/hotelsControler/hotel");
 //const { example } = require("./../controlers/hotelsControler/queries");
-const { verifyToken, verifyAdmin } = require("./../utils/verityToken");
+const { verifyToken, verifPartner } = require("./../utils/verityToken");
 
 const router = express.Router();
 
 //CREATE
-router.post("/", verifyToken, verifyAdmin, createHotel);
+router.post("/", verifyToken, verifPartner, createHotel);
 //UPDATE
-router.put("/:id", verifyToken, verifyAdmin, updateHotel);
+router.put("/:id", updateHotel);
 //DELETE
-router.delete("/:id", verifyToken, verifyAdmin, deleteHotel);
+router.delete("/:id", deleteHotel);
 //GET
 router.get("/:id", getHotel);
 //GET ALL
