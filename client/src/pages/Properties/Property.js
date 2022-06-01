@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 
@@ -37,33 +37,49 @@ const Button = styled.button`
 `;
 
 const Property = () => {
+  const [name, setName] = useState("");
+  //const [propertyType, setPropertyType] = useState("");
+  const [city, setCity] = useState("");
+  const [adress, setAddress] = useState("");
+  const [distance, setDistance] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  //const [firstName, setFirstName] = useState("");
+  const formValue = {
+    name: name,
+    type: "hotel",
+    city: city,
+    address: adress,
+    distances: distance,
+    //photos:
+    title: title,
+    desc: description,
+    cheapestPrice: Number(price),
+  };
+
+  const handleSubmit = () => {
+    console.log(formValue);
+  };
   return (
     <Container>
       <h1 className="text-2xl font-bold text-slate-800">
         Want to Create New Property
       </h1>
-      <label>First Name</label>
+      <br />
+      <label>Name</label>
       <br />
       <Input
         type="text"
-        //value={email}
-        //onChange={(e) => setEmail(e.target.value)}
-        placeholder="First Name"
-      ></Input>
-      <br />
-      <label>Last Name</label>
-      <br />
-      <Input
-        type="text"
-        //value={email}
-        //onChange={(e) => setEmail(e.target.value)}
-        placeholder="Last Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Name"
       ></Input>
       <br />
       <label>Property type</label>
       <br />
       <Select
-      //type="email"
+      //type="text"
       //value={email}
       //onChange={(e) => setEmail(e.target.value)}
       //placeholder="email"
@@ -78,8 +94,8 @@ const Property = () => {
       <br />
       <Input
         type="text"
-        //value={email}
-        //onChange={(e) => setEmail(e.target.value)}
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
         placeholder="City"
       ></Input>
       <br />
@@ -87,43 +103,43 @@ const Property = () => {
       <br />
       <Input
         type="text"
-        //value={email}
-        //onChange={(e) => setEmail(e.target.value)}
+        value={adress}
+        onChange={(e) => setAddress(e.target.value)}
         placeholder="Adress"
       ></Input>
       <label>Distance</label>
       <br />
       <Input
         type="text"
-        //value={email}
-        //onChange={(e) => setEmail(e.target.value)}
+        value={distance}
+        onChange={(e) => setDistance(e.target.value)}
         placeholder="Distance"
       ></Input>
       <label>Title</label>
       <br />
       <Input
         type="text"
-        //value={email}
-        //onChange={(e) => setEmail(e.target.value)}
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
         placeholder="Title"
       ></Input>
       <label>Description</label>
       <br />
       <Input
         type="text"
-        //value={email}
-        //onChange={(e) => setEmail(e.target.value)}
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
         placeholder="Description"
       ></Input>
       <label>Price</label>
       <br />
       <Input
         type="text"
-        //value={email}
-        //onChange={(e) => setEmail(e.target.value)}
+        value={price}
+        onChange={(e) => setPrice(e.target.value)}
         placeholder="Price"
       ></Input>
-      <label>Last Name</label>
+      <label>Photo</label>
       <br />
       <Input
         type="file"
@@ -132,7 +148,7 @@ const Property = () => {
         //placeholder="Photo"
       ></Input>
       <br />
-      <Button>Creat Property</Button>
+      <Button onClick={handleSubmit}>Creat Property</Button>
     </Container>
   );
 };
