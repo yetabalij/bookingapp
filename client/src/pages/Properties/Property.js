@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import tw from "twin.macro";
 
@@ -37,6 +38,8 @@ const Button = styled.button`
 `;
 
 const Property = () => {
+  const { Partners } = useSelector((state) => ({ ...state.partnersAuth }));
+
   const [name, setName] = useState("");
   //const [propertyType, setPropertyType] = useState("");
   const [city, setCity] = useState("");
@@ -45,8 +48,9 @@ const Property = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  //const [firstName, setFirstName] = useState("");
+  //const [photo, setPhoto] = useState("");
   const formValue = {
+    partner: Partners._id,
     name: name,
     type: "hotel",
     city: city,
