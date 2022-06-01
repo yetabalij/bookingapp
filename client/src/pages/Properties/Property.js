@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { createHotel } from "../../redux/features/Properties/propertySlice";
 
 const Container = styled.div`
   ${tw`
@@ -39,6 +41,8 @@ const Button = styled.button`
 
 const Property = () => {
   const { Partners } = useSelector((state) => ({ ...state.partnersAuth }));
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [name, setName] = useState("");
   //const [propertyType, setPropertyType] = useState("");
@@ -63,7 +67,7 @@ const Property = () => {
   };
 
   const handleSubmit = () => {
-    console.log(formValue);
+    dispatch(createHotel(formValue, navigate));
   };
   return (
     <Container>
