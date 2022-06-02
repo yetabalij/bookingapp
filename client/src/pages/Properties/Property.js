@@ -52,7 +52,8 @@ const Property = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  //const [photo, setPhoto] = useState("");
+  const [file, setFile] = useState("");
+  const [image, setImage] = useState();
   const formValue = {
     partner: Partners._id,
     name: name,
@@ -60,10 +61,23 @@ const Property = () => {
     city: city,
     address: adress,
     distances: distance,
-    //photos:
+    photos: file,
     title: title,
     desc: description,
     cheapestPrice: Number(price),
+  };
+
+  function previewFile(file) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      setImage(reader.result);
+    };
+  }
+  const fileHandleChange = (e) => {
+    const file = e.target.files[0];
+    setFile(file);
+    previewFile(file);
   };
 
   const handleSubmit = () => {
@@ -151,10 +165,11 @@ const Property = () => {
       <br />
       <Input
         type="file"
-        //value={email}
-        //onChange={(e) => setEmail(e.target.value)}
-        //placeholder="Photo"
+        onChange={fileHandleChange}
+        id="fileInput"
+        accept="image/png, image/jpeg, image/jpg, image/jfif"
       ></Input>
+      <img src={image} alt="" />
       <br />
       <Button onClick={handleSubmit}>Creat Property</Button>
     </Container>
