@@ -61,7 +61,7 @@ const Property = () => {
     city: city,
     address: adress,
     distances: distance,
-    photos: file,
+    photos: image,
     title: title,
     desc: description,
     cheapestPrice: Number(price),
@@ -81,6 +81,7 @@ const Property = () => {
   };
 
   const handleSubmit = () => {
+    console.log(formValue);
     dispatch(createHotel({ formValue, navigate }));
   };
   return (
