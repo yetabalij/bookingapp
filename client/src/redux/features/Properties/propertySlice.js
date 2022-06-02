@@ -4,12 +4,13 @@ import axios from "axios";
 export const createHotel = createAsyncThunk(
   "create/hotel",
   async ({ formValue, navigate }) => {
+    console.log(formValue);
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/hotels",
+        "http://localhost:8000/api/hotels/createhotel",
         formValue
       );
-      navigate("/partnersdashboard");
+      // navigate("/partnersdashboard");
       return response.data;
     } catch (err) {
       console.log(err);
@@ -24,21 +25,21 @@ const propertySlice = createSlice({
     error: "",
     loading: "",
   },
-  reducers: {
+  reducers: {},
+  extraReducers: {
     [createHotel.pending]: (state, action) => {
       state.loading = true;
     },
     [createHotel.fulfilled]: (state, action) => {
       state.loading = false;
       //localStorage.setItem("property", JSON.stringify({ ...action.payload }));
-      state.Partners = action.payload;
+      state.Property = action.payload;
     },
     [createHotel.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload.message;
     },
   },
-  extraReducers: {},
 });
 
 export default propertySlice.reducer;

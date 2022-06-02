@@ -67,7 +67,7 @@ const Property = () => {
   };
 
   const handleSubmit = () => {
-    dispatch(createHotel(formValue, navigate));
+    dispatch(createHotel({ formValue, navigate }));
   };
   return (
     <Container>
