@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const mogran = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const cloudinary = require("./controlers/cloudinary");
 
 //imported routeres
 const authRoute = require("../api/routes/auth");
