@@ -61,7 +61,7 @@ const Property = () => {
     city: city,
     address: adress,
     distances: distance,
-    photos: image,
+    image: image,
     title: title,
     desc: description,
     cheapestPrice: Number(price),
