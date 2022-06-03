@@ -20,7 +20,7 @@ export const partnersRegister = createAsyncThunk(
 export const partnersLogin = createAsyncThunk(
   "partners/login",
   async ({ formValue, navigate }) => {
-    console.log(formValue);
+    //console.log(formValue);
     try {
       const response = await axios.post(
         "http://localhost:8000/api/partnerlogin",

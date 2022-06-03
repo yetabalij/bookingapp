@@ -4,13 +4,12 @@ import axios from "axios";
 export const createHotel = createAsyncThunk(
   "create/hotel",
   async ({ formValue, navigate }) => {
-    console.log(formValue);
     try {
       const response = await axios.post(
         "http://localhost:8000/api/hotels/createhotel",
         formValue
       );
-      // navigate("/partnersdashboard");
+      navigate("/partnersdashboard");
       return response.data;
     } catch (err) {
       console.log(err);
