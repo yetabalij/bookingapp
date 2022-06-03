@@ -10,38 +10,55 @@ cloudinary.config({
 
 //CREATE
 exports.createHotel = async (req, res, next) => {
-  // const newHotel = new Hotel(req.body);
-  // const {
-  //   partner,
-  //   name,
-  //   type,
-  //   city,
-  //   address,
-  //   distances,
-  //   photos,
-  //   title,
-  //   desc,
-  //   cheapestPrice,
-  // } = newHotel;
+  const newHotel = new Hotel(req.body);
+  const {
+    partner,
+    name,
+    type,
+    city,
+    address,
+    distances,
+    image,
+    title,
+    desc,
+    cheapestPrice,
+  } = newHotel;
 
   try {
-    const photoResponse = await cloudinary.uploader.upload(req.body.photos[0], {
+    //console.log(newHotel.image);
+    const photoResponse = await cloudinary.uploader.upload(image, {
       upload_preset: "unsigned",
     });
-    console.log(photoResponse.url);
-    //const savedHotel = await newHotel.save();
-    const savedHotel = await save({
-      partner: req.body.partner,
-      name: req.body.name,
-      type: req.body.type,
-      city: req.body.city,
-      address: req.body.address,
-      distance: req.body.distance,
-      photos: photoResponse.url,
-      title: req.body.title,
-      desc: req.body.desc,
-      cheapestPrice: req.body.cheapestPrice,
-    });
+    //console.log(photoResponse.url);
+    const photosrul = photoResponse.url;
+    //console.log(photosrul);
+    const newNewHotel = {
+      partner,
+      name,
+      type,
+      city,
+      address,
+      distances,
+      image: photosrul,
+      title,
+      desc,
+      cheapestPrice,
+    };
+    console.log(newNewHotel);
+    const savedHotel = await newNewHotel.save();
+
+    // const savedHotel = await save({
+    //   partner,
+    //   name,
+    //   type,
+    //   city,
+    //   address,
+    //   distances,
+    //   photos,
+    //   title,
+    //   desc,
+    //   cheapestPrice,
+    // });
     console.log(savedHotel);
     res.status(200).json(savedHotel);
   } catch (err) {
