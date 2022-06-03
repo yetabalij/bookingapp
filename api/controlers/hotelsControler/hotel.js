@@ -1,35 +1,48 @@
+const { response } = require("express");
 const Hotel = require("./../../models/hotels");
+const cloudinary = require("cloudinary").v2;
+
+cloudinary.config({
+  cloud_name: "dpy3euo56",
+  api_key: "485554254842889",
+  api_secret: "Hxa7JkR3L5TimiBIrZ2NzaQRKpU",
+});
 
 //CREATE
 exports.createHotel = async (req, res, next) => {
-  const newHotel = new Hotel(req.body);
-  const { photos } = newHotel;
+  // const newHotel = new Hotel(req.body);
+  // const {
+  //   partner,
+  //   name,
+  //   type,
+  //   city,
+  //   address,
+  //   distances,
+  //   photos,
+  //   title,
+  //   desc,
+  //   cheapestPrice,
+  // } = newHotel;
 
-  // cloudinary.v2.uploader.upload(
-  //   "dog.mp4",
-  //   {
-  //     resource_type: "video",
-  //     public_id: "myfolder/mysubfolder/dog_closeup",
-  //     chunk_size: 6000000,
-  //     eager: [
-  //       { width: 300, height: 300, crop: "pad", audio_codec: "none" },
-  //       {
-  //         width: 160,
-  //         height: 100,
-  //         crop: "crop",
-  //         gravity: "south",
-  //         audio_codec: "none",
-  //       },
-  //     ],
-  //     eager_async: true,
-  //     eager_notification_url: "https://mysite.example.com/notify_endpoint",
-  //   },
-  //   function (error, result) {
-  //     console.log(result, error);
-  //   }
-  // );
   try {
-    const savedHotel = await newHotel.save();
+    const photoResponse = await cloudinary.uploader.upload(req.body.photos[0], {
+      upload_preset: "unsigned",
+    });
+    console.log(photoResponse.url);
+    //const savedHotel = await newHotel.save();
+    const savedHotel = await save({
+      partner: req.body.partner,
+      name: req.body.name,
+      type: req.body.type,
+      city: req.body.city,
+      address: req.body.address,
+      distance: req.body.distance,
+      photos: photoResponse.url,
+      title: req.body.title,
+      desc: req.body.desc,
+      cheapestPrice: req.body.cheapestPrice,
+    });
+    console.log(savedHotel);
     res.status(200).json(savedHotel);
   } catch (err) {
     next(err);
