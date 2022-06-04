@@ -10,56 +10,20 @@ cloudinary.config({
 
 //CREATE
 exports.createHotel = async (req, res, next) => {
-  const newHotel = new Hotel(req.body);
-  const {
-    partner,
-    name,
-    type,
-    city,
-    address,
-    distances,
-    image,
-    title,
-    desc,
-    cheapestPrice,
-  } = newHotel;
+  const hotel = req.body;
+  const { image } = hotel;
 
   try {
-    //console.log(newHotel.image);
     const photoResponse = await cloudinary.uploader.upload(image, {
       upload_preset: "unsigned",
     });
-    //console.log(photoResponse.url);
     const photosrul = photoResponse.url;
-    //console.log(photosrul);
-    const newNewHotel = {
-      partner,
-      name,
-      type,
-      city,
-      address,
-      distances,
+    const NewHotel = new Hotel({
+      ...hotel,
       image: photosrul,
-      title,
-      desc,
-      cheapestPrice,
-    };
-    console.log(newNewHotel);
-    const savedHotel = await newNewHotel.save();
-
-    // const savedHotel = await save({
-    //   partner,
-    //   name,
-    //   type,
-    //   city,
-    //   address,
-    //   distances,
-    //   photos,
-    //   title,
-    //   desc,
-    //   cheapestPrice,
-    // });
-    console.log(savedHotel);
+    });
+    //console.log(NewHotel);
+    const savedHotel = await NewHotel.save();
     res.status(200).json(savedHotel);
   } catch (err) {
     next(err);
