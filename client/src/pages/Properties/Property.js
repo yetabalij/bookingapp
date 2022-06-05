@@ -40,7 +40,7 @@ const Button = styled.button`
 `;
 
 const Property = () => {
-  const { Partners } = useSelector((state) => ({ ...state.partnersAuth }));
+  const Partners = JSON.parse(localStorage.getItem("partnerProfile"));
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
