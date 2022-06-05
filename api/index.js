@@ -10,7 +10,7 @@ const authRoute = require("../api/routes/auth");
 const hotelsRoute = require("../api/routes/hotels");
 const roomsRoute = require("../api/routes/rooms");
 const usersRoute = require("../api/routes/users");
-const exampleRouter = require("./routes/hotels/queries");
+const hotelsQueryRouter = require("./routes/hotels/queries");
 
 //Partner Imported Routes
 const partnerRouter = require("./routes/Partners/auth");
@@ -31,7 +31,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 app.use("/api/users", usersRoute);
-app.use("/api", exampleRouter);
+app.use("/api", hotelsQueryRouter);
 
 //Partner Router Middlewares
 app.use("/api", partnerRouter);
