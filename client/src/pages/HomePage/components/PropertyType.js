@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const PropertyType = () => {
-  return <div>PropertyType</div>;
+  return <div>Browse by property type</div>;
 };
 
 export default PropertyType;
