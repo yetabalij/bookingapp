@@ -107,17 +107,6 @@ const Property = () => {
         onChange={(e) => setPropertyType(e.target.value)}
         placeholder="Property Type"
       ></Input>
-      {/* <Select
-      //type="text"
-      //value={email}
-      //onChange={(e) => setEmail(e.target.value)}
-      //placeholder="email"
-      >
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </Select> */}
       <br />
       <label>City</label>
       <br />
