@@ -81,7 +81,6 @@ const Property = () => {
   };
 
   const handleSubmit = () => {
-    console.log(formValue);
     dispatch(createHotel({ formValue, navigate }));
   };
   return (
