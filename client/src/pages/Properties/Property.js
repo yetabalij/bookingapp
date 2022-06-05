@@ -82,6 +82,15 @@ const Property = () => {
 
   const handleSubmit = () => {
     dispatch(createHotel({ formValue, navigate }));
+    setName("");
+    setPropertyType("");
+    setCity("");
+    setAddress("");
+    setDistance("");
+    setImage("");
+    setTitle("");
+    setDescription("");
+    setPrice(null);
   };
   return (
     <Container>
