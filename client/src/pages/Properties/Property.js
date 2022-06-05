@@ -45,7 +45,7 @@ const Property = () => {
   const dispatch = useDispatch();
 
   const [name, setName] = useState("");
-  //const [propertyType, setPropertyType] = useState("");
+  const [propertyType, setPropertyType] = useState("");
   const [city, setCity] = useState("");
   const [adress, setAddress] = useState("");
   const [distance, setDistance] = useState("");
@@ -57,7 +57,7 @@ const Property = () => {
   const formValue = {
     partner: Partners._id,
     name: name,
-    type: "hotel",
+    type: propertyType,
     city: city,
     address: adress,
     distances: distance,
@@ -101,7 +101,13 @@ const Property = () => {
       <br />
       <label>Property type</label>
       <br />
-      <Select
+      <Input
+        type="text"
+        value={propertyType}
+        onChange={(e) => setPropertyType(e.target.value)}
+        placeholder="Property Type"
+      ></Input>
+      {/* <Select
       //type="text"
       //value={email}
       //onChange={(e) => setEmail(e.target.value)}
@@ -111,7 +117,7 @@ const Property = () => {
         <option value="saab">Saab</option>
         <option value="mercedes">Mercedes</option>
         <option value="audi">Audi</option>
-      </Select>
+      </Select> */}
       <br />
       <label>City</label>
       <br />
