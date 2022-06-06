@@ -9,6 +9,7 @@ import CarRentals from "./pages/CarRentals";
 import Attractions from "./pages/Attractions";
 import AirportTaxi from "./pages/AirportTaxi";
 import Help from "./pages/HelpPage/Help";
+import HelpWithoutAccount from "./pages/HelpPage/HelpWithoutAccount";
 import ListYourPropertyHome from "./pages/ListYourPropertyPage/ListYourPropertyHome";
 import Register from "./pages/Register";
 import Signin from "./pages/Signin";
@@ -37,6 +38,7 @@ function App() {
         <Route path="/attractions" element={<Attractions />} />
         <Route path="/airporttaxi" element={<AirportTaxi />} />
         <Route path="/help" element={<Help />} />
+        <Route path="/helpwithoutaccount" element={<HelpWithoutAccount />} />
         <Route
           path="/listyourpropertyhome"
           element={<ListYourPropertyHome />}
