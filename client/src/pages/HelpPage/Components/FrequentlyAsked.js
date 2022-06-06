@@ -53,8 +53,7 @@ const IconContainer = styled.div`
 `;
 const PanelContainer = styled.div`
   ${tw`
-        px-6
-        py-4
+        
     `}
 `;
 
