@@ -11,7 +11,7 @@ import AirportTaxi from "./pages/AirportTaxi";
 import Help from "./pages/HelpPage/Help";
 import HelpWithoutAccount from "./pages/HelpPage/HelpWithoutAccount";
 import ListYourPropertyHome from "./pages/ListYourPropertyPage/ListYourPropertyHome";
-import Register from "./pages/Register";
+import Register from "./pages/Register/Register";
 import Signin from "./pages/Signin";
 import SearchHotels from "./pages/SearchHotels";
 import PartnerRegister from "./pages/Partners/PartnersRegister";
