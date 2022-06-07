@@ -1,9 +1,12 @@
-import React from 'react'
-import NavBar from '../components/NavBar'
+import React from "react";
+import ThirdNavBar from "../components/ThirdNavBar";
 const Register = () => {
   return (
-    <div><NavBar></NavBar>Register</div>
-  )
-}
+    <div>
+      <ThirdNavBar />
+      Register
+    </div>
+  );
+};
 
-export default Register
+export default Register;
