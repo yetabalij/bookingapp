@@ -41,7 +41,7 @@ const Container = styled.div`
     2xl:w-3/5
     mx-auto
     mt-14
-    mb-20
+    mb-16
   `}
 `;
 const ImageContainer = styled.div`
