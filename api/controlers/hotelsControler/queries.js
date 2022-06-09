@@ -1,5 +1,5 @@
 //const { createError } = require("./../../utils/error");
-const { count } = require("./../../models/hotels");
+const { count, syncIndexes } = require("./../../models/hotels");
 const Hotel = require("./../../models/hotels");
 const Room = require("./../../models/rooms");
 
@@ -64,12 +64,39 @@ exports.propertyType = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-  exports.propertyByCity = async (req, res, next) => {
-    try {
-      const result = await Hotel.find();
-      console.log(result);
-    } catch (error) {
-      next(error);
-    }
-  };
+};
+
+exports.propertyByCity = async (req, res, next) => {
+  let addis = 0;
+  let nairobi = 0;
+  let toronto = 0;
+  let sydney = 0;
+  let dubai = 0;
+  try {
+    const result = await Hotel.find();
+    result.map((hotel) => {
+      const { city } = hotel;
+      if (city === "addis ababa") {
+        addis += 1;
+      } else if (city === "nairobi") {
+        nairobi += 1;
+      } else if (city === "toronto") {
+        toronto += 1;
+      } else if (city === "sydney") {
+        sydney += 1;
+      } else if (city === "dubai") {
+        dubai += 1;
+      }
+    });
+    const newResult = {
+      addis: addis,
+      nairobi: nairobi,
+      toronto: toronto,
+      sydney: sydney,
+      dubai: dubai,
+    };
+    res.send(newResult);
+  } catch (error) {
+    next(error);
+  }
 };
