@@ -51,6 +51,13 @@ const ImageContainer = styled.div`
     select-none
   `}
 `;
+const ContentContainer = styled.div`
+  ${tw`
+    flex
+    flex-col
+    pt-3
+  `}
+`;
 
 const PropertyType = () => {
   const [propertyCount, setPropertyCount] = useState(0);
@@ -70,36 +77,60 @@ const PropertyType = () => {
         shouldResetAutoplay={false}
       >
         <ImageContainer>
-          <img src={Appartment} onClick={() => navigate("/signin")} />
-          <h1>{propertyCount.appartment} Appartments</h1>
+          <img src={Appartment} onClick={() => navigate("/signin")} alt="" />
+          <ContentContainer>
+            <p className="font-bold">Appartments</p>
+            <h1>{propertyCount.appartment} Appartments</h1>
+          </ContentContainer>
         </ImageContainer>
         <ImageContainer>
-          <img src={cacabins} />
-          <h1>{propertyCount.resort} Resorts</h1>
+          <img src={cacabins} alt="" />
+          <ContentContainer>
+            <p className="font-bold">Resorts</p>
+            <h1>{propertyCount.resort} Resorts</h1>
+          </ContentContainer>
         </ImageContainer>
         <ImageContainer>
-          <img src={cottage} />
-          <h1>{propertyCount.villa} Villas</h1>
+          <img src={cottage} alt="" />
+          <ContentContainer>
+            <p className="font-bold">Villas</p>
+            <h1>{propertyCount.villa} Villas</h1>
+          </ContentContainer>
         </ImageContainer>
         <ImageContainer>
-          <img src={glamping} />
-          <h1>{propertyCount.cacabins} Cacabins</h1>
+          <img src={glamping} alt="" />
+          <ContentContainer>
+            <p className="font-bold">Cacabins</p>
+            <h1>{propertyCount.cacabins} Cacabins</h1>
+          </ContentContainer>
         </ImageContainer>
         <ImageContainer>
-          <img src={gusthouse} />
-          <h1>{propertyCount.cottage} Cottages</h1>
+          <img src={gusthouse} alt="" />
+          <ContentContainer>
+            <p className="font-bold">Cottages</p>
+            <h1>{propertyCount.cottage} Cottages</h1>
+          </ContentContainer>
         </ImageContainer>
         <ImageContainer>
-          <img src={hotel} />
-          <h1>{propertyCount.glamping} Glampings</h1>
+          <img src={hotel} alt="" />
+          <ContentContainer>
+            <p className="font-bold">Glampings</p>
+            <h1>{propertyCount.glamping} Glampings</h1>
+          </ContentContainer>
         </ImageContainer>
         <ImageContainer>
-          <img src={resort} />
-          <h1>{propertyCount.hotel} Hotels</h1>
+          <img src={resort} alt="" />
+          <ContentContainer>
+            <p className="font-bold">Hotels</p>
+            <h1>{propertyCount.hotel} Hotels</h1>
+          </ContentContainer>
         </ImageContainer>
         <ImageContainer>
-          <img src={villa} />
-          <h1>Gust House{propertyCount.gusthouse} </h1>
+          <img src={villa} alt="" />
+          <ContentContainer>
+            <p className="font-bold">Gust House</p>
+            <h1>{propertyCount.gusthouse} Gust House</h1>
+          </ContentContainer>
         </ImageContainer>
       </Carousel>
     </Container>
