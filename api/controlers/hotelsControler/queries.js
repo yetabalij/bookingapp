@@ -17,8 +17,17 @@ exports.searchHotels = async (req, res, next) => {
 };
 
 exports.propertyType = async (req, res, next) => {
+  let appartmentCounter = 0;
   try {
     const result = await Hotel.find({}).select("type");
+    result.map((result) => {
+      if (result.type === "appartment") {
+        appartmentCounter += 1;
+      }
+      console.log({ appartment: appartmentCounter });
+      console.log(result);
+      return result;
+    });
     res.send(result);
   } catch (err) {
     next(err);
