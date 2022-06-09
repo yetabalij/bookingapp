@@ -1,4 +1,5 @@
 //const { createError } = require("./../../utils/error");
+const { count } = require("./../../models/hotels");
 const Hotel = require("./../../models/hotels");
 const Room = require("./../../models/rooms");
 
@@ -17,18 +18,49 @@ exports.searchHotels = async (req, res, next) => {
 };
 
 exports.propertyType = async (req, res, next) => {
-  let appartmentCounter = 0;
+  let countAppartment = 0;
+  let countResort = 0;
+  let countVilla = 0;
+  let countCabins = 0;
+  let countCottage = 0;
+  let countGlamping = 0;
+  let countHotel = 0;
+  let countGustHouse = 0;
   try {
     const result = await Hotel.find({}).select("type");
-    result.map((result) => {
-      if (result.type === "appartment") {
-        appartmentCounter += 1;
+    result.map((res) => {
+      const { type } = res;
+      if (type === "appartment") {
+        countAppartment += 1;
+      } else if (type === "resort") {
+        countResort += 1;
+      } else if (type === "villa") {
+        countVilla += 1;
+      } else if (type === "cabins") {
+        countCabins += 1;
+      } else if (type === "cottage") {
+        countCottage += 1;
+      } else if (type === "glamping") {
+        countGlamping += 1;
+      } else if (type === "hotel") {
+        countHotel += 1;
+      } else if (type === "gust house") {
+        countGustHouse += 1;
       }
-      console.log({ appartment: appartmentCounter });
-      console.log(result);
-      return result;
+      return res;
     });
-    res.send(result);
+    const resArray = {
+      appartment: countAppartment,
+      resort: countResort,
+      villa: countVilla,
+      cacabins: countCabins,
+      cottage: countCottage,
+      glamping: countGlamping,
+      hotel: countHotel,
+      gusthouse: countGustHouse,
+    };
+    //console.log(resArray);
+    res.send(resArray);
   } catch (err) {
     next(err);
   }
