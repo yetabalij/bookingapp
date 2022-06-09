@@ -25,6 +25,7 @@ const TopContainer = styled.div`
   ${tw`
     grid
     grid-cols-2 gap-4
+    mb-4
     `}
 `;
 const BottomContainer = styled.div`
@@ -65,7 +66,7 @@ const CityProperty = () => {
     <Container>
       <TopContainer>
         <CardContainer>
-          <Image src={Ethiopia} alt="" className="h-[92%]" />
+          <Image src={Ethiopia} alt="" className="" />
           <TextContainer>
             <h1 className="text-2xl text-white font-bold">Addis Ababa</h1>
             <p className="text-white">{cityProperty.addis} properties</p>
