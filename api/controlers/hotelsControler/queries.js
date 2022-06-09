@@ -64,4 +64,12 @@ exports.propertyType = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+  exports.propertyByCity = async (req, res, next) => {
+    try {
+      const result = await Hotel.find();
+      console.log(result);
+    } catch (error) {
+      next(error);
+    }
+  };
 };
