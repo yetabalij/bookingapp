@@ -1,7 +1,7 @@
 # Note to do
 
-Back end authentication works in the back end but not working in the fron end. as a result, it is disabled in the backend for the moment but needs to be fixed.
+Back end authentication works in the back end but not working in the fron end. as a result, it is disabled in the backend for the moment but needs to be fixed
 
-for validation is not yet implemented.
-
-at HelpPage: the four carosol components should be completed.
+validation is not yet implemented.
+for the register controller
+user exist or not.
