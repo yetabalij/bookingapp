@@ -12,7 +12,7 @@ const { verifyToken, verifPartner } = require("./../utils/verityToken");
 const router = express.Router();
 
 //CREATE
-router.post("/createhotel", createHotel);
+router.post("/createhotel", verifyToken, createHotel);
 //UPDATE
 router.put("/:id", updateHotel);
 //DELETE
