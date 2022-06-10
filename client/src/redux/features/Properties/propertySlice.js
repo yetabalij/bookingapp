@@ -7,7 +7,8 @@ export const createHotel = createAsyncThunk(
     try {
       const response = await axios.post(
         "http://localhost:8000/api/hotels/createhotel",
-        formValue
+        formValue,
+        { withCredentials: true }
       );
       navigate("/partnersdashboard");
       return response.data;
