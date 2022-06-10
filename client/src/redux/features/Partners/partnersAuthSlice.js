@@ -7,8 +7,8 @@ export const partnersRegister = createAsyncThunk(
     try {
       const response = await axios.post(
         "http://localhost:8000/api/partnerregister",
-        formValue
-        //{ withCredentials: true }
+        formValue,
+        { withCredentials: true }
       );
       navigate("/partnersdashboard");
       return response.data;
@@ -24,8 +24,8 @@ export const partnersLogin = createAsyncThunk(
     try {
       const response = await axios.post(
         "http://localhost:8000/api/partnerlogin",
-        formValue
-        //{ withCredentials: true }
+        formValue,
+        { withCredentials: true }
       );
       navigate("/partnersdashboard");
       return response.data;
