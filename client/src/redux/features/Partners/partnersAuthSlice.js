@@ -10,7 +10,7 @@ export const partnersRegister = createAsyncThunk(
         formValue,
         { withCredentials: true }
       );
-      navigate("/partnersdashboard");
+      navigate("/createproperty");
       return response.data;
     } catch (err) {
       console.log(err);
