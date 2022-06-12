@@ -14,6 +14,7 @@ const router = express.Router();
 
 //CREATE
 router.post("/createhotel", verifyToken, createHotel);
+//PROPERTY BY PARTNER
 router.post("/propertybypartner", propertyByPartner);
 //UPDATE
 router.put("/:id", updateHotel);
