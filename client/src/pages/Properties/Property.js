@@ -49,8 +49,6 @@ const Property = () => {
   const [city, setCity] = useState("");
   const [adress, setAddress] = useState("");
   const [distance, setDistance] = useState("");
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [file, setFile] = useState("");
   const [image, setImage] = useState();
@@ -62,8 +60,6 @@ const Property = () => {
     address: adress,
     distances: distance,
     image: image,
-    title: title,
-    desc: description,
     cheapestPrice: Number(price),
   };
 
@@ -89,8 +85,6 @@ const Property = () => {
     setAddress("");
     setDistance("");
     setImage("");
-    setTitle("");
-    setDescription("");
     setPrice("");
   };
   return (
@@ -142,22 +136,6 @@ const Property = () => {
           value={distance}
           onChange={(e) => setDistance(e.target.value)}
           placeholder="Distance"
-        ></Input>
-        <label>Title</label>
-        <br />
-        <Input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
-        ></Input>
-        <label>Description</label>
-        <br />
-        <Input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Description"
         ></Input>
         <label>Price</label>
         <br />
