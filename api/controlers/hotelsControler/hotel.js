@@ -1,4 +1,4 @@
-const { response } = require("express");
+const { trace } = require("../../routes/hotels");
 const Hotel = require("./../../models/hotels");
 const cloudinary = require("cloudinary").v2;
 
@@ -22,11 +22,21 @@ exports.createHotel = async (req, res, next) => {
       ...hotel,
       image: photosrul,
     });
-    //console.log(NewHotel);
     const savedHotel = await NewHotel.save();
     res.status(200).json(savedHotel);
   } catch (err) {
     next(err);
+  }
+};
+
+//GET HOTEL BY PARTNER
+exports.propertyByPartner = async (req, res, next) => {
+  const { partnerId } = req.body;
+  try {
+    const propertyByPartner = await Hotel.find({ partner: partnerId });
+    res.status(200).json(propertyByPartner);
+  } catch (error) {
+    console.log(error);
   }
 };
 
