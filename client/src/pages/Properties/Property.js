@@ -80,7 +80,8 @@ const Property = () => {
     previewFile(file);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     dispatch(createHotel({ formValue, navigate }));
     setName("");
     setPropertyType("");
@@ -90,92 +91,94 @@ const Property = () => {
     setImage("");
     setTitle("");
     setDescription("");
-    setPrice(null);
+    setPrice("");
   };
   return (
     <Container>
-      <h1 className="text-2xl font-bold text-slate-800">
-        Want to Create New Property
-      </h1>
-      <br />
-      <label>Name</label>
-      <br />
-      <Input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Name"
-      ></Input>
-      <br />
-      <label>Property type</label>
-      <br />
-      <Input
-        type="text"
-        value={propertyType}
-        onChange={(e) => setPropertyType(e.target.value)}
-        placeholder="Property Type"
-      ></Input>
-      <br />
-      <label>City</label>
-      <br />
-      <Input
-        type="text"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        placeholder="City"
-      ></Input>
-      <br />
-      <label>Adress</label>
-      <br />
-      <Input
-        type="text"
-        value={adress}
-        onChange={(e) => setAddress(e.target.value)}
-        placeholder="Adress"
-      ></Input>
-      <label>Distance</label>
-      <br />
-      <Input
-        type="text"
-        value={distance}
-        onChange={(e) => setDistance(e.target.value)}
-        placeholder="Distance"
-      ></Input>
-      <label>Title</label>
-      <br />
-      <Input
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Title"
-      ></Input>
-      <label>Description</label>
-      <br />
-      <Input
-        type="text"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        placeholder="Description"
-      ></Input>
-      <label>Price</label>
-      <br />
-      <Input
-        type="text"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-        placeholder="Price"
-      ></Input>
-      <label>Photo</label>
-      <br />
-      <Input
-        type="file"
-        onChange={fileHandleChange}
-        id="fileInput"
-        accept="image/png, image/jpeg, image/jpg, image/jfif"
-      ></Input>
-      <img src={image} alt="" />
-      <br />
-      <Button onClick={handleSubmit}>Creat Property</Button>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <h1 className="text-2xl font-bold text-slate-800">
+          Want to Create New Property
+        </h1>
+        <br />
+        <label>Name</label>
+        <br />
+        <Input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Name"
+        ></Input>
+        <br />
+        <label>Property type</label>
+        <br />
+        <Input
+          type="text"
+          value={propertyType}
+          onChange={(e) => setPropertyType(e.target.value)}
+          placeholder="Property Type"
+        ></Input>
+        <br />
+        <label>City</label>
+        <br />
+        <Input
+          type="text"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          placeholder="City"
+        ></Input>
+        <br />
+        <label>Adress</label>
+        <br />
+        <Input
+          type="text"
+          value={adress}
+          onChange={(e) => setAddress(e.target.value)}
+          placeholder="Adress"
+        ></Input>
+        <label>Distance</label>
+        <br />
+        <Input
+          type="text"
+          value={distance}
+          onChange={(e) => setDistance(e.target.value)}
+          placeholder="Distance"
+        ></Input>
+        <label>Title</label>
+        <br />
+        <Input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Title"
+        ></Input>
+        <label>Description</label>
+        <br />
+        <Input
+          type="text"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="Description"
+        ></Input>
+        <label>Price</label>
+        <br />
+        <Input
+          type="text"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          placeholder="Price"
+        ></Input>
+        <label>Photo</label>
+        <br />
+        <Input
+          type="file"
+          onChange={fileHandleChange}
+          id="fileInput"
+          accept="image/png, image/jpeg, image/jpg, image/jfif"
+        ></Input>
+        <img src={image} alt="" />
+        <br />
+        <Button type="submit">Creat Property</Button>
+      </form>
     </Container>
   );
 };
