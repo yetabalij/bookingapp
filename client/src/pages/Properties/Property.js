@@ -49,7 +49,6 @@ const Property = () => {
   const [city, setCity] = useState("");
   const [adress, setAddress] = useState("");
   const [distance, setDistance] = useState("");
-  const [price, setPrice] = useState("");
   const [file, setFile] = useState("");
   const [image, setImage] = useState();
   const formValue = {
@@ -60,7 +59,6 @@ const Property = () => {
     address: adress,
     distances: distance,
     image: image,
-    cheapestPrice: Number(price),
   };
 
   function previewFile(file) {
@@ -85,7 +83,6 @@ const Property = () => {
     setAddress("");
     setDistance("");
     setImage("");
-    setPrice("");
   };
   return (
     <Container>
@@ -136,14 +133,6 @@ const Property = () => {
           value={distance}
           onChange={(e) => setDistance(e.target.value)}
           placeholder="Distance"
-        ></Input>
-        <label>Price</label>
-        <br />
-        <Input
-          type="text"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          placeholder="Price"
         ></Input>
         <label>Photo</label>
         <br />
