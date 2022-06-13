@@ -83,12 +83,6 @@ const Property = () => {
     setAddress("");
     setDistance("");
     setImage("");
-<<<<<<< HEAD
-    setTitle("");
-    setDescription("");
-    setPrice("");
-=======
->>>>>>> 7167c33ec67c283030455a9d9c75abf65786032a
   };
   return (
     <Container>
