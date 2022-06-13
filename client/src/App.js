@@ -21,6 +21,7 @@ import PartnersHelpCenter from "./pages/Partners/PartnersHelpCenter";
 import PrivacyStatemnt from "./../src/pages/PrivacyStatement/PrivacyStatement";
 import TermsAndConditions from "./../src/pages/TermsAndConditions/TermsAndConditions";
 import PartnersDashboard from "./../src/pages/Partners/PartnersDashboard";
+import Property from "./pages/Properties/Property";
 import Protected from "./components/Protected";
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
         <Route path="/termsandconditions" element={<TermsAndConditions />} />
         <Route element={<Protected partner={partner} />}>
           <Route path="/partnersdashboard" element={<PartnersDashboard />} />
+          <Route path="/createproperty" element={<Property />} />
         </Route>
       </Routes>
     </BrowserRouter>

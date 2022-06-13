@@ -62,7 +62,8 @@ const PartnerSignin = () => {
   const navigate = useNavigate();
   const dispach = useDispatch();
   //console.log(fomrValue);
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     dispach(partnersLogin({ formValue, navigate }));
   };
 
@@ -70,32 +71,37 @@ const PartnerSignin = () => {
     <div>
       <Container>
         <FormContainer>
-          <p className="text-2xl font-bold mb-5">
-            Sign in to manage your property
-          </p>
-          <label>Email address</label>
-          <br />
-          <Input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="email"
-          />
-          <br />
-          <label>Password</label>
-          <br />
-          <Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="password"
-          />
-          <Button onClick={handleLogin}>Login</Button>
-          <br />
-          <HorizontalLine />
-          <ButtonSignin onClick={() => navigate("/partneregister")}>
-            Create your partner account
-          </ButtonSignin>
+          <form onSubmit={(e) => handleLogin(e)}>
+            <p className="text-2xl font-bold mb-5">
+              Sign in to manage your property
+            </p>
+            <label>Email address</label>
+            <br />
+            <Input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="email"
+            />
+            <br />
+            <label>Password</label>
+            <br />
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="password"
+            />
+            <Button>Login</Button>
+            <br />
+            <HorizontalLine />
+            <ButtonSignin
+              type="submit"
+              onClick={() => navigate("/partneregister")}
+            >
+              Create your partner account
+            </ButtonSignin>
+          </form>
         </FormContainer>
       </Container>
     </div>
