@@ -49,10 +49,12 @@ exports.partnerLogin = async (req, res, next) => {
       process.env.JWT_SEKRETE
     );
     const { password, role, ...otherDetails } = user._doc;
-    return res
-      .cookie("access_token", token, { httpOnly: true })
-      .status(200)
-      .json(otherDetails);
+    return (
+      res
+        // .cookie("access_token", token, { httpOnly: true })
+        .status(200)
+        .json({ otherDetails, token })
+    );
   } catch (err) {
     next(err);
   }

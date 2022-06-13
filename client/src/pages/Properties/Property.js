@@ -90,7 +90,7 @@ const Property = () => {
     setImage("");
     setTitle("");
     setDescription("");
-    setPrice(null);
+    setPrice("");
   };
   return (
     <Container>
