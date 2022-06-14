@@ -52,27 +52,30 @@ const PartnersDashboard = () => {
       <NavBar />
       <ContentContainer>
         <Card>
-          <p className="text-2xl font-medium">Property Detail</p>
-          <div className="flex mt-7">
-            {partnerProperty !== null && (
-              <img
-                className="w-2/5 rounded"
-                src={partnerProperty[0].image}
-                alt=""
-              />
-            )}
-            {partnerProperty !== null && (
-              <div className="ml-10">
-                <h3>{partnerProperty[0].name}</h3>
-                <h3>{partnerProperty[0].title}</h3>
-                <h3>{partnerProperty[0].address}</h3>
-                <h3>{partnerProperty[0].city}</h3>
-                <h3>{partnerProperty[0].distances}</h3>
-                <h3>{partnerProperty[0].type}</h3>
-                <h3>{partnerProperty[0].desc}</h3>
+          {partnerProperty !== null ? (
+            <div>
+              <p className="text-2xl font-medium">Property Detail</p>
+              <div className="flex mt-7">
+                <img
+                  className="w-2/5 rounded"
+                  src={partnerProperty[0].image}
+                  alt=""
+                />
+                <div className="ml-10">
+                  <h3>{partnerProperty[0].name}</h3>
+                  <h3>{partnerProperty[0].title}</h3>
+                  <h3>{partnerProperty[0].address}</h3>
+                  <h3>{partnerProperty[0].city}</h3>
+                  <h3>{partnerProperty[0].distances}</h3>
+                  <h3>{partnerProperty[0].type}</h3>
+                  <h3>{partnerProperty[0].desc}</h3>
+                </div>
               </div>
-            )}
-          </div>
+            </div>
+          ) : (
+            <h1>no record to show</h1>
+          )}
+
           <Button>Edit Property</Button>
         </Card>
       </ContentContainer>
