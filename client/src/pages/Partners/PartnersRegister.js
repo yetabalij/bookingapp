@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NavBar from "./../../components/NavBar";
+import NavBar from "./../../components/SecondaryNavBar";
 import styled from "styled-components";
 import tw from "twin.macro";
 import EmailComp from "./components/EmailComp";
@@ -19,7 +19,7 @@ const FormContainer = styled.div`
   ${tw`
     absolute 
     `}
-  top:4vh;
+  top:8vh;
   left: 50%;
   transform: translate(-50%, 0);
 `;
