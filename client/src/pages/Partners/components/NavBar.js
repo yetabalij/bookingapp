@@ -47,7 +47,7 @@ const NavBar = () => {
   const partner = JSON.parse(localStorage.getItem("partnerProfile"));
   const PartnerProperty = JSON.parse(localStorage.getItem("partnerProperty"));
   const { username, _id } = partner;
-
+  console.log(partnerProperty);
   const formValue = {
     partnerId: _id,
   };
@@ -86,11 +86,13 @@ const NavBar = () => {
           </Link>
         </NavItemContainer>
         <h3 className="text-lg font-medium">{username}</h3>
-        <img
-          className="w-12 h-12 rounded-full"
-          src={PartnerProperty[0].image}
-          alt="profile"
-        />
+        {PartnerProperty !== null && (
+          <img
+            className="w-12 h-12 rounded-full"
+            src={PartnerProperty[0].image}
+            alt="profile"
+          />
+        )}
         <Button onClick={logoutHandler}>Sign Out</Button>
       </NavBar2>
     </Container>
