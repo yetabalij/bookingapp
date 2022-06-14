@@ -52,7 +52,7 @@ exports.partnerLogin = async (req, res, next) => {
     return res
       .cookie("access_token", token, { httpOnly: true })
       .status(200)
-      .json(otherDetails, token);
+      .json(otherDetails);
   } catch (err) {
     next(err);
   }
