@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setPartnerLogout } from "./../../../redux/features/Partners/partnersAuthSlice";
+import { clearPartnerProperty } from "./../../../redux/features/Properties/propertySlice";
+import { partnerProperty } from "./../../../redux/features/Properties/propertySlice";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
@@ -44,7 +45,7 @@ const Button = styled.button`
 
 const NavBar = () => {
   const partner = JSON.parse(localStorage.getItem("partnerProfile"));
-  const { username, _id } = partner;
+  const { _id } = partner;
 
   const formValue = {
     partnerId: _id,
@@ -53,17 +54,13 @@ const NavBar = () => {
   const dispach = useDispatch();
   const navigate = useNavigate();
 
-  const [partnerProperty, setPartnerProperty] = useState(null);
   useEffect(() => {
-    axios
-      .post("http://localhost:8000/api/hotels/propertybypartner", formValue)
-      .then((res) => {
-        setPartnerProperty(res.data);
-      });
+    dispach(partnerProperty(formValue));
   }, []);
 
   const logoutHandler = () => {
     dispach(setPartnerLogout());
+    dispach(clearPartnerProperty());
     navigate("/partnersignin");
   };
   return (
@@ -86,10 +83,14 @@ const NavBar = () => {
             Finance
           </Link>
         </NavItemContainer>
-        <h3 className="text-lg font-medium">{username}</h3>
-        {partnerProperty !== null && (
-          <h3 className="text-lg font-medium">{partnerProperty[0].name}</h3>
-        )}
+        {/* <h3 className="text-lg font-medium">{username}</h3> */}
+        {/* {partnerProperty !== null && (
+          <img
+            className="w-12 h-12 rounded-full"
+            src={partnerProperty[0].image}
+            alt="profile"
+          />
+        )} */}
         <Button onClick={logoutHandler}>Sign Out</Button>
       </NavBar2>
     </Container>
