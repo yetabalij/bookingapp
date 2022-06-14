@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setPartnerUser } from "./redux/features/Partners/partnersAuthSlice";
+import { setPartnerProperty } from "./redux/features/Properties/propertySlice";
 
 import Home from "./pages/HomePage/Home";
 import Flights from "./pages/Flights";
