@@ -12,9 +12,6 @@ const Container = styled.div`
 `;
 
 const PartnersDashboard = () => {
-  const partnerProperty = JSON.parse(localStorage.getItem("partnerProperty"));
-  console.log(partnerProperty);
-
   return (
     <Container>
       <NavBar />
