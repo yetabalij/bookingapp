@@ -3,7 +3,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { Link } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setPartnerLogout } from "./../../../redux/features/Partners/partnersAuthSlice";
 import { clearPartnerProperty } from "./../../../redux/features/Properties/propertySlice";
 import { partnerProperty } from "./../../../redux/features/Properties/propertySlice";
