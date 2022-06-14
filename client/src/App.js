@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setPartnerUser } from "./redux/features/Partners/partnersAuthSlice";
+import { setPartnerProperty } from "./redux/features/Properties/propertySlice";
 
 import Home from "./pages/HomePage/Home";
 import Flights from "./pages/Flights";
@@ -33,8 +34,10 @@ import Finance from "./pages/Partners/Finance";
 function App() {
   const dispach = useDispatch();
   const partner = JSON.parse(localStorage.getItem("partnerProfile"));
+  const partnerProperty = JSON.parse(localStorage.getItem("partnerProperty"));
   useEffect(() => {
     dispach(setPartnerUser(partner));
+    dispach(setPartnerProperty(partnerProperty));
   }, []);
   return (
     <BrowserRouter>
