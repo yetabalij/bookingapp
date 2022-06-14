@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setPartnerUser } from "./redux/features/Partners/partnersAuthSlice";
+//import { setPartnerProperty } from "./redux/features/Properties/propertySlice";
 
 import Home from "./pages/HomePage/Home";
 import Flights from "./pages/Flights";
@@ -21,13 +22,22 @@ import PartnersHelpCenter from "./pages/Partners/PartnersHelpCenter";
 import PrivacyStatemnt from "./../src/pages/PrivacyStatement/PrivacyStatement";
 import TermsAndConditions from "./../src/pages/TermsAndConditions/TermsAndConditions";
 import PartnersDashboard from "./../src/pages/Partners/PartnersDashboard";
+import Property from "./pages/Properties/Property";
 import Protected from "./components/Protected";
+
+//partner dashboard imports
+import Reservation from "./pages/Partners/Reservation";
+import PropertyDashBoard from "./pages/Partners/Property";
+import Room from "./pages/Partners/Room";
+import Finance from "./pages/Partners/Finance";
 
 function App() {
   const dispach = useDispatch();
   const partner = JSON.parse(localStorage.getItem("partnerProfile"));
+  //const partnerProperty = JSON.parse(localStorage.getItem("partnerProperty"));
   useEffect(() => {
     dispach(setPartnerUser(partner));
+    //dispach(setPartnerProperty(partnerProperty));
   }, []);
   return (
     <BrowserRouter>
@@ -54,6 +64,11 @@ function App() {
         <Route path="/termsandconditions" element={<TermsAndConditions />} />
         <Route element={<Protected partner={partner} />}>
           <Route path="/partnersdashboard" element={<PartnersDashboard />} />
+          <Route path="/createproperty" element={<Property />} />
+          <Route path="/reservation" element={<Reservation />} />
+          <Route path="/propertydashboard" element={<PropertyDashBoard />} />
+          <Route path="/room" element={<Room />} />
+          <Route path="/finance" element={<Finance />} />
         </Route>
       </Routes>
     </BrowserRouter>

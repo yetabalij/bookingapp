@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { partnersLogin } from "./../../redux/features/Partners/partnersAuthSlice";
+import NavBar from "./../../components/SecondaryNavBar";
 
 const Container = styled.div`
   ${tw`
@@ -14,7 +15,7 @@ const FormContainer = styled.div`
   ${tw`
     absolute 
     `}
-  top:4vh;
+  top:18vh;
   left: 50%;
   transform: translate(-50%, 0);
 `;
@@ -62,40 +63,47 @@ const PartnerSignin = () => {
   const navigate = useNavigate();
   const dispach = useDispatch();
   //console.log(fomrValue);
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     dispach(partnersLogin({ formValue, navigate }));
   };
 
   return (
     <div>
       <Container>
+        <NavBar />
         <FormContainer>
-          <p className="text-2xl font-bold mb-5">
-            Sign in to manage your property
-          </p>
-          <label>Email address</label>
-          <br />
-          <Input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="email"
-          />
-          <br />
-          <label>Password</label>
-          <br />
-          <Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="password"
-          />
-          <Button onClick={handleLogin}>Login</Button>
-          <br />
-          <HorizontalLine />
-          <ButtonSignin onClick={() => navigate("/partneregister")}>
-            Create your partner account
-          </ButtonSignin>
+          <form onSubmit={(e) => handleLogin(e)}>
+            <p className="text-2xl font-bold mb-5">
+              Sign in to manage your property
+            </p>
+            <label>Email address</label>
+            <br />
+            <Input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="email"
+            />
+            <br />
+            <label>Password</label>
+            <br />
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="password"
+            />
+            <Button>Login</Button>
+            <br />
+            <HorizontalLine />
+            <ButtonSignin
+              type="submit"
+              onClick={() => navigate("/partneregister")}
+            >
+              Create your partner account
+            </ButtonSignin>
+          </form>
         </FormContainer>
       </Container>
     </div>
