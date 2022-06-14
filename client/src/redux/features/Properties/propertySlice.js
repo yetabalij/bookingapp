@@ -18,6 +18,22 @@ export const createHotel = createAsyncThunk(
   }
 );
 
+export const partnerProperty = createAsyncThunk(
+  "partner/property",
+  async (formValue) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/hotels/propertybypartner",
+        formValue,
+        { withCredentials: true }
+      );
+      return response.data;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+
 const propertySlice = createSlice({
   name: "property",
   initialState: {
@@ -25,7 +41,15 @@ const propertySlice = createSlice({
     error: "",
     loading: "",
   },
-  reducers: {},
+  reducers: {
+    setPartnerProperty: (state, action) => {
+      state.Property = action.payload;
+    },
+    clearPartnerProperty: (state, action) => {
+      localStorage.clear();
+      state.Property = null;
+    },
+  },
   extraReducers: {
     [createHotel.pending]: (state, action) => {
       state.loading = true;
@@ -39,7 +63,25 @@ const propertySlice = createSlice({
       state.loading = false;
       state.error = action.payload.message;
     },
+
+    [partnerProperty.pending]: (state, action) => {
+      state.loading = true;
+    },
+    [partnerProperty.fulfilled]: (state, action) => {
+      state.loading = false;
+      localStorage.setItem(
+        "partnerProperty",
+        JSON.stringify({ ...action.payload })
+      );
+      state.Property = action.payload;
+    },
+    [partnerProperty.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload.message;
+    },
   },
 });
 
+export const { setPartnerProperty, clearPartnerProperty } =
+  propertySlice.actions;
 export default propertySlice.reducer;
