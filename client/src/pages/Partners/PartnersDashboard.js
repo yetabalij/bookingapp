@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 const Container = styled.div`
   ${tw`
     
-    
+
   `}
 `;
 // const LeftContainer = styled.div`
