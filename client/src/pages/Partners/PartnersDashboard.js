@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -16,7 +17,7 @@ const ContentContainer = styled.div`
     md:w-4/5
     2xl:w-3/5
     mx-auto
-    mt-40
+    mt-20
     justify-items-center
   `}
 `;
@@ -45,31 +46,26 @@ const Button = styled.button`
 `;
 
 const PartnersDashboard = () => {
-  const [property, setProperty] = useState(null);
-  useEffect(() => {
-    const partnerProperty = JSON.parse(localStorage.getItem("partnerProperty"));
-    setProperty(partnerProperty);
-  }, []);
-
-  console.log(property);
+  const { Property } = useSelector((state) => ({ ...state.properties }));
+  //console.log(Property);
   return (
     <Container>
       <NavBar />
       <ContentContainer>
         <Card>
-          {property !== null ? (
+          {Property !== null ? (
             <div>
               <p className="text-2xl font-medium">Property Detail</p>
               <div className="flex mt-7">
-                <img className="w-2/5 rounded" src={property[0].image} alt="" />
+                <img className="w-2/5 rounded" src={Property[0].image} alt="" />
                 <div className="ml-10">
-                  <h3>{property[0].name}</h3>
-                  <h3>{property[0].title}</h3>
-                  <h3>{property[0].address}</h3>
-                  <h3>{property[0].city}</h3>
-                  <h3>{property[0].distances}</h3>
-                  <h3>{property[0].type}</h3>
-                  <h3>{property[0].desc}</h3>
+                  <h3>{Property[0].name}</h3>
+                  <h3>{Property[0].title}</h3>
+                  <h3>{Property[0].address}</h3>
+                  <h3>{Property[0].city}</h3>
+                  <h3>{Property[0].distances}</h3>
+                  <h3>{Property[0].type}</h3>
+                  <h3>{Property[0].desc}</h3>
                 </div>
               </div>
             </div>
