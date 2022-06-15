@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { partnerProperty } from "./../../redux/features/Properties/propertySlice";
 
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -46,14 +48,33 @@ const Button = styled.button`
 `;
 
 const PartnersDashboard = () => {
-  const { Property } = useSelector((state) => ({ ...state.properties }));
-  //console.log(Property);
+  //const loading = false;
+  const { Property, loading } = useSelector((state) => ({
+    ...state.properties,
+  }));
+  //const Property = JSON.parse(localStorage.getItem("partnerProperty"));
+  const partner = JSON.parse(localStorage.getItem("partnerProfile"));
+
+  const { username, _id } = partner;
+  //console.log(partnerProperty);
+  const formValue = {
+    partnerId: _id,
+  };
+
+  const dispach = useDispatch();
+
+  useEffect(() => {
+    dispach(partnerProperty(formValue));
+  }, []);
+  console.log(partner);
   return (
     <Container>
       <NavBar />
       <ContentContainer>
         <Card>
-          {Property !== null ? (
+          {loading === true ? (
+            <h1>...Loading</h1>
+          ) : Property !== null ? (
             <div>
               <p className="text-2xl font-medium">Property Detail</p>
               <div className="flex mt-7">

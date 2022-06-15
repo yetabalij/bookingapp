@@ -45,19 +45,11 @@ const Button = styled.button`
 
 const NavBar = () => {
   const partner = JSON.parse(localStorage.getItem("partnerProfile"));
-  const PartnerProperty = JSON.parse(localStorage.getItem("partnerProperty"));
-  const { username, _id } = partner;
-  //console.log(partnerProperty);
-  const formValue = {
-    partnerId: _id,
-  };
+  const PProperty = JSON.parse(localStorage.getItem("partnerProperty"));
+  const { username } = partner;
 
   const dispach = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    dispach(partnerProperty(formValue));
-  }, []);
 
   const logoutHandler = () => {
     dispach(setPartnerLogout());
@@ -86,10 +78,10 @@ const NavBar = () => {
           </Link>
         </NavItemContainer>
         <h3 className="text-lg font-medium">{username}</h3>
-        {PartnerProperty !== null && (
+        {PProperty !== null && (
           <img
             className="w-12 h-12 rounded-full"
-            src={PartnerProperty[0].image}
+            src={PProperty[0].image}
             alt="profile"
           />
         )}
