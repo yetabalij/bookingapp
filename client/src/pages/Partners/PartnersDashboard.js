@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import styled from "styled-components";
@@ -47,7 +46,6 @@ const Button = styled.button`
 
 const PartnersDashboard = () => {
   const { Property } = useSelector((state) => ({ ...state.properties }));
-  //console.log(Property);
   return (
     <Container>
       <NavBar />
@@ -57,15 +55,19 @@ const PartnersDashboard = () => {
             <div>
               <p className="text-2xl font-medium">Property Detail</p>
               <div className="flex mt-7">
-                <img className="w-2/5 rounded" src={Property[0].image} alt="" />
+                <img
+                  className="w-2/5 rounded"
+                  src={Property[0]?.image}
+                  alt=""
+                />
                 <div className="ml-10">
-                  <h3>{Property[0].name}</h3>
-                  <h3>{Property[0].title}</h3>
-                  <h3>{Property[0].address}</h3>
-                  <h3>{Property[0].city}</h3>
-                  <h3>{Property[0].distances}</h3>
-                  <h3>{Property[0].type}</h3>
-                  <h3>{Property[0].desc}</h3>
+                  <h3>{Property[0]?.name}</h3>
+                  <h3>{Property[0]?.title}</h3>
+                  <h3>{Property[0]?.address}</h3>
+                  <h3>{Property[0]?.city}</h3>
+                  <h3>{Property[0]?.distances}</h3>
+                  <h3>{Property[0]?.type}</h3>
+                  <h3>{Property[0]?.desc}</h3>
                 </div>
               </div>
             </div>
