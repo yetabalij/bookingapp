@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Link } from "react-router-dom";
@@ -44,20 +45,18 @@ const Button = styled.button`
 `;
 
 const NavBar = () => {
-  const partner = JSON.parse(localStorage.getItem("partnerProfile"));
-  const PartnerProperty = JSON.parse(localStorage.getItem("partnerProperty"));
-  const { username, _id } = partner;
-  //console.log(partnerProperty);
-  const formValue = {
-    partnerId: _id,
-  };
+  const { Partners } = useSelector((state) => ({ ...state.partnersAuth }));
+  const { Property } = useSelector((state) => ({ ...state.properties }));
 
+  const formValue = {
+    partnerId: Partners?._id,
+  };
   const dispach = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     dispach(partnerProperty(formValue));
-  }, []);
+  }, [Partners?._id]);
 
   const logoutHandler = () => {
     dispach(setPartnerLogout());
@@ -85,11 +84,14 @@ const NavBar = () => {
             Finance
           </Link>
         </NavItemContainer>
-        <h3 className="text-lg font-medium">{username}</h3>
-        {PartnerProperty !== null && (
+        {Partners !== null && (
+          <h3 className="text-lg font-medium">{Partners.username}</h3>
+        )}
+
+        {Property !== null && (
           <img
             className="w-12 h-12 rounded-full"
-            src={PartnerProperty[0].image}
+            src={Property[0]?.image}
             alt="profile"
           />
         )}
