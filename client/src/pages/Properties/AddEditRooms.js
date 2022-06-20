@@ -32,9 +32,25 @@ const Card = styled.div`
 `}
   box-shadow: rgba(50, 50, 93, 0.25) 0px 1px 2px 1px, rgba(0, 0, 0, 0.3) 0px 1px 1px -1px;
 `;
-const Input = styled.input`
+const Select = styled.select`
+  ${tw`
+  w-full
+  p-1
+  mb-3
+  `}
+  border: 1px solid gray;
+`;
+const InputCheck = styled.input`
   ${tw`
   ml-5
+  `}
+  border: 1px solid gray;
+`;
+const Input = styled.input`
+  ${tw`
+  w-full
+  p-1
+  mb-3
   `}
   border: 1px solid gray;
 `;
@@ -66,16 +82,13 @@ const Rooms = () => {
               <p className="text-2xl font-bold mb-5">Price and Layout</p>
               <label>Room Type</label>
               <br />
-              <Input
-              //type="email"
-              //value={email}
-              //onChange={(e) => setEmail(e.target.value)}
-              //placeholder="email"
-              />
+              <Select>
+                <option>Hello</option>
+              </Select>
               <br />
               <label>Room Name</label>
               <br />
-              <Input
+              <Select
               //type="email"
               //value={email}
               //onChange={(e) => setEmail(e.target.value)}
@@ -106,7 +119,7 @@ const Rooms = () => {
               <p className="text-2xl font-bold mb-5">Facilities</p>
               <label>Parking</label>
               <br />
-              <Input
+              <Select
               //type="email"
               //value={email}
               //onChange={(e) => setEmail(e.target.value)}
@@ -115,7 +128,7 @@ const Rooms = () => {
               <br />
               <label>Breakfast</label>
               <br />
-              <Input
+              <Select
               //type="email"
               //value={email}
               //onChange={(e) => setEmail(e.target.value)}
@@ -124,16 +137,7 @@ const Rooms = () => {
               <br />
               <label>Language</label>
               <br />
-              <Input
-              //type="email"
-              //value={email}
-              //onChange={(e) => setEmail(e.target.value)}
-              //placeholder="email"
-              />
-              <br />
-              <label>Price</label>
-              <br />
-              <Input
+              <Select
               //type="email"
               //value={email}
               //onChange={(e) => setEmail(e.target.value)}
@@ -150,7 +154,7 @@ const Rooms = () => {
                 <div className="flex items-center justify-start">
                   <label>Free wifi</label>
                   <br />
-                  <Input
+                  <InputCheck
                     type="checkbox"
                     //type="email"
                     //value={email}
@@ -160,9 +164,9 @@ const Rooms = () => {
                 </div>
                 <br />
                 <div className="flex items-center justify-start">
-                  <label>Room Name</label>
+                  <label>Restaurant</label>
                   <br />
-                  <Input
+                  <InputCheck
                     type="checkbox"
                     //type="email"
                     //value={email}
@@ -172,9 +176,9 @@ const Rooms = () => {
                 </div>
                 <br />
                 <div className="flex items-center justify-start">
-                  <label>Room Name</label>
+                  <label>Room Service</label>
                   <br />
-                  <Input
+                  <InputCheck
                     type="checkbox"
                     //type="email"
                     //value={email}
@@ -184,9 +188,9 @@ const Rooms = () => {
                 </div>
                 <br />
                 <div className="flex items-center justify-start">
-                  <label>Room Name</label>
+                  <label>24-hours front desk</label>
                   <br />
-                  <Input
+                  <InputCheck
                     type="checkbox"
                     //type="email"
                     //value={email}
@@ -194,10 +198,11 @@ const Rooms = () => {
                     //placeholder="email"
                   />
                 </div>
+                <br />
                 <div className="flex items-center justify-start">
-                  <label>Room Name</label>
+                  <label>Bar Facilities</label>
                   <br />
-                  <Input
+                  <InputCheck
                     type="checkbox"
                     //type="email"
                     //value={email}
@@ -208,9 +213,9 @@ const Rooms = () => {
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center justify-start">
-                  <label>Free wifi</label>
+                  <label>None Smoking Rooms</label>
                   <br />
-                  <Input
+                  <InputCheck
                     type="checkbox"
                     //type="email"
                     //value={email}
@@ -220,9 +225,9 @@ const Rooms = () => {
                 </div>
                 <br />
                 <div className="flex items-center justify-start">
-                  <label>Room Name</label>
+                  <label>Spa & Wellness Center</label>
                   <br />
-                  <Input
+                  <InputCheck
                     type="checkbox"
                     //type="email"
                     //value={email}
@@ -232,9 +237,9 @@ const Rooms = () => {
                 </div>
                 <br />
                 <div className="flex items-center justify-start">
-                  <label>Room Name</label>
+                  <label>Hot tube && Jacuzzi</label>
                   <br />
-                  <Input
+                  <InputCheck
                     type="checkbox"
                     //type="email"
                     //value={email}
@@ -244,9 +249,9 @@ const Rooms = () => {
                 </div>
                 <br />
                 <div className="flex items-center justify-start">
-                  <label>Room Name</label>
+                  <label>Air Conditioning</label>
                   <br />
-                  <Input
+                  <InputCheck
                     type="checkbox"
                     //type="email"
                     //value={email}
@@ -254,10 +259,11 @@ const Rooms = () => {
                     //placeholder="email"
                   />
                 </div>
+                <br />
                 <div className="flex items-center justify-start">
-                  <label>Room Name</label>
+                  <label>Sauna</label>
                   <br />
-                  <Input
+                  <InputCheck
                     type="checkbox"
                     //type="email"
                     //value={email}
@@ -268,7 +274,12 @@ const Rooms = () => {
               </div>
             </div>
           </Card>
-          <Card>Photo</Card>
+          <Card>
+            <div className=" w-4/6 ml-[auto] mr-[auto]">
+              Photo
+              <Input type="file"></Input>
+            </div>
+          </Card>
           <Card>
             <Button type="submit">Add Room</Button>
           </Card>
