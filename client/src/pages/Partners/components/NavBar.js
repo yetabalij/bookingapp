@@ -46,10 +46,18 @@ const Button = styled.button`
 const NavBar = () => {
   const partner = JSON.parse(localStorage.getItem("partnerProfile"));
   const PProperty = JSON.parse(localStorage.getItem("partnerProperty"));
-  const { username } = partner;
+  const { username, _id } = partner;
+  //console.log(partnerProperty);
+  const formValue = {
+    partnerId: _id,
+  };
 
   const dispach = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    dispach(partnerProperty(formValue));
+  }, []);
 
   const logoutHandler = () => {
     dispach(setPartnerLogout());

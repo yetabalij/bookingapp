@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { partnerProperty } from "./../../redux/features/Properties/propertySlice";
 
 import styled from "styled-components";
 import tw from "twin.macro";
 
 import NavBar from "./components/NavBar";
+import Test from "./Test";
 
 const Container = styled.div`
   ${tw`
@@ -48,25 +47,15 @@ const Button = styled.button`
 `;
 
 const PartnersDashboard = () => {
+  useEffect(() => {
+    console.log("ok");
+  }, []);
   //const loading = false;
   const { Property, loading } = useSelector((state) => ({
     ...state.properties,
   }));
   //const Property = JSON.parse(localStorage.getItem("partnerProperty"));
-  const partner = JSON.parse(localStorage.getItem("partnerProfile"));
 
-  const { username, _id } = partner;
-  //console.log(partnerProperty);
-  const formValue = {
-    partnerId: _id,
-  };
-
-  const dispach = useDispatch();
-
-  useEffect(() => {
-    dispach(partnerProperty(formValue));
-  }, []);
-  console.log(partner);
   return (
     <Container>
       <NavBar />
@@ -78,7 +67,7 @@ const PartnersDashboard = () => {
             <div>
               <p className="text-2xl font-medium">Property Detail</p>
               <div className="flex mt-7">
-                <img className="w-2/5 rounded" src={Property[0].image} alt="" />
+                {/* <img className="w-2/5 rounded" src={imageVal} alt="" /> */}
                 <div className="ml-10">
                   <h3>{Property[0].name}</h3>
                   <h3>{Property[0].title}</h3>

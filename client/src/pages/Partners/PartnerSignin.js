@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -62,7 +62,7 @@ const PartnerSignin = () => {
   };
   const navigate = useNavigate();
   const dispach = useDispatch();
-  //console.log(fomrValue);
+  //console.log(formValue);
   const handleLogin = (e) => {
     e.preventDefault();
     dispach(partnersLogin({ formValue, navigate }));
@@ -93,6 +93,7 @@ const PartnerSignin = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="password"
+              autoComplete="true"
             />
             <Button>Login</Button>
             <br />
