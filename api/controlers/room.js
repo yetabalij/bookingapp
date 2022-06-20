@@ -59,7 +59,7 @@ exports.getRoom = async (req, res, next) => {
 //GET ALL HOTELS
 exports.getAllRoom = async (req, res, next) => {
   try {
-    const rooms = await Room.find(req.params.id);
+    const rooms = await Room.find();
     res.status(200).json(rooms);
   } catch (err) {
     next(err);
