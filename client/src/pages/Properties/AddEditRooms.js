@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -114,31 +115,37 @@ const Rooms = () => {
     sauna: sauna,
   };
 
-  const onClearHandler = () => {
-    setRoomType("");
-    setMaxNumber("");
-    setNumberOfRooms("");
-    setPrice("");
-    setParking("");
-    setBreakFast("");
-    setLanguage("");
-    setFreeWifi(!freeWifi);
-    // restaurant: restaurant,
-    // roomService: roomService,
-    // frontDesk: frontDesk,
-    // bar: bar,
-    // smoking: smoking,
-    // spa: spa,
-    // hotTube: hotTube,
-    // airConditioning: airConditioning,
-    // sauna: sauna,
-  };
+  // const onClearHandler = () => {
+  //   setRoomType("");
+  //   setMaxNumber("");
+  //   setNumberOfRooms("");
+  //   setPrice("");
+  //   setParking("");
+  //   setBreakFast("");
+  //   setLanguage("");
+  //   setFreeWifi(!freeWifi);
+  //   // restaurant: restaurant,
+  //   // roomService: roomService,
+  //   // frontDesk: frontDesk,
+  //   // bar: bar,
+  //   // smoking: smoking,
+  //   // spa: spa,
+  //   // hotTube: hotTube,
+  //   // airConditioning: airConditioning,
+  //   // sauna: sauna,
+  // };
 
   const navigate = useNavigate();
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(formValue);
+    axios.post("http://localhost:8000/api/rooms/create", formValue);
+    // .then((res) => console.log(res.data))
+    // .catch((error) => {
+    //   console.log(error);
+    // });
+    navigate("/room");
   };
+
   return (
     <Container>
       <NavBar />
@@ -344,9 +351,7 @@ const Rooms = () => {
             </div>
           </Card>
           <Card>
-            <Button onClick={onClearHandler} type="submit">
-              Add Room
-            </Button>
+            <Button type="submit">Add Room</Button>
           </Card>
         </form>
       </ContentContainer>
