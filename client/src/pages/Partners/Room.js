@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
@@ -45,7 +46,18 @@ const Button = styled.button`
 `;
 
 const Room = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/rooms/")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   const navigate = useNavigate();
+
   return (
     <div>
       <Container>
@@ -53,6 +65,14 @@ const Room = () => {
         <ContentContainer>
           <Card>
             Room
+            {data !== null &&
+              data.map((item) => {
+                return (
+                  <Card key={item?._id}>
+                    <h1>ok</h1>
+                  </Card>
+                );
+              })}
             <Button onClick={() => navigate("/addeditrooms")}>
               Add Another Room
             </Button>
