@@ -114,6 +114,26 @@ const Rooms = () => {
     sauna: sauna,
   };
 
+  const onClearHandler = () => {
+    setRoomType("");
+    setMaxNumber("");
+    setNumberOfRooms("");
+    setPrice("");
+    setParking("");
+    setBreakFast("");
+    setLanguage("");
+    setFreeWifi(!freeWifi);
+    // restaurant: restaurant,
+    // roomService: roomService,
+    // frontDesk: frontDesk,
+    // bar: bar,
+    // smoking: smoking,
+    // spa: spa,
+    // hotTube: hotTube,
+    // airConditioning: airConditioning,
+    // sauna: sauna,
+  };
+
   const navigate = useNavigate();
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -324,7 +344,9 @@ const Rooms = () => {
             </div>
           </Card>
           <Card>
-            <Button type="submit">Add Room</Button>
+            <Button onClick={onClearHandler} type="submit">
+              Add Room
+            </Button>
           </Card>
         </form>
       </ContentContainer>
