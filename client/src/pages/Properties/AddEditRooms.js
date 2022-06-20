@@ -89,7 +89,7 @@ const Rooms = () => {
     roomType: roomType,
     maxNumber: Number(maxNumber),
     numberOfRooms: Number(numberOfRooms),
-    price: price,
+    price: Number(price),
     parking: parking,
     breakfast: breakfast,
     language: language,
