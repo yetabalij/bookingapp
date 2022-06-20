@@ -2,31 +2,81 @@ const mongoose = require("mongoose");
 
 const roomSchema = mongoose.Schema(
   {
-    title: {
+    hotel: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Hotel",
+    },
+    roomType: {
       type: String,
+      required: true,
+    },
+    maxNumber: {
+      type: Number,
+      required: true,
+    },
+    numberOfRooms: {
+      type: Number,
       required: true,
     },
     price: {
       type: Number,
       required: true,
     },
-    maxPeople: {
-      type: Number,
-      required: true,
-    },
-    desc: {
+    parking: {
       type: String,
-      required: true,
+      default: "No",
     },
-    hotel: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Hotel",
+    breakfast: {
+      type: String,
+      default: "No",
     },
-    checkIn: {
-      type: Date,
+    language: {
+      type: String,
+      default: "English",
     },
-    checkOut: {
-      type: Date,
+    freeWifi: {
+      type: Boolean,
+      default: false,
+    },
+    restaurant: {
+      type: Boolean,
+      default: false,
+    },
+    roomService: {
+      type: Boolean,
+      default: false,
+    },
+    frontDesk: {
+      type: Boolean,
+      default: false,
+    },
+    bar: {
+      type: Boolean,
+      default: false,
+    },
+    smoking: {
+      type: Boolean,
+      default: false,
+    },
+    spa: {
+      type: Boolean,
+      default: false,
+    },
+    hotTube: {
+      type: Boolean,
+      default: false,
+    },
+    airConditioning: {
+      type: Boolean,
+      default: false,
+    },
+    sauna: {
+      type: Boolean,
+      default: false,
+    },
+    isReserved: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }
