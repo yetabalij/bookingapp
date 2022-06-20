@@ -83,12 +83,19 @@ const Rooms = () => {
               <label>Room Type</label>
               <br />
               <Select>
-                <option>Hello</option>
+                <option>Single</option>
+                <option>Double</option>
+                <option>Twin</option>
+                <option>Triple</option>
+                <option>Quad</option>
+                <option>Family</option>
+                <option>Suite</option>
+                <option>Studio</option>
               </Select>
               <br />
-              <label>Room Name</label>
+              <label>Maximun Number To Stay</label>
               <br />
-              <Select
+              <Input
               //type="email"
               //value={email}
               //onChange={(e) => setEmail(e.target.value)}
@@ -124,7 +131,10 @@ const Rooms = () => {
               //value={email}
               //onChange={(e) => setEmail(e.target.value)}
               //placeholder="email"
-              />
+              >
+                <option>Yes</option>
+                <option>No</option>
+              </Select>
               <br />
               <label>Breakfast</label>
               <br />
@@ -133,7 +143,10 @@ const Rooms = () => {
               //value={email}
               //onChange={(e) => setEmail(e.target.value)}
               //placeholder="email"
-              />
+              >
+                <option>Yes</option>
+                <option>No</option>
+              </Select>
               <br />
               <label>Language</label>
               <br />
@@ -142,7 +155,10 @@ const Rooms = () => {
               //value={email}
               //onChange={(e) => setEmail(e.target.value)}
               //placeholder="email"
-              />
+              >
+                <option>Yes</option>
+                <option>No</option>
+              </Select>
             </div>
           </Card>
           <Card>
