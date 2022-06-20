@@ -28,6 +28,7 @@ import Protected from "./components/Protected";
 import Reservation from "./pages/Partners/Reservation";
 import Room from "./pages/Partners/Room";
 import Finance from "./pages/Partners/Finance";
+import AddEditRooms from "./pages/Properties/AddEditRooms";
 
 function App() {
   const dispach = useDispatch();
@@ -64,6 +65,7 @@ function App() {
           <Route path="/reservation" element={<Reservation />} />
           <Route path="/room" element={<Room />} />
           <Route path="/finance" element={<Finance />} />
+          <Route path="/addeditrooms" element={<AddEditRooms />} />
         </Route>
       </Routes>
     </BrowserRouter>

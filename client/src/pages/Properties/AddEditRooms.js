@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { useNavigate } from "react-router-dom";
 
-import NavBar from "./components/NavBar";
+import NavBar from "./../Partners/components/NavBar";
 
 const Container = styled.div`
   ${tw`
@@ -44,23 +43,15 @@ const Button = styled.button`
     `}
 `;
 
-const Room = () => {
-  const navigate = useNavigate();
+const Rooms = () => {
   return (
-    <div>
-      <Container>
-        <NavBar />
-        <ContentContainer>
-          <Card>
-            Room
-            <Button onClick={() => navigate("/addeditrooms")}>
-              Add Another Room
-            </Button>
-          </Card>
-        </ContentContainer>
-      </Container>
-    </div>
+    <Container>
+      <NavBar />
+      <ContentContainer>
+        <Card>Add Room</Card>
+      </ContentContainer>
+    </Container>
   );
 };
 
-export default Room;
+export default Rooms;
