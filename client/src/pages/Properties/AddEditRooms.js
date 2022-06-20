@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import NavBar from "./../Partners/components/NavBar";
 
@@ -67,6 +68,8 @@ const Button = styled.button`
 `;
 
 const Rooms = () => {
+  const { Property } = useSelector((state) => ({ ...state.properties }));
+  const [hotel, setHotel] = useState("");
   const [roomType, setRoomType] = useState("");
   const [maxNumber, setMaxNumber] = useState("");
   const [numberOfRooms, setNumberOfRooms] = useState("");
@@ -85,7 +88,13 @@ const Rooms = () => {
   const [airConditioning, setAirConditioning] = useState(false);
   const [sauna, setSauna] = useState(false);
 
+  useEffect(() => {
+    if (Property !== null) {
+      setHotel(Property[0]?._id);
+    }
+  }, [Property]);
   const formValue = {
+    hotel: hotel,
     roomType: roomType,
     maxNumber: Number(maxNumber),
     numberOfRooms: Number(numberOfRooms),
