@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { useNavigate } from "react-router-dom";
 
 import NavBar from "./../Partners/components/NavBar";
 
@@ -31,6 +32,12 @@ const Card = styled.div`
 `}
   box-shadow: rgba(50, 50, 93, 0.25) 0px 1px 2px 1px, rgba(0, 0, 0, 0.3) 0px 1px 1px -1px;
 `;
+const Input = styled.input`
+  ${tw`
+  ml-5
+  `}
+  border: 1px solid gray;
+`;
 const Button = styled.button`
   ${tw`
     bg-secondary-color
@@ -44,11 +51,228 @@ const Button = styled.button`
 `;
 
 const Rooms = () => {
+  const navigate = useNavigate();
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    alert("hello");
+  };
   return (
     <Container>
       <NavBar />
       <ContentContainer>
-        <Card>Add Room</Card>
+        <form onSubmit={onSubmitHandler}>
+          <Card>
+            <div className="w-4/6 ml-[auto] mr-[auto]">
+              <p className="text-2xl font-bold mb-5">Price and Layout</p>
+              <label>Room Type</label>
+              <br />
+              <Input
+              //type="email"
+              //value={email}
+              //onChange={(e) => setEmail(e.target.value)}
+              //placeholder="email"
+              />
+              <br />
+              <label>Room Name</label>
+              <br />
+              <Input
+              //type="email"
+              //value={email}
+              //onChange={(e) => setEmail(e.target.value)}
+              //placeholder="email"
+              />
+              <br />
+              <label>Number of Rooms</label>
+              <br />
+              <Input
+              //type="email"
+              //value={email}
+              //onChange={(e) => setEmail(e.target.value)}
+              //placeholder="email"
+              />
+              <br />
+              <label>Price</label>
+              <br />
+              <Input
+              //type="email"
+              //value={email}
+              //onChange={(e) => setEmail(e.target.value)}
+              //placeholder="email"
+              />
+            </div>
+          </Card>
+          <Card>
+            <div className="w-4/6 ml-[auto] mr-[auto]">
+              <p className="text-2xl font-bold mb-5">Facilities</p>
+              <label>Parking</label>
+              <br />
+              <Input
+              //type="email"
+              //value={email}
+              //onChange={(e) => setEmail(e.target.value)}
+              //placeholder="email"
+              />
+              <br />
+              <label>Breakfast</label>
+              <br />
+              <Input
+              //type="email"
+              //value={email}
+              //onChange={(e) => setEmail(e.target.value)}
+              //placeholder="email"
+              />
+              <br />
+              <label>Language</label>
+              <br />
+              <Input
+              //type="email"
+              //value={email}
+              //onChange={(e) => setEmail(e.target.value)}
+              //placeholder="email"
+              />
+              <br />
+              <label>Price</label>
+              <br />
+              <Input
+              //type="email"
+              //value={email}
+              //onChange={(e) => setEmail(e.target.value)}
+              //placeholder="email"
+              />
+            </div>
+          </Card>
+          <Card>
+            <p className="text-2xl font-bold mb-5 w-4/6 ml-[auto] mr-[auto]">
+              Popular facilities with gusts
+            </p>
+            <div className="w-4/6 ml-[auto] mr-[auto] grid grid-cols-2 gap-2 content-center items-center">
+              <div className="flex flex-col">
+                <div className="flex items-center justify-start">
+                  <label>Free wifi</label>
+                  <br />
+                  <Input
+                    type="checkbox"
+                    //type="email"
+                    //value={email}
+                    //onChange={(e) => setEmail(e.target.value)}
+                    //placeholder="email"
+                  />
+                </div>
+                <br />
+                <div className="flex items-center justify-start">
+                  <label>Room Name</label>
+                  <br />
+                  <Input
+                    type="checkbox"
+                    //type="email"
+                    //value={email}
+                    //onChange={(e) => setEmail(e.target.value)}
+                    //placeholder="email"
+                  />
+                </div>
+                <br />
+                <div className="flex items-center justify-start">
+                  <label>Room Name</label>
+                  <br />
+                  <Input
+                    type="checkbox"
+                    //type="email"
+                    //value={email}
+                    //onChange={(e) => setEmail(e.target.value)}
+                    //placeholder="email"
+                  />
+                </div>
+                <br />
+                <div className="flex items-center justify-start">
+                  <label>Room Name</label>
+                  <br />
+                  <Input
+                    type="checkbox"
+                    //type="email"
+                    //value={email}
+                    //onChange={(e) => setEmail(e.target.value)}
+                    //placeholder="email"
+                  />
+                </div>
+                <div className="flex items-center justify-start">
+                  <label>Room Name</label>
+                  <br />
+                  <Input
+                    type="checkbox"
+                    //type="email"
+                    //value={email}
+                    //onChange={(e) => setEmail(e.target.value)}
+                    //placeholder="email"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <div className="flex items-center justify-start">
+                  <label>Free wifi</label>
+                  <br />
+                  <Input
+                    type="checkbox"
+                    //type="email"
+                    //value={email}
+                    //onChange={(e) => setEmail(e.target.value)}
+                    //placeholder="email"
+                  />
+                </div>
+                <br />
+                <div className="flex items-center justify-start">
+                  <label>Room Name</label>
+                  <br />
+                  <Input
+                    type="checkbox"
+                    //type="email"
+                    //value={email}
+                    //onChange={(e) => setEmail(e.target.value)}
+                    //placeholder="email"
+                  />
+                </div>
+                <br />
+                <div className="flex items-center justify-start">
+                  <label>Room Name</label>
+                  <br />
+                  <Input
+                    type="checkbox"
+                    //type="email"
+                    //value={email}
+                    //onChange={(e) => setEmail(e.target.value)}
+                    //placeholder="email"
+                  />
+                </div>
+                <br />
+                <div className="flex items-center justify-start">
+                  <label>Room Name</label>
+                  <br />
+                  <Input
+                    type="checkbox"
+                    //type="email"
+                    //value={email}
+                    //onChange={(e) => setEmail(e.target.value)}
+                    //placeholder="email"
+                  />
+                </div>
+                <div className="flex items-center justify-start">
+                  <label>Room Name</label>
+                  <br />
+                  <Input
+                    type="checkbox"
+                    //type="email"
+                    //value={email}
+                    //onChange={(e) => setEmail(e.target.value)}
+                    //placeholder="email"
+                  />
+                </div>
+              </div>
+            </div>
+          </Card>
+          <Card>Photo</Card>
+          <Card>
+            <Button type="submit">Add Room</Button>
+          </Card>
+        </form>
       </ContentContainer>
     </Container>
   );
