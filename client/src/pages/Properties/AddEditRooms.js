@@ -115,34 +115,10 @@ const Rooms = () => {
     sauna: sauna,
   };
 
-  // const onClearHandler = () => {
-  //   setRoomType("");
-  //   setMaxNumber("");
-  //   setNumberOfRooms("");
-  //   setPrice("");
-  //   setParking("");
-  //   setBreakFast("");
-  //   setLanguage("");
-  //   setFreeWifi(!freeWifi);
-  //   // restaurant: restaurant,
-  //   // roomService: roomService,
-  //   // frontDesk: frontDesk,
-  //   // bar: bar,
-  //   // smoking: smoking,
-  //   // spa: spa,
-  //   // hotTube: hotTube,
-  //   // airConditioning: airConditioning,
-  //   // sauna: sauna,
-  // };
-
   const navigate = useNavigate();
   const onSubmitHandler = (e) => {
     e.preventDefault();
     axios.post("http://localhost:8000/api/rooms/create", formValue);
-    // .then((res) => console.log(res.data))
-    // .catch((error) => {
-    //   console.log(error);
-    // });
     navigate("/room");
   };
 
