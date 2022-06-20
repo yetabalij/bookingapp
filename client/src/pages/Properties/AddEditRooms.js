@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { useNavigate } from "react-router-dom";
@@ -67,10 +67,48 @@ const Button = styled.button`
 `;
 
 const Rooms = () => {
+  const [roomType, setRoomType] = useState("");
+  const [maxNumber, setMaxNumber] = useState("");
+  const [numberOfRooms, setNumberOfRooms] = useState("");
+  const [price, setPrice] = useState("");
+  const [parking, setParking] = useState("");
+  const [breakfast, setBreakFast] = useState("");
+  const [language, setLanguage] = useState("");
+  const [freeWifi, setFreeWifi] = useState(false);
+  const [restaurant, setRestaurant] = useState(false);
+  const [roomService, setRoomService] = useState(false);
+  const [frontDesk, setFrontDesk] = useState(false);
+  const [bar, setBar] = useState(false);
+  const [smoking, setSmoking] = useState(false);
+  const [spa, setSpa] = useState(false);
+  const [hotTube, setHoteTube] = useState(false);
+  const [airConditioning, setAirConditioning] = useState(false);
+  const [sauna, setSauna] = useState(false);
+
+  const formValue = {
+    roomType: roomType,
+    maxNumber: Number(maxNumber),
+    numberOfRooms: Number(numberOfRooms),
+    price: price,
+    parking: parking,
+    breakfast: breakfast,
+    language: language,
+    freeWifi: freeWifi,
+    restaurant: restaurant,
+    roomService: roomService,
+    frontDesk: frontDesk,
+    bar: bar,
+    smoking: smoking,
+    spa: spa,
+    hotTube: hotTube,
+    airConditioning: airConditioning,
+    sauna: sauna,
+  };
+
   const navigate = useNavigate();
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    alert("hello");
+    console.log(formValue);
   };
   return (
     <Container>
@@ -82,7 +120,7 @@ const Rooms = () => {
               <p className="text-2xl font-bold mb-5">Price and Layout</p>
               <label>Room Type</label>
               <br />
-              <Select onChange={(e) => console.log(e.target.value)}>
+              <Select onChange={(e) => setRoomType(e.target.value)}>
                 <option value="" disabled selected>
                   Select your option
                 </option>
@@ -99,28 +137,28 @@ const Rooms = () => {
               <label>Maximun Number To Stay</label>
               <br />
               <Input
-              //type="email"
-              //value={email}
-              //onChange={(e) => setEmail(e.target.value)}
-              //placeholder="email"
+                type="text"
+                value={maxNumber}
+                onChange={(e) => setMaxNumber(e.target.value)}
+                placeholder="Maximum Number to Stay"
               />
               <br />
               <label>Number of Rooms</label>
               <br />
               <Input
-              //type="email"
-              //value={email}
-              //onChange={(e) => setEmail(e.target.value)}
-              //placeholder="email"
+                type="text"
+                value={numberOfRooms}
+                onChange={(e) => setNumberOfRooms(e.target.value)}
+                placeholder="Number of Rooms"
               />
               <br />
               <label>Price</label>
               <br />
               <Input
-              //type="email"
-              //value={email}
-              //onChange={(e) => setEmail(e.target.value)}
-              //placeholder="email"
+                type="text"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                placeholder="Price"
               />
             </div>
           </Card>
@@ -129,12 +167,7 @@ const Rooms = () => {
               <p className="text-2xl font-bold mb-5">Facilities</p>
               <label>Parking</label>
               <br />
-              <Select
-              //type="email"
-              //value={email}
-              //onChange={(e) => setEmail(e.target.value)}
-              //placeholder="email"
-              >
+              <Select onChange={(e) => setParking(e.target.value)}>
                 <option value="" disabled selected>
                   Select your option
                 </option>
@@ -144,12 +177,7 @@ const Rooms = () => {
               <br />
               <label>Breakfast</label>
               <br />
-              <Select
-              //type="email"
-              //value={email}
-              //onChange={(e) => setEmail(e.target.value)}
-              //placeholder="email"
-              >
+              <Select onChange={(e) => setBreakFast(e.target.value)}>
                 <option value="" disabled selected>
                   Select your option
                 </option>
@@ -159,12 +187,7 @@ const Rooms = () => {
               <br />
               <label>Language</label>
               <br />
-              <Select
-              //type="email"
-              //value={email}
-              //onChange={(e) => setEmail(e.target.value)}
-              //placeholder="email"
-              >
+              <Select onChange={(e) => setLanguage(e.target.value)}>
                 <option value="" disabled selected>
                   Select your option
                 </option>
@@ -187,10 +210,8 @@ const Rooms = () => {
                   <br />
                   <InputCheck
                     type="checkbox"
-                    //type="email"
-                    //value={email}
-                    //onChange={(e) => setEmail(e.target.value)}
-                    //placeholder="email"
+                    value={freeWifi}
+                    onChange={() => setFreeWifi(!freeWifi)}
                   />
                 </div>
                 <br />
@@ -199,10 +220,8 @@ const Rooms = () => {
                   <br />
                   <InputCheck
                     type="checkbox"
-                    //type="email"
-                    //value={email}
-                    //onChange={(e) => setEmail(e.target.value)}
-                    //placeholder="email"
+                    value={restaurant}
+                    onChange={() => setRestaurant(!restaurant)}
                   />
                 </div>
                 <br />
@@ -211,10 +230,8 @@ const Rooms = () => {
                   <br />
                   <InputCheck
                     type="checkbox"
-                    //type="email"
-                    //value={email}
-                    //onChange={(e) => setEmail(e.target.value)}
-                    //placeholder="email"
+                    value={roomService}
+                    onChange={() => setRoomService(!roomService)}
                   />
                 </div>
                 <br />
@@ -223,10 +240,8 @@ const Rooms = () => {
                   <br />
                   <InputCheck
                     type="checkbox"
-                    //type="email"
-                    //value={email}
-                    //onChange={(e) => setEmail(e.target.value)}
-                    //placeholder="email"
+                    value={frontDesk}
+                    onChange={() => setFrontDesk(!frontDesk)}
                   />
                 </div>
                 <br />
@@ -235,10 +250,8 @@ const Rooms = () => {
                   <br />
                   <InputCheck
                     type="checkbox"
-                    //type="email"
-                    //value={email}
-                    //onChange={(e) => setEmail(e.target.value)}
-                    //placeholder="email"
+                    value={bar}
+                    onChange={() => setBar(!bar)}
                   />
                 </div>
               </div>
@@ -248,10 +261,8 @@ const Rooms = () => {
                   <br />
                   <InputCheck
                     type="checkbox"
-                    //type="email"
-                    //value={email}
-                    //onChange={(e) => setEmail(e.target.value)}
-                    //placeholder="email"
+                    value={smoking}
+                    onChange={() => setSmoking(!smoking)}
                   />
                 </div>
                 <br />
@@ -260,10 +271,8 @@ const Rooms = () => {
                   <br />
                   <InputCheck
                     type="checkbox"
-                    //type="email"
-                    //value={email}
-                    //onChange={(e) => setEmail(e.target.value)}
-                    //placeholder="email"
+                    value={spa}
+                    onChange={() => setSpa(!spa)}
                   />
                 </div>
                 <br />
@@ -272,10 +281,8 @@ const Rooms = () => {
                   <br />
                   <InputCheck
                     type="checkbox"
-                    //type="email"
-                    //value={email}
-                    //onChange={(e) => setEmail(e.target.value)}
-                    //placeholder="email"
+                    value={hotTube}
+                    onChange={() => setHoteTube(!hotTube)}
                   />
                 </div>
                 <br />
@@ -284,10 +291,8 @@ const Rooms = () => {
                   <br />
                   <InputCheck
                     type="checkbox"
-                    //type="email"
-                    //value={email}
-                    //onChange={(e) => setEmail(e.target.value)}
-                    //placeholder="email"
+                    value={airConditioning}
+                    onChange={() => setAirConditioning(!airConditioning)}
                   />
                 </div>
                 <br />
@@ -296,10 +301,8 @@ const Rooms = () => {
                   <br />
                   <InputCheck
                     type="checkbox"
-                    //type="email"
-                    //value={email}
-                    //onChange={(e) => setEmail(e.target.value)}
-                    //placeholder="email"
+                    value={sauna}
+                    onChange={() => setSauna(!sauna)}
                   />
                 </div>
               </div>
