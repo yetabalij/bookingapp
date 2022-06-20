@@ -26,7 +26,6 @@ import Protected from "./components/Protected";
 
 //partner dashboard imports
 import Reservation from "./pages/Partners/Reservation";
-import PropertyDashBoard from "./pages/Partners/Property";
 import Room from "./pages/Partners/Room";
 import Finance from "./pages/Partners/Finance";
 
@@ -63,7 +62,6 @@ function App() {
           <Route path="/partnersdashboard" element={<PartnersDashboard />} />
           <Route path="/createproperty" element={<Property />} />
           <Route path="/reservation" element={<Reservation />} />
-          <Route path="/propertydashboard" element={<PropertyDashBoard />} />
           <Route path="/room" element={<Room />} />
           <Route path="/finance" element={<Finance />} />
         </Route>
