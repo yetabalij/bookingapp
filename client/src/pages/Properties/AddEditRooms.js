@@ -82,15 +82,18 @@ const Rooms = () => {
               <p className="text-2xl font-bold mb-5">Price and Layout</p>
               <label>Room Type</label>
               <br />
-              <Select>
-                <option>Single</option>
-                <option>Double</option>
-                <option>Twin</option>
-                <option>Triple</option>
-                <option>Quad</option>
-                <option>Family</option>
-                <option>Suite</option>
-                <option>Studio</option>
+              <Select onChange={(e) => console.log(e.target.value)}>
+                <option value="" disabled selected>
+                  Select your option
+                </option>
+                <option value="Single">Single</option>
+                <option value="Double">Double</option>
+                <option value="Twin">Twin</option>
+                <option value="Triple">Triple</option>
+                <option value="Quad">Quad</option>
+                <option value="Family">Family</option>
+                <option value="Suite">Suite</option>
+                <option value="Studio">Studio</option>
               </Select>
               <br />
               <label>Maximun Number To Stay</label>
@@ -132,8 +135,11 @@ const Rooms = () => {
               //onChange={(e) => setEmail(e.target.value)}
               //placeholder="email"
               >
-                <option>Yes</option>
-                <option>No</option>
+                <option value="" disabled selected>
+                  Select your option
+                </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
               </Select>
               <br />
               <label>Breakfast</label>
@@ -144,8 +150,11 @@ const Rooms = () => {
               //onChange={(e) => setEmail(e.target.value)}
               //placeholder="email"
               >
-                <option>Yes</option>
-                <option>No</option>
+                <option value="" disabled selected>
+                  Select your option
+                </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
               </Select>
               <br />
               <label>Language</label>
@@ -156,8 +165,14 @@ const Rooms = () => {
               //onChange={(e) => setEmail(e.target.value)}
               //placeholder="email"
               >
-                <option>Yes</option>
-                <option>No</option>
+                <option value="" disabled selected>
+                  Select your option
+                </option>
+                <option value="English">English</option>
+                <option value="Chines">Chines</option>
+                <option value="French">French</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Amharic">Amharic</option>
               </Select>
             </div>
           </Card>
