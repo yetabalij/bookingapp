@@ -65,3 +65,15 @@ exports.getAllRoom = async (req, res, next) => {
     next(err);
   }
 };
+
+//GET ALL ROOMS BY PROPERTY.
+exports.getAllRoomsByProperty = async (req, res, next) => {
+  //console.log(req.params);
+  const id = req.params.propertyId;
+  try {
+    const rooms = await Room.find({ hotel: id });
+    res.status(200).json(rooms);
+  } catch (err) {
+    next(err);
+  }
+};
