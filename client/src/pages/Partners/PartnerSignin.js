@@ -5,19 +5,20 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { partnersLogin } from "./../../redux/features/Partners/partnersAuthSlice";
 import NavBar from "./../../components/SecondaryNavBar";
+import Footer from "../../components/Footer";
 
 const Container = styled.div`
   ${tw`
-    relative
+    
     `}
 `;
 const FormContainer = styled.div`
   ${tw`
-    absolute 
+    w-[400px]
+    mr-auto
+    ml-auto
+    mt-8
     `}
-  top:18vh;
-  left: 50%;
-  transform: translate(-50%, 0);
 `;
 const Input = styled.input`
   ${tw`
@@ -106,6 +107,7 @@ const PartnerSignin = () => {
             </ButtonSignin>
           </form>
         </FormContainer>
+        <Footer />
       </Container>
     </div>
   );
