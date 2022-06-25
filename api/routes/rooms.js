@@ -5,6 +5,7 @@ const {
   deleteRoom,
   getRoom,
   getAllRoom,
+  getAllRoomsByProperty,
 } = require("./../controlers/room");
 //const { verifyToken, verifyAdmin } = require("./../utils/verityToken");
 
@@ -20,5 +21,7 @@ router.delete("/:id/:hotelid", deleteRoom);
 router.get("/:id", getRoom);
 //GET ALL
 router.get("/", getAllRoom);
+// GET ALL ROOMS BY PROPERTY
+router.get("/roomsbyproperty/:propertyId", getAllRoomsByProperty);
 
 module.exports = router;
