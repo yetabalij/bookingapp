@@ -6,22 +6,23 @@ import EmailComp from "./components/EmailComp";
 import ContactComp from "./components/ContactComp";
 import PasswordComp from "./components/PasswordComp";
 import SignInComp from "./components/SignInComp";
+import Footer from "../../components/Footer";
+
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { partnersRegister } from "../../redux/features/Partners/partnersAuthSlice";
 
 const Container = styled.div`
   ${tw`
-    relative
     `}
 `;
 const FormContainer = styled.div`
   ${tw`
-    absolute 
+  w-[400px]
+  mr-auto
+  ml-auto
+  mt-8 
     `}
-  top:8vh;
-  left: 50%;
-  transform: translate(-50%, 0);
 `;
 const Button = styled.button`
   ${tw`
@@ -87,6 +88,7 @@ const PartnersRegister = () => {
           {CompState === 0 && <SignInComp />}
         </FormContainer>
       </Container>
+      <Footer />
     </div>
   );
 };
