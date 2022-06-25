@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import tw from "twin.macro";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
 
@@ -46,15 +47,23 @@ const Button = styled.button`
 `;
 
 const Room = () => {
+  const { Property } = useSelector((state) => ({ ...state.properties }));
+  const [propertyId, setPropertyId] = useState("");
   const [data, setData] = useState([]);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/rooms/")
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+    if (Property !== null && Property[0]?._id) {
+      setPropertyId(Property[0]?._id);
+      axios
+        .get(
+          `http://localhost:8000/api/rooms/roomsbyproperty/${Property[0]?._id}`
+        )
+        .then((res) => {
+          setData(res.data);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [Property]);
 
   const navigate = useNavigate();
 
