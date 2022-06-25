@@ -6,6 +6,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
+import Footer from "../../components/Footer";
 
 const Container = styled.div`
   ${tw`
@@ -88,6 +89,7 @@ const Room = () => {
           </Card>
         </ContentContainer>
       </Container>
+      <Footer />
     </div>
   );
 };

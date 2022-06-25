@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import NavBar from "./components/NavBar";
+import Footer from "../../components/Footer";
 
 const Container = styled.div`
   ${tw`
@@ -51,6 +52,7 @@ const Finance = () => {
           <Card>Finance</Card>
         </ContentContainer>
       </Container>
+      <Footer />
     </div>
   );
 };

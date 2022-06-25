@@ -3,6 +3,7 @@ import React from "react";
 import HelpContacts from "./Components/HelpContacts";
 import SecondaryNavBar from "./../../components/SecondaryNavBar";
 import FrequentlyAsked from "./Components/FrequentlyAsked";
+import Footer from "../../components/Footer";
 
 const Help = () => {
   return (
@@ -10,6 +11,7 @@ const Help = () => {
       <SecondaryNavBar />
       <HelpContacts />
       <FrequentlyAsked />
+      <Footer />
     </div>
   );
 };

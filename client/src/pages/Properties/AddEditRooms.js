@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import NavBar from "./../Partners/components/NavBar";
+import Footer from "../../components/Footer";
 
 const Container = styled.div`
   ${tw`
@@ -331,6 +332,7 @@ const Rooms = () => {
           </Card>
         </form>
       </ContentContainer>
+      <Footer />
     </Container>
   );
 };

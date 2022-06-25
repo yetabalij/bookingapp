@@ -4,6 +4,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 import NavBar from "./components/NavBar";
+import Footer from "../../components/Footer";
 
 const Container = styled.div`
   ${tw`
@@ -78,6 +79,7 @@ const PartnersDashboard = () => {
           <Button>Edit Property</Button>
         </Card>
       </ContentContainer>
+      <Footer />
     </Container>
   );
 };

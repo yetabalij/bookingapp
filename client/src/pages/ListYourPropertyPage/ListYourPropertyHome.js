@@ -4,6 +4,7 @@ import YourPeaceOfMind from "./components/YourPeaceOfMind";
 import BestDescribesYou from "./components/BestDescribesYou";
 import Benefits from "./components/Benefits";
 import Testimony from "./components/Testimony";
+import Footer from "../../components/Footer";
 
 const ListYourPropertyHome = () => {
   return (
@@ -14,7 +15,7 @@ const ListYourPropertyHome = () => {
       <BestDescribesYou />
       <Benefits />
       <Testimony />
-      <div className="FooterContainer">footer</div>
+      <Footer />
     </div>
   );
 };

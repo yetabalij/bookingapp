@@ -4,6 +4,7 @@ import MainHeader from "../../components/MainHeader";
 import HotelPicker from "./components/HotelPicker";
 import PropertyType from "./components/PropertyType";
 import CityProperty from "./components/CityProperty";
+import Footer from "../../components/Footer";
 
 const Home = () => {
   return (
@@ -13,7 +14,7 @@ const Home = () => {
       <HotelPicker />
       <PropertyType />
       <CityProperty />
-      Home
+      <Footer />
     </div>
   );
 };

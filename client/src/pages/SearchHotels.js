@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import NavBar from "./../components/NavBar";
+import Footer from "../components/Footer";
 
 const SearchHotels = () => {
   const { Hotels } = useSelector((state) => ({ ...state.searchHotels }));
@@ -24,6 +25,7 @@ const SearchHotels = () => {
   return (
     <div>
       <div>{res}</div>
+      <Footer />
     </div>
   );
 };
