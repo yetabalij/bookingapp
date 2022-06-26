@@ -2,14 +2,14 @@ import React from "react";
 import NavBar from "./../components/NavBar";
 import Footer from "../components/Footer";
 
-const Attractions = () => {
+const Spa = () => {
   return (
     <div>
       <NavBar />
-      Attractions
+      Spa
       <Footer />
     </div>
   );
 };
 
-export default Attractions;
+export default Spa;

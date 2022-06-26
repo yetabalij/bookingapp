@@ -4,7 +4,7 @@ import {
   faCircleQuestion,
   faBed,
   faWineGlass,
-  faCar,
+  faSpa,
   faMonument,
   faTaxi,
   faUtensils,
@@ -191,13 +191,13 @@ const NavBar = () => {
               </Link>
             </LiContainer>
             <LiContainer>
-              <Link to="/attractions">
+              <Link to="/Spa">
                 <FontAwesomeIcon
                   style={{ color: "white", marginRight: "10px" }}
-                  icon={faMonument}
+                  icon={faSpa}
                   size="xl"
                 />
-                Attractions
+                Spa
               </Link>
             </LiContainer>
             <LiContainer>

@@ -6,7 +6,7 @@ import { setPartnerUser } from "./redux/features/Partners/partnersAuthSlice";
 import Home from "./pages/HomePage/Home";
 import Flights from "./pages/Restaurant";
 import CarRentals from "./pages/Bar";
-import Attractions from "./pages/Attractions";
+import Spa from "./pages/Spa";
 import AirportTaxi from "./pages/AirportTaxi";
 import Help from "./pages/HelpPage/Help";
 import HelpWithoutAccount from "./pages/HelpPage/HelpWithoutAccount";
@@ -42,7 +42,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/restaurant" element={<Flights />} />
         <Route path="/bar" element={<CarRentals />} />
-        <Route path="/attractions" element={<Attractions />} />
+        <Route path="/spa" element={<Spa />} />
         <Route path="/airporttaxi" element={<AirportTaxi />} />
         <Route path="/help" element={<Help />} />
         <Route path="/helpwithoutaccount" element={<HelpWithoutAccount />} />
