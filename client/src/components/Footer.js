@@ -32,10 +32,44 @@ const Footer = () => {
     <Container>
       <Content>
         <div>
-          <Link to="/">Stay</Link>
+          <Link className="block" to="/">
+            Stay
+          </Link>
+          <Link className="block" to="/restaurant">
+            Restaurant
+          </Link>
+          <Link className="block" to="/bar">
+            Bar Facilities
+          </Link>
+          <Link className="block" to="/spa">
+            Spa
+          </Link>
+          <Link className="block" to="/sauna">
+            Sauna
+          </Link>
         </div>
-        <div>TWO</div>
-        <div>three</div>
+        <div>
+          <Link className="block" to="/help">
+            Help
+          </Link>
+          <Link className="block" to="/helpwithoutaccount">
+            Help Without Contact
+          </Link>
+          <Link className="block" to="/partnershelpcenter">
+            Partners Help
+          </Link>
+          <Link className="block" to="/partnercommunity">
+            Partners Community
+          </Link>
+        </div>
+        <div>
+          <Link className="block" to="/termsandconditions">
+            Terms and Conditions
+          </Link>
+          <Link className="block" to="/privacystatement">
+            Privacy Statement
+          </Link>
+        </div>
       </Content>
     </Container>
   );
