@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleQuestion,
   faBed,
-  faPlaneDeparture,
+  faWineGlass,
   faCar,
   faMonument,
   faTaxi,
@@ -181,13 +181,13 @@ const NavBar = () => {
               </Link>
             </LiContainer>
             <LiContainer>
-              <Link to="/carrentals">
+              <Link to="/bar">
                 <FontAwesomeIcon
                   style={{ color: "white", marginRight: "10px" }}
-                  icon={faCar}
+                  icon={faWineGlass}
                   size="xl"
                 />
-                Car Rentals
+                Bar Facilities
               </Link>
             </LiContainer>
             <LiContainer>
