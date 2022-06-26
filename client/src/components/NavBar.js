@@ -7,6 +7,7 @@ import {
   faCar,
   faMonument,
   faTaxi,
+  faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -170,13 +171,13 @@ const NavBar = () => {
               </Link>
             </LiContainer>
             <LiContainer>
-              <Link to="/flight">
+              <Link to="/restaurant">
                 <FontAwesomeIcon
                   style={{ color: "white", marginRight: "10px" }}
-                  icon={faPlaneDeparture}
+                  icon={faUtensils}
                   size="xl"
                 />
-                Flights
+                Restaurant
               </Link>
             </LiContainer>
             <LiContainer>
