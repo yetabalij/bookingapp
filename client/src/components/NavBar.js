@@ -5,7 +5,7 @@ import {
   faBed,
   faWineGlass,
   faSpa,
-  faMonument,
+  faBath,
   faTaxi,
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
@@ -201,13 +201,13 @@ const NavBar = () => {
               </Link>
             </LiContainer>
             <LiContainer>
-              <Link to="/airporttaxi">
+              <Link to="/Sauna">
                 <FontAwesomeIcon
                   style={{ color: "white", marginRight: "10px" }}
-                  icon={faTaxi}
+                  icon={faBath}
                   size="xl"
                 />
-                Airport Taxi
+                Sauna
               </Link>
             </LiContainer>
           </UlContainer>

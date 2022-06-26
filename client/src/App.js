@@ -7,7 +7,7 @@ import Home from "./pages/HomePage/Home";
 import Flights from "./pages/Restaurant";
 import CarRentals from "./pages/Bar";
 import Spa from "./pages/Spa";
-import AirportTaxi from "./pages/AirportTaxi";
+import Sauna from "./pages/Sauna";
 import Help from "./pages/HelpPage/Help";
 import HelpWithoutAccount from "./pages/HelpPage/HelpWithoutAccount";
 import ListYourPropertyHome from "./pages/ListYourPropertyPage/ListYourPropertyHome";
@@ -43,7 +43,7 @@ function App() {
         <Route path="/restaurant" element={<Flights />} />
         <Route path="/bar" element={<CarRentals />} />
         <Route path="/spa" element={<Spa />} />
-        <Route path="/airporttaxi" element={<AirportTaxi />} />
+        <Route path="/sauna" element={<Sauna />} />
         <Route path="/help" element={<Help />} />
         <Route path="/helpwithoutaccount" element={<HelpWithoutAccount />} />
         <Route

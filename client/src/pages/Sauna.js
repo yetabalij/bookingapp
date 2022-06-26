@@ -2,14 +2,14 @@ import React from "react";
 import NavBar from "./../components/NavBar";
 import Footer from "../components/Footer";
 
-const AirportTaxi = () => {
+const Sauna = () => {
   return (
     <div>
       <NavBar />
-      AirportTaxi
+      Sauna
       <Footer />
     </div>
   );
 };
 
-export default AirportTaxi;
+export default Sauna;
