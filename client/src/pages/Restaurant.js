@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
-const Flights = () => {
+const Restaurant = () => {
   return (
     <div>
       <NavBar />
@@ -12,4 +12,4 @@ const Flights = () => {
   );
 };
 
-export default Flights;
+export default Restaurant;

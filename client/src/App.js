@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux";
 import { setPartnerUser } from "./redux/features/Partners/partnersAuthSlice";
 
 import Home from "./pages/HomePage/Home";
-import Flights from "./pages/Restaurant";
-import CarRentals from "./pages/Bar";
+import Restaurant from "./pages/Restaurant";
+import Bar from "./pages/Bar";
 import Spa from "./pages/Spa";
 import Sauna from "./pages/Sauna";
 import Help from "./pages/HelpPage/Help";
@@ -40,8 +40,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/restaurant" element={<Flights />} />
-        <Route path="/bar" element={<CarRentals />} />
+        <Route path="/restaurant" element={<Restaurant />} />
+        <Route path="/bar" element={<Bar />} />
         <Route path="/spa" element={<Spa />} />
         <Route path="/sauna" element={<Sauna />} />
         <Route path="/help" element={<Help />} />

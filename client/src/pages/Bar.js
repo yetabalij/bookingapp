@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
-const CarRentals = () => {
+const Bar = () => {
   return (
     <div>
       <NavBar />
@@ -12,4 +12,4 @@ const CarRentals = () => {
   );
 };
 
-export default CarRentals;
+export default Bar;
