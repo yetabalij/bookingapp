@@ -1,4 +1,18 @@
+const Hotels = require("./../../models/hotels");
+const Rooms = require("./../../models/rooms");
+
 //GET RESTAURANTS WITH PAGINATION
 exports.getRestaurants = async (req, res, next) => {
-  res.send("Hello");
+  const PageSize = 3;
+  const page = parseInt(req.query.page || "0");
+  const Restaurants = await Rooms.find({ restaurant: true })
+    .limit(PageSize)
+    .skip(PageSize * page)
+    .populate({
+      path: "hotel",
+    });
+  const total = Restaurants.length;
+  res
+    .status(200)
+    .json({ Restaurants, totalPages: Math.ceil(total / PageSize) });
 };
