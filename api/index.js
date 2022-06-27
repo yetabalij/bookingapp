@@ -15,6 +15,9 @@ const hotelsQueryRouter = require("./routes/hotels/queries");
 //Partner Imported Routes
 const partnerRouter = require("./routes/Partners/auth");
 
+//Restaurant Imported Routes
+const restaurantRoute = require("./routes/Restaurant/restaurant");
+
 dotenv.config();
 
 const app = express();
@@ -35,6 +38,9 @@ app.use("/api", hotelsQueryRouter);
 
 //Partner Router Middlewares
 app.use("/api", partnerRouter);
+
+//Restaurant Router Middlewars
+app.use("/api", restaurantRoute);
 
 //error middleware
 app.use((err, req, res, next) => {
