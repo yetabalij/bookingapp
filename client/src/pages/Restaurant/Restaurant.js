@@ -29,18 +29,25 @@ const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
+  // const [error, setError] = useState("");
+  const pages = new Array(totalPages).fill(null).map((v, i) => i);
+  console.log(pages);
+
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/restaurant?page=${pageNumber}`)
       .then((res) => {
         setRestaurants(res.data.Restaurants);
         setTotalPages(res.data.totalPages);
-      });
-  }, []);
+      })
+      .catch((error) => console.log(error));
+  }, [pageNumber]);
+  // console.log(`${error}`);
   return (
     <div>
       <NavBar />
       <Container>
+        {/* {error !== null && <p>{error}</p>} */}
         {restaurants === null ? (
           <p>...Loading</p>
         ) : (
@@ -70,7 +77,7 @@ const Restaurant = () => {
                     {restarurant.smoking === true ? <p>Smokking Area</p> : null}
                   </div>
                   <div>
-                    <p>Price {restarurant.price} $</p>
+                    <p>Price ${restarurant.price}</p>
                     <p>Room Type {restarurant.roomType}</p>
                     <p>Language {restarurant.language}</p>
                   </div>
@@ -79,6 +86,33 @@ const Restaurant = () => {
             );
           })
         )}
+        <div>
+          <button
+            onClick={() => setPageNumber(Math.max(0, pageNumber - 1))}
+            className="bg-primary-color text-white py-1 px-3 my-6"
+          >
+            Previous
+          </button>
+          {pages.map((index) => {
+            return (
+              <button
+                className="bg-primary-color text-white mx-1 py-1 px-3 my-6"
+                onClick={() => setPageNumber(index)}
+                key={index}
+              >
+                {index + 1}
+              </button>
+            );
+          })}
+          <button
+            onClick={() =>
+              setPageNumber(Math.min(totalPages - 1, pageNumber + 1))
+            }
+            className="bg-primary-color text-white py-1 px-3 my-6"
+          >
+            Next
+          </button>
+        </div>
       </Container>
       <Footer />
     </div>
