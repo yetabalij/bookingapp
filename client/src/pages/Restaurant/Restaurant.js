@@ -80,6 +80,9 @@ const Restaurant = () => {
                     <p>Price ${restarurant.price}</p>
                     <p>Room Type {restarurant.roomType}</p>
                     <p>Language {restarurant.language}</p>
+                    <button className="bg-primary-color text-white py-1 px-4 mt-2">
+                      Book Now
+                    </button>
                   </div>
                 </div>
               </Card>
