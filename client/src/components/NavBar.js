@@ -6,7 +6,6 @@ import {
   faWineGlass,
   faSpa,
   faBath,
-  faTaxi,
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
