@@ -33,3 +33,20 @@ exports.getBar = async (req, res, next) => {
     totalPages: Math.ceil(totalRooms / PageSize),
   });
 };
+
+//GET SPA WITH PAGINATION
+exports.getSpa = async (req, res, next) => {
+  const totalRooms = await Rooms.find({ spa: true }).countDocuments({});
+  const PageSize = 10;
+  const page = parseInt(req.query.page || "0");
+  const Spa = await Rooms.find({ spa: true })
+    .limit(PageSize)
+    .skip(PageSize * page)
+    .populate({
+      path: "hotel",
+    });
+  res.status(200).json({
+    Spa,
+    totalPages: Math.ceil(totalRooms / PageSize),
+  });
+};
