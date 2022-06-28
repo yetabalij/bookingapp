@@ -50,3 +50,19 @@ exports.getSpa = async (req, res, next) => {
     totalPages: Math.ceil(totalRooms / PageSize),
   });
 };
+//GET SAUNA WITH PAGINATION
+exports.getSauna = async (req, res, next) => {
+  const totalRooms = await Rooms.find({ sauna: true }).countDocuments({});
+  const PageSize = 10;
+  const page = parseInt(req.query.page || "0");
+  const Sauna = await Rooms.find({ sauna: true })
+    .limit(PageSize)
+    .skip(PageSize * page)
+    .populate({
+      path: "hotel",
+    });
+  res.status(200).json({
+    Sauna,
+    totalPages: Math.ceil(totalRooms / PageSize),
+  });
+};
