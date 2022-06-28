@@ -5,7 +5,7 @@ import { setPartnerUser } from "./redux/features/Partners/partnersAuthSlice";
 
 import Home from "./pages/HomePage/Home";
 import Restaurant from "./pages/Restaurant/Restaurant";
-import Bar from "./pages/Bar";
+import Bar from "./pages/Bar/Bar";
 import Spa from "./pages/Spa";
 import Sauna from "./pages/Sauna";
 import Help from "./pages/HelpPage/Help";
