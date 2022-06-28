@@ -7,7 +7,7 @@ import Home from "./pages/HomePage/Home";
 import Restaurant from "./pages/Restaurant/Restaurant";
 import Bar from "./pages/Bar/Bar";
 import Spa from "./pages/Spa/Spa";
-import Sauna from "./pages/Sauna";
+import Sauna from "./pages/Sauna/Sauna";
 import Help from "./pages/HelpPage/Help";
 import HelpWithoutAccount from "./pages/HelpPage/HelpWithoutAccount";
 import ListYourPropertyHome from "./pages/ListYourPropertyPage/ListYourPropertyHome";
