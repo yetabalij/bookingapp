@@ -18,7 +18,7 @@ exports.getRestaurants = async (req, res, next) => {
 };
 
 //GET BAR WITH PAGINATION
-exports.getRestaurants = async (req, res, next) => {
+exports.getBar = async (req, res, next) => {
   const totalRooms = await Rooms.find({ bar: true }).countDocuments({});
   const PageSize = 10;
   const page = parseInt(req.query.page || "0");
