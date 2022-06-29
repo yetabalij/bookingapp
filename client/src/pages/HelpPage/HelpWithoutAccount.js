@@ -9,7 +9,7 @@ const Container = styled.div`
   ${tw`
    w-2/5
    mx-auto
-   mt-20
+   mt-10
   `}
 `;
 const Card = styled.div`
@@ -22,7 +22,7 @@ const Card = styled.div`
       justify-between
       justify-items-center
 `}
-  box-shadow: rgba(40, 40, 93, 0.15) 0px 1px 2px 1px, rgba(0, 0, 0, 0.3) 0px 1px 1px -1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 1px 2px 1px, rgba(0, 0, 0, 0.3) 0px 1px 1px -1px;
 `;
 const Input = styled.input`
   ${tw`
