@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/ThirdNavBar";
 import Footer from "../components/Footer";
 
 const Signin = () => {
