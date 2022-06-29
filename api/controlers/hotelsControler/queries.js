@@ -13,7 +13,7 @@ exports.searchHotels = async (req, res, next) => {
     });
     const newResult = [];
     result.map((res) => {
-      if (res.hotel !== null) newResult.push(res);
+      if (res.hotel !== null && res.isReserved === false) newResult.push(res);
     });
     res.send(newResult);
   } catch (err) {
