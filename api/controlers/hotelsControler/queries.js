@@ -6,12 +6,16 @@ const Room = require("./../../models/rooms");
 exports.searchHotels = async (req, res, next) => {
   try {
     const result = await Room.find({
-      maxPeople: req.body.maxPeople,
+      maxNumber: req.body.maxNumber,
     }).populate({
       path: "hotel",
       match: { city: { $eq: req.body.city } },
     });
-    res.send(result);
+    const newResult = [];
+    result.map((res) => {
+      if (res.hotel !== null) newResult.push(res);
+    });
+    res.send(newResult);
   } catch (err) {
     next(err);
   }
