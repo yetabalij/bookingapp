@@ -8,6 +8,7 @@ const Container = styled.div`
     bg-secondary-color
     text-white
     py-10
+    mt-20
   `}
 `;
 const Content = styled.div`
