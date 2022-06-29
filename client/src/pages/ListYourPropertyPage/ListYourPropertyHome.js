@@ -1,4 +1,4 @@
-import NavBar from "../../components/NavBar";
+import NavBar from "../../components/SecondaryNavBar";
 import HeaderComp from "./components/HeaderComp";
 import YourPeaceOfMind from "./components/YourPeaceOfMind";
 import BestDescribesYou from "./components/BestDescribesYou";

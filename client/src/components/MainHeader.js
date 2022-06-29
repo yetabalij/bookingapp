@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 const MainHeaderContainer = styled.div`
   ${tw`
-        bg-primary-color
+        //bg-primary-color
+        //opacity-[.85]
     `}
   height:35.5vh
 `;

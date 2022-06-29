@@ -16,7 +16,8 @@ import { useNavigate } from "react-router-dom";
 const NavBarContainer = styled.div`
   ${tw`
     h-32
-    bg-primary-color
+    //bg-primary-color
+    //opacity-[.85]
     flex
     flex-col
     justify-evenly

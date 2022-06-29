@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 import axios from "axios";
 import styled from "styled-components";
 import tw from "twin.macro";
+import Header from "../../components/Header";
 
 const Container = styled.div`
   ${tw`
@@ -44,7 +44,7 @@ const Bar = () => {
   // console.log(`${error}`);
   return (
     <div>
-      <NavBar />
+      <Header />
       <Container>
         {/* {error !== null && <p>{error}</p>} */}
         {bar === null ? (
