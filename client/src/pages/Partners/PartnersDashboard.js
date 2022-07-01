@@ -4,6 +4,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 import NavBar from "./components/NavBar";
+import Card from "./../../components/Card";
 import Footer from "../../components/Footer";
 
 const Container = styled.div`
@@ -21,18 +22,7 @@ const ContentContainer = styled.div`
     justify-items-center
   `}
 `;
-const Card = styled.div`
-  ${tw`
-        bg-white
-        p-8
-        mt-4
-        flex
-        flex-col
-      justify-between
-      justify-items-center
-`}
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 1px 2px 1px, rgba(0, 0, 0, 0.3) 0px 1px 1px -1px;
-`;
+
 const Button = styled.button`
   ${tw`
     bg-secondary-color
