@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./../components/Header";
 import Footer from "../components/Footer";
 import styled from "styled-components";
@@ -14,15 +14,22 @@ const Container = styled.div`
 `;
 
 const SearchHotels = () => {
-  const data = Object.values(
-    JSON.parse(localStorage.getItem("searchedProperties"))
-  );
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    setData(
+      Object.values(JSON.parse(localStorage.getItem("searchedProperties")))
+    );
+  }, [data]);
 
   return (
     <div>
       <NavBar />
       <Container>
-        {data !== null &&
+        {data.length === 0 ? (
+          <Card>
+            <p>No Content to show</p>
+          </Card>
+        ) : (
           data.map((d) => {
             return (
               <Card key={d._id}>
@@ -57,7 +64,8 @@ const SearchHotels = () => {
                 </div>
               </Card>
             );
-          })}
+          })
+        )}
       </Container>
       <Footer />
     </div>
