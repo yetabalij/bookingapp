@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "./../../components/SecondaryNavBar";
 import Footer from "../../components/Footer";
+import Card from "./../../components/Card";
 
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -11,18 +12,6 @@ const Container = styled.div`
    mx-auto
    mt-10
   `}
-`;
-const Card = styled.div`
-  ${tw`
-        bg-white
-        p-8
-        mt-4
-        flex
-        flex-col
-      justify-between
-      justify-items-center
-`}
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 1px 2px 1px, rgba(0, 0, 0, 0.3) 0px 1px 1px -1px;
 `;
 const Input = styled.input`
   ${tw`
