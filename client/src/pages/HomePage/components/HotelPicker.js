@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -62,18 +62,19 @@ const DatePicker = styled.input`
 const HotelPicker = () => {
   const [maxPeople, setmaxPeople] = useState("");
   const [city, setcity] = useState("");
+
   const formValue = {
-    maxPeople: maxPeople,
+    maxNumber: maxPeople,
     city: city,
   };
 
   const dispach = useDispatch();
   const navigate = useNavigate();
 
-  //useEffect(() => {}, []);
   const onFormSubmitHandler = (e) => {
     //e.preventDefaulet();
     dispach(searchHotels({ formValue, navigate }));
+    navigate("/searchhotels");
   };
 
   return (

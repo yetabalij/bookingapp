@@ -24,7 +24,11 @@ const searchSlice = createSlice({
     error: "",
     loading: false,
   },
-  reducers: {},
+  reducers: {
+    // setHotel: (state, action) => {
+    //   state.Hotels = action.payload;
+    // },
+  },
   extraReducers: {
     [searchHotels.pending]: (state, action) => {
       state.loading = true;
@@ -32,6 +36,10 @@ const searchSlice = createSlice({
     [searchHotels.fulfilled]: (state, action) => {
       state.loading = false;
       state.Hotels = action.payload;
+      localStorage.setItem(
+        "searchedProperties",
+        JSON.stringify({ ...action.payload })
+      );
     },
     [searchHotels.rejected]: (state, action) => {
       state.loading = false;
@@ -40,4 +48,5 @@ const searchSlice = createSlice({
   },
 });
 
+// export const { setHotel } = searchSlice.actions;
 export default searchSlice.reducer;
