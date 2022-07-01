@@ -4,6 +4,7 @@ import axios from "axios";
 import styled from "styled-components";
 import tw from "twin.macro";
 import Header from "../../components/Header";
+import Card from "./../../components/Card";
 
 const Container = styled.div`
   ${tw`
@@ -11,18 +12,6 @@ const Container = styled.div`
   2xl:w-3/5
   mx-auto
   `}
-`;
-const Card = styled.div`
-  ${tw`
-        bg-white
-        p-8
-        mt-4
-        flex
-        flex-col
-      justify-between
-      justify-items-center
-`}
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 1px 2px 1px, rgba(0, 0, 0, 0.3) 0px 1px 1px -1px;
 `;
 
 const Bar = () => {
