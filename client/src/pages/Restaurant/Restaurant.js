@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../../components/Header";
+import Card from "./../../components/Card";
 import Footer from "../../components/Footer";
 import axios from "axios";
 import styled from "styled-components";
@@ -11,18 +12,6 @@ const Container = styled.div`
   2xl:w-3/5
   mx-auto
   `}
-`;
-const Card = styled.div`
-  ${tw`
-        bg-white
-        p-8
-        mt-4
-        flex
-        flex-col
-      justify-between
-      justify-items-center
-`}
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 1px 2px 1px, rgba(0, 0, 0, 0.3) 0px 1px 1px -1px;
 `;
 
 const Restaurant = () => {
@@ -56,7 +45,7 @@ const Restaurant = () => {
               <Card key={restarurant._id}>
                 <div className="grid grid-cols-4 gap-4">
                   <div>
-                    <img src={restarurant.hotel.image} />
+                    <img src={restarurant.hotel.image} alt="hotel" />
                   </div>
                   <div>
                     <p>{restarurant.hotel.name}</p>
