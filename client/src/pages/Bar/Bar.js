@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import axios from "axios";
-import styled from "styled-components";
-import tw from "twin.macro";
 import Header from "../../components/Header";
 import Card from "./../../components/Card";
-
-const Container = styled.div`
-  ${tw`
-  md:w-4/5
-  2xl:w-3/5
-  mx-auto
-  `}
-`;
+import Container from "./../../components/Container";
 
 const Bar = () => {
   const [bar, setBar] = useState([]);
