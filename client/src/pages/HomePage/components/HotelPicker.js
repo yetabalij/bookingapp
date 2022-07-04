@@ -50,7 +50,7 @@ const HotelPicker = () => {
   const onFormSubmitHandler = (e) => {
     //e.preventDefaulet();
     dispach(searchHotels({ formValue, navigate }));
-    navigate("/searchhotels");
+    navigate("/searchhotels", { state: formValue });
   };
 
   return (
