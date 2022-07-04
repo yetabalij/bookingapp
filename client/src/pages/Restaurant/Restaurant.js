@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../../components/Header";
 import Card from "./../../components/Card";
+import Button from "./../../components/Button";
 import Footer from "../../components/Footer";
 import axios from "axios";
 import styled from "styled-components";
@@ -69,9 +70,12 @@ const Restaurant = () => {
                     <p>Price ${restarurant.price}</p>
                     <p>Room Type {restarurant.roomType}</p>
                     <p>Language {restarurant.language}</p>
-                    <button className="bg-primary-color text-white py-1 px-4 mt-2">
+                    <Button
+                      className={"bg-primary-color text-white py-1 px-4 mt-2"}
+                      onClick={() => alert("ok")}
+                    >
                       Book Now
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </Card>
