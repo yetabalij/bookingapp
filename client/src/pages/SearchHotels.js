@@ -2,17 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import NavBar from "./../components/Header";
 import Footer from "../components/Footer";
-import styled from "styled-components";
-import tw from "twin.macro";
 import Card from "../components/Card";
-
-const Container = styled.div`
-  ${tw`
-  md:w-4/5
-  2xl:w-3/5
-  mx-auto
-  `}
-`;
+import Container from "./../components/Container";
 
 const SearchHotels = () => {
   const location = useLocation();
