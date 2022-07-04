@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import NavBar from "./../components/Header";
 import Footer from "../components/Footer";
 import styled from "styled-components";
@@ -14,12 +15,13 @@ const Container = styled.div`
 `;
 
 const SearchHotels = () => {
+  const location = useLocation();
   const [data, setData] = useState([]);
   useEffect(() => {
     setData(
       Object.values(JSON.parse(localStorage.getItem("searchedProperties")))
     );
-  }, [data]);
+  }, [location?.state?.city, location?.state?.maxNumber]);
 
   return (
     <div>
