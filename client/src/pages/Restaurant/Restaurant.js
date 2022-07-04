@@ -2,18 +2,9 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../../components/Header";
 import Card from "./../../components/Card";
 import Button from "./../../components/Button";
+import Container from "./../../components/Container";
 import Footer from "../../components/Footer";
 import axios from "axios";
-import styled from "styled-components";
-import tw from "twin.macro";
-
-const Container = styled.div`
-  ${tw`
-  md:w-4/5
-  2xl:w-3/5
-  mx-auto
-  `}
-`;
 
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
