@@ -31,15 +31,17 @@ const Register = () => {
             <h3 className="font-bold text-xl">Register</h3>
           </div>
           <div className="flex justify-center mt-3 pb-4">
-            <form onSubmit={onSubmitHandler}>
+            <form onSubmit={onSubmitHandler} className="w-3/6">
               <label>User Name</label>
-              <Input />
+              <Input placeholder="user Name" type="text" />
               <label>Email</label>
-              <Input />
+              <Input placeholder="Email" type="email" />
               <label>Password</label>
-              <Input />
+              <Input placeholder="Password" type="password" />
               <div className="w-full bg-secondary-color text-white py-3 flex justify-center cursor-pointer">
-                <Button type={"submit"}>Register</Button>
+                <Button type={"submit"} className={"w-full"}>
+                  Register
+                </Button>
               </div>
             </form>
           </div>
