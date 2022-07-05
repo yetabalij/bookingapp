@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -18,9 +18,17 @@ const Input = styled.input`
 `;
 
 const Register = () => {
+  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const formValue = {
+    username,
+    email,
+    password,
+  };
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    alert("ok");
+    alert(JSON.stringify(formValue));
   };
   return (
     <div>
@@ -33,11 +41,26 @@ const Register = () => {
           <div className="flex justify-center mt-3 pb-4">
             <form onSubmit={onSubmitHandler} className="w-3/6">
               <label>User Name</label>
-              <Input placeholder="user Name" type="text" />
+              <Input
+                placeholder="user Name"
+                type="text"
+                value={username}
+                onChange={(e) => setUserName(e.target.value)}
+              />
               <label>Email</label>
-              <Input placeholder="Email" type="email" />
+              <Input
+                placeholder="Email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
               <label>Password</label>
-              <Input placeholder="Password" type="password" />
+              <Input
+                placeholder="Password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
               <div className="w-full bg-secondary-color text-white py-3 flex justify-center cursor-pointer">
                 <Button type={"submit"} className={"w-full"}>
                   Register
