@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "../../components/Header";
 import Card from "./../../components/Card";
 import Container from "./../../components/Container";
+import Button from "./../../components/Button";
 
 const Bar = () => {
   const [bar, setBar] = useState([]);
@@ -57,9 +58,12 @@ const Bar = () => {
                     <p>Price ${bar.price}</p>
                     <p>Room Type {bar.roomType}</p>
                     <p>Language {bar.language}</p>
-                    <button className="bg-primary-color text-white py-1 px-4 mt-2">
+                    <Button
+                      onClick={() => alert(bar.hotel.name)}
+                      className="bg-primary-color text-white py-1 px-4 mt-2"
+                    >
                       Book Now
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </Card>
