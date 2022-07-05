@@ -9,6 +9,6 @@ export const store = configureStore({
     searchHotels: searchReducer,
     partnersAuth: partnersAuthReducer,
     properties: propertyReducer,
-    gustReducer,
+    gust: gustReducer,
   },
 });
