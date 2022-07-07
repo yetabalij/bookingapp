@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import tw from "twin.macro";
 import NavBar from "../../components/ThirdNavBar";
@@ -7,6 +9,8 @@ import Container from "./../../components/Container";
 import Card from "./../../components/Card";
 import Button from "../../components/Button";
 import Footer from "../../components/Footer";
+
+import { gustSignIn } from "./../../redux/features/Gust/gustAuthSlice";
 
 const Input = styled.input`
   ${tw`
@@ -18,6 +22,8 @@ const Input = styled.input`
 `;
 
 const Signin = () => {
+  const dispach = useDispatch();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const formValue = {
@@ -26,7 +32,7 @@ const Signin = () => {
   };
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    alert(JSON.stringify(formValue));
+    dispach(gustSignIn({ formValue, navigate }));
   };
   return (
     <div>
