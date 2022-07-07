@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleQuestion,
@@ -7,6 +8,7 @@ import {
   faSpa,
   faBath,
   faUtensils,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -82,25 +84,6 @@ const ListYourPropertyContainer = styled.div`
   border-style: solid;
   border-width: 1px;
 `;
-const BtnRegister = styled.button`
-  ${tw`
-    text-blue-600
-    bg-white
-    px-4
-    mr-2
-    font-medium
-    text-sm
-  `}
-`;
-const BtnSignin = styled.button`
-  ${tw`
-    text-blue-600
-    bg-white
-    px-4
-    font-medium
-    text-sm
-  `}
-`;
 
 const Navigation = styled.div`
   ${tw`
@@ -130,6 +113,8 @@ const LiContainer = styled.li`
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const gust = JSON.parse(localStorage.getItem("gustProfile"));
+  console.log(gust);
   return (
     <div>
       <NavBarContainer>
@@ -152,10 +137,42 @@ const NavBar = () => {
             <ListYourPropertyContainer>
               <Link to="/listyourpropertyhome">List Your Property</Link>
             </ListYourPropertyContainer>
-            <BtnRegister onClick={() => navigate("/register")}>
-              Register
-            </BtnRegister>
-            <BtnSignin onClick={() => navigate("/signin")}>Sign in</BtnSignin>
+            {gust === null ? (
+              <Button
+                className="text-blue-600 bg-white px-4 mr-2 font-medium text-sm"
+                onClick={() => navigate("/register")}
+              >
+                Register
+              </Button>
+            ) : (
+              <>
+                <div className="p-3 rounded-full bg-secondary-color mr-1">
+                  <FontAwesomeIcon
+                    style={{ color: "white" }}
+                    icon={faUser}
+                    size="xl"
+                  />
+                </div>
+                <div className="mt-3 mr-2">
+                  <p>{gust?.username}</p>
+                </div>
+              </>
+            )}
+            {gust === null ? (
+              <Button
+                className="text-blue-600 bg-white px-4 mr-2 font-medium text-sm"
+                onClick={() => navigate("/signin")}
+              >
+                Sign in
+              </Button>
+            ) : (
+              <Button
+                className="text-blue-600 bg-white px-4 font-medium text-sm"
+                onClick={() => alert("ok")}
+              >
+                Logout
+              </Button>
+            )}
           </BrandRight>
         </Brand>
         <Navigation>
