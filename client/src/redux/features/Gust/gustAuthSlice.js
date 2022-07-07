@@ -18,6 +18,23 @@ export const gustRegister = createAsyncThunk(
   }
 );
 
+export const gustSignIn = createAsyncThunk(
+  "gust/signin",
+  async ({ formValue, navigate }) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/auth/login",
+        formValue,
+        { withCredentials: true }
+      );
+      navigate("/");
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const gustAuthSlice = createSlice({
   name: "gustAuth",
   initialState: {
@@ -32,7 +49,7 @@ const gustAuthSlice = createSlice({
     },
     [gustRegister.fulfilled]: (state, action) => {
       state.loading = false;
-      state.loading = false;
+      state.error = "";
       localStorage.setItem(
         "gustProfile",
         JSON.stringify({ ...action.payload })
@@ -40,6 +57,23 @@ const gustAuthSlice = createSlice({
       state.Gust = action.payload;
     },
     [gustRegister.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload.message;
+    },
+    //Gust SignIn
+    [gustSignIn.pending]: (state, action) => {
+      state.loading = true;
+    },
+    [gustSignIn.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.error = "";
+      localStorage.setItem(
+        "gustProfile",
+        JSON.stringify({ ...action.payload })
+      );
+      state.Gust = action.payload;
+    },
+    [gustSignIn.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload.message;
     },
