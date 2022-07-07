@@ -14,6 +14,8 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setGustLogout } from "../redux/features/Gust/gustAuthSlice";
 
 const NavBarContainer = styled.div`
   ${tw`
@@ -113,8 +115,12 @@ const LiContainer = styled.li`
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const dispach = useDispatch();
+  const handleLogOut = () => {
+    dispach(setGustLogout());
+    navigate("/");
+  };
   const gust = JSON.parse(localStorage.getItem("gustProfile"));
-  console.log(gust);
   return (
     <div>
       <NavBarContainer>
@@ -153,8 +159,8 @@ const NavBar = () => {
                     size="xl"
                   />
                 </div>
-                <div className="mt-3 mr-2">
-                  <p>{gust?.username}</p>
+                <div className="mt-2 mr-2">
+                  <p className="text-white font-bold">{gust?.username}</p>
                 </div>
               </>
             )}
@@ -168,7 +174,7 @@ const NavBar = () => {
             ) : (
               <Button
                 className="text-blue-600 bg-white px-4 font-medium text-sm"
-                onClick={() => alert("ok")}
+                onClick={handleLogOut}
               >
                 Logout
               </Button>
