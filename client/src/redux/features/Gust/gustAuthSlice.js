@@ -42,7 +42,12 @@ const gustAuthSlice = createSlice({
     loading: false,
     error: "",
   },
-  reducers: {},
+  reducers: {
+    setGustLogout: (state, action) => {
+      localStorage.clear();
+      state.Gust = null;
+    },
+  },
   extraReducers: {
     [gustRegister.pending]: (state, action) => {
       state.loading = true;
@@ -80,4 +85,5 @@ const gustAuthSlice = createSlice({
   },
 });
 
+export const { setGustLogout } = gustAuthSlice.actions;
 export default gustAuthSlice.reducer;
