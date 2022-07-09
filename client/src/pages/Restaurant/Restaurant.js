@@ -12,7 +12,6 @@ const Restaurant = () => {
   const [pageNumber, setPageNumber] = useState(0);
   // const [error, setError] = useState("");
   const pages = new Array(totalPages).fill(null).map((v, i) => i);
-  console.log(pages);
 
   useEffect(() => {
     axios
