@@ -80,7 +80,6 @@ const Room = () => {
                 return (
                   <Card key={item?._id}>
                     <h1>{item.name}</h1>
-                    <h1>{item._id}</h1>
                     <div className="flex flex-row-reverse">
                       <FontAwesomeIcon
                         className="text-secondary-color"
