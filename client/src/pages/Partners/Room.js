@@ -40,8 +40,10 @@ const Button = styled.button`
 `;
 
 const Room = () => {
-  const { Property } = useSelector((state) => ({ ...state.properties }));
+  const Property = JSON.parse(localStorage.getItem("partnerProperty"));
   const [data, setData] = useState([]);
+  const [deletSuccess, setDeleteSuccess] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (Property !== null && Property[0]?._id) {
@@ -54,20 +56,21 @@ const Room = () => {
         })
         .catch((error) => console.log(error));
     }
-  }, [Property]);
+  }, []);
 
   const onDeleteHandler = (item) => {
     axios
       .delete(`http://localhost:8000/api/rooms/delete/${item._id}`)
       .then((res) => {
-        console.log(res);
+        setDeleteSuccess(res.data);
+        navigate("/room");
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  const navigate = useNavigate();
 
+  console.log(deletSuccess);
   return (
     <div>
       <Container>
