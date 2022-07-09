@@ -62,6 +62,7 @@ const Button = styled.button`
 const Rooms = () => {
   const { Property } = useSelector((state) => ({ ...state.properties }));
   const [hotel, setHotel] = useState("");
+  const [name, setName] = useState("");
   const [roomType, setRoomType] = useState("");
   const [maxNumber, setMaxNumber] = useState("");
   const [numberOfRooms, setNumberOfRooms] = useState("");
@@ -87,6 +88,7 @@ const Rooms = () => {
   }, [Property]);
   const formValue = {
     hotel: hotel,
+    name: name,
     roomType: roomType,
     maxNumber: Number(maxNumber),
     numberOfRooms: Number(numberOfRooms),
@@ -121,11 +123,35 @@ const Rooms = () => {
           <Card>
             <div className="w-4/6 ml-[auto] mr-[auto]">
               <p className="text-2xl font-bold mb-5">Price and Layout</p>
+              <label>Room Name</label>
+              <br />
+              <Select onChange={(e) => setName(e.target.value)}>
+                <option value="" disabled selected>
+                  Select room names
+                </option>
+                <option value="Budget Double Room">Budget Double Room</option>
+                <option value="Gusiness Double Room with Gym Access">
+                  Gusiness Double Room with Gym Access
+                </option>
+                <option value="Deluxe Double Room with Balcony">
+                  Deluxe Double Room with Balcony
+                </option>
+                <option value="Deluxe Double Room with Bath">
+                  Deluxe Double Room with Bath
+                </option>
+                <option value="Deluxe Double Romm with Extra Bed">
+                  Deluxe Double Romm with Extra Bed
+                </option>
+                <option value="Deluxe Double Room with Shower">
+                  Deluxe Double Room with Shower
+                </option>
+              </Select>
+              <br />
               <label>Room Type</label>
               <br />
               <Select onChange={(e) => setRoomType(e.target.value)}>
                 <option value="" disabled selected>
-                  Select your option
+                  Select room types
                 </option>
                 <option value="Single">Single</option>
                 <option value="Double">Double</option>
