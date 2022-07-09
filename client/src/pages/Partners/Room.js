@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Card from "./../../components/Card";
 import Footer from "../../components/Footer";
+
+import WarnningDialog from "../../components/WarnningDialog";
 
 const Container = styled.div`
   ${tw`
@@ -43,6 +44,8 @@ const Room = () => {
   const Property = JSON.parse(localStorage.getItem("partnerProperty"));
   const [data, setData] = useState([]);
   const [deletSuccess, setDeleteSuccess] = useState("");
+  const [deleteId, setDeleteId] = useState("");
+  const [isDelete, setIsDelete] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -56,26 +59,32 @@ const Room = () => {
         })
         .catch((error) => console.log(error));
     }
-  }, []);
-
-  const onDeleteHandler = (item) => {
+  }, [deletSuccess]);
+  const onDeleteHandler = () => {
+    return setIsDelete(true);
+  };
+  const onYesHandler = () => {
     axios
-      .delete(`http://localhost:8000/api/rooms/delete/${item._id}`)
+      .delete(`http://localhost:8000/api/rooms/delete/${deleteId}`)
       .then((res) => {
         setDeleteSuccess(res.data);
-        navigate("/room");
+        setIsDelete(false);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
-  console.log(deletSuccess);
   return (
     <div>
       <Container>
         <NavBar />
         <ContentContainer>
+          {isDelete === true ? (
+            <WarnningDialog
+              onYesHandler={onYesHandler}
+              onNoHandler={() => setIsDelete(false)}
+            />
+          ) : null}
           <Card>
             Room
             {data !== null &&
@@ -87,7 +96,10 @@ const Room = () => {
                       <FontAwesomeIcon
                         className="text-secondary-color"
                         icon={faTrash}
-                        onClick={() => onDeleteHandler(item)}
+                        onClick={() => {
+                          setDeleteId(item?._id);
+                          onDeleteHandler();
+                        }}
                       />
                       <FontAwesomeIcon
                         className="text-secondary-color mr-2"
