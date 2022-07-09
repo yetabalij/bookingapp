@@ -65,9 +65,10 @@ const Room = () => {
             Room
             {data !== null &&
               data.map((item) => {
+                console.log(item);
                 return (
                   <Card key={item?._id}>
-                    <h1>ok</h1>
+                    <h1>{item.name}</h1>
                   </Card>
                 );
               })}
