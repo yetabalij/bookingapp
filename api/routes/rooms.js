@@ -16,7 +16,7 @@ router.post("/create", createRoom);
 //UPDATE
 router.put("/:id", updateRoom);
 //DELETE
-router.delete("/:id/:hotelid", deleteRoom);
+router.delete("/delete/:id", deleteRoom);
 //GET
 router.get("/:id", getRoom);
 //GET ALL
