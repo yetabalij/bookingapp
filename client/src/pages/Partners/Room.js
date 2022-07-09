@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -54,6 +56,16 @@ const Room = () => {
     }
   }, [Property]);
 
+  const onDeleteHandler = (item) => {
+    axios
+      .delete(`http://localhost:8000/api/rooms/delete/${item._id}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const navigate = useNavigate();
 
   return (
@@ -65,10 +77,21 @@ const Room = () => {
             Room
             {data !== null &&
               data.map((item) => {
-                console.log(item);
                 return (
                   <Card key={item?._id}>
                     <h1>{item.name}</h1>
+                    <h1>{item._id}</h1>
+                    <div className="flex flex-row-reverse">
+                      <FontAwesomeIcon
+                        className="text-secondary-color"
+                        icon={faTrash}
+                        onClick={() => onDeleteHandler(item)}
+                      />
+                      <FontAwesomeIcon
+                        className="text-secondary-color mr-2"
+                        icon={faPen}
+                      />
+                    </div>
                   </Card>
                 );
               })}
