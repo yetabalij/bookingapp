@@ -9,6 +9,7 @@ const CardContainer = styled.div`
   ${tw`
    bg-white
    p-6
+   mt-8
     `}
   width:420px;
   height: 450px;
