@@ -30,6 +30,9 @@ import Room from "./pages/Partners/Room";
 import Finance from "./pages/Partners/Finance";
 import AddEditRooms from "./pages/Properties/AddEditRooms";
 
+//Gust
+import Booking from "./pages/Gust/Booking";
+
 function App() {
   const dispach = useDispatch();
   const partner = JSON.parse(localStorage.getItem("partnerProfile"));
@@ -67,6 +70,7 @@ function App() {
           <Route path="/finance" element={<Finance />} />
           <Route path="/addeditrooms" element={<AddEditRooms />} />
         </Route>
+        <Route path="/booking" element={<Booking />} />
       </Routes>
     </BrowserRouter>
   );
