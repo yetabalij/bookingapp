@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const partnersRegister = createAsyncThunk(
   "partners/auth",
-  async ({ formValue, navigate }) => {
+  async ({ formValue, navigate }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         "http://localhost:8000/api/partnerregister",
@@ -13,13 +13,13 @@ export const partnersRegister = createAsyncThunk(
       navigate("/createproperty");
       return response.data;
     } catch (err) {
-      console.log(err);
+      return rejectWithValue(err.response.data);
     }
   }
 );
 export const partnersLogin = createAsyncThunk(
   "partners/login",
-  async ({ formValue, navigate }) => {
+  async ({ formValue, navigate }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         "http://localhost:8000/api/partnerlogin",
@@ -29,7 +29,7 @@ export const partnersLogin = createAsyncThunk(
       navigate("/partnersdashboard");
       return response.data;
     } catch (err) {
-      console.log(err);
+      return rejectWithValue(err.response.data);
     }
   }
 );
