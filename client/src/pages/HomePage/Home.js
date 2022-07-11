@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import HotelPicker from "./components/HotelPicker";
 import PropertyType from "./components/PropertyType";
 import CityProperty from "./components/CityProperty";
@@ -6,6 +7,13 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
 const Home = () => {
+  const savedProperty = JSON.parse(localStorage.getItem("savedProperty"));
+  const navigator = useNavigate();
+  useEffect(() => {
+    if (savedProperty) {
+      navigator("/booking");
+    }
+  });
   return (
     <div>
       <Header />
