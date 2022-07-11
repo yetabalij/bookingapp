@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -26,10 +26,11 @@ const Input = styled.input`
 `;
 
 const Register = () => {
+  const { error } = useSelector((state) => ({ ...state.gust }));
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+  const [clientError, setError] = useState(false);
   const navigate = useNavigate();
   const dispach = useDispatch();
   const formValue = {
@@ -47,7 +48,8 @@ const Register = () => {
       setError(
         "Password must contains at least 8 characters with a minimum of 1 number, 1 uppercase, 1 lowercase and 1 special character. "
       );
-      //console.log(returnScore);
+    } else if (error) {
+      setError(error);
     } else {
       dispach(gustRegister({ formValue, navigate }));
     }
@@ -63,9 +65,9 @@ const Register = () => {
           </div>
           <div className="flex justify-center mt-3 pb-4">
             <form onSubmit={onSubmitHandler} className="w-3/6" noValidate>
-              {error && (
+              {clientError && (
                 <div className="bg-red-300 py-2 px-3 mb-3">
-                  <p>{error}</p>
+                  <p>{clientError}</p>
                 </div>
               )}
               <label>User Name</label>
