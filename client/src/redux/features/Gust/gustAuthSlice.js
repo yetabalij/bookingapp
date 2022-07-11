@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const gustRegister = createAsyncThunk(
   "gust/auth",
-  async ({ formValue, navigate }) => {
+  async ({ formValue, navigate }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         "http://localhost:8000/api/auth/register",
@@ -12,15 +12,15 @@ export const gustRegister = createAsyncThunk(
       );
       navigate("/");
       return response.data;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      return rejectWithValue(err.response.data);
     }
   }
 );
 
 export const gustSignIn = createAsyncThunk(
   "gust/signin",
-  async ({ formValue, navigate }) => {
+  async ({ formValue, navigate }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         "http://localhost:8000/api/auth/login",
@@ -29,8 +29,8 @@ export const gustSignIn = createAsyncThunk(
       );
       navigate("/");
       return response.data;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      return rejectWithValue(err.response.data);
     }
   }
 );
