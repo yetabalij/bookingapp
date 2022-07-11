@@ -12,6 +12,9 @@ import Button from "./../../components/Button";
 
 import { gustRegister } from "../../redux/features/Gust/gustAuthSlice";
 
+import isEmail from "validator/lib/isEmail";
+import isEmpty from "validator/lib/isEmpty";
+
 const Input = styled.input`
   ${tw`
   w-full
@@ -25,6 +28,7 @@ const Register = () => {
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
   const dispach = useDispatch();
   const formValue = {
@@ -34,8 +38,15 @@ const Register = () => {
   };
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    dispach(gustRegister({ formValue, navigate }));
+    if (isEmpty(username) || isEmpty(email) || isEmpty(password)) {
+      return setError("All fields are required.");
+    } else if (!isEmail(email)) {
+      return setError("Email is required.");
+    } else {
+      dispach(gustRegister({ formValue, navigate }));
+    }
   };
+
   return (
     <div>
       <ThirdNavBar />
@@ -45,27 +56,44 @@ const Register = () => {
             <h3 className="font-bold text-xl">Register</h3>
           </div>
           <div className="flex justify-center mt-3 pb-4">
-            <form onSubmit={onSubmitHandler} className="w-3/6">
+            <form onSubmit={onSubmitHandler} className="w-3/6" noValidate>
+              {error && (
+                <div className="bg-red-300 py-2 px-3 mb-3">
+                  <p>{error}</p>
+                </div>
+              )}
               <label>User Name</label>
               <Input
+                name="username"
                 placeholder="user Name"
                 type="text"
                 value={username}
-                onChange={(e) => setUserName(e.target.value)}
+                onChange={(e) => {
+                  setUserName(e.target.value);
+                  setError(false);
+                }}
               />
               <label>Email</label>
               <Input
+                name="email"
                 placeholder="Email"
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setError(false);
+                }}
               />
               <label>Password</label>
               <Input
+                name="password"
                 placeholder="Password"
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setError(false);
+                }}
               />
               <div className="w-full bg-secondary-color text-white py-3 flex justify-center cursor-pointer">
                 <Button type={"submit"} className={"w-full"}>
