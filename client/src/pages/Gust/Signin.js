@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import tw from "twin.macro";
 import NavBar from "../../components/ThirdNavBar";
@@ -25,11 +25,12 @@ const Input = styled.input`
 `;
 
 const Signin = () => {
+  const { error } = useSelector((state) => ({ ...state.gust }));
   const dispach = useDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+  const [clientError, setError] = useState(false);
   const formValue = {
     email,
     password,
@@ -40,6 +41,8 @@ const Signin = () => {
       return setError("All fields are required.");
     } else if (!isEmail(email)) {
       return setError("Valid email is required.");
+    } else if (error) {
+      return setError(error);
     } else {
       dispach(gustSignIn({ formValue, navigate }));
     }
@@ -54,9 +57,9 @@ const Signin = () => {
           </div>
           <div className="flex justify-center mt-3 pb-4">
             <form onSubmit={onSubmitHandler} className="w-3/6" noValidate>
-              {error && (
+              {clientError && (
                 <div className="bg-red-300 py-2 px-3 mb-3">
-                  <p>{error}</p>
+                  <p>{clientError}</p>
                 </div>
               )}
               <label>Email</label>
