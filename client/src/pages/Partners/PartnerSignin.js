@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { partnersLogin } from "./../../redux/features/Partners/partnersAuthSlice";
 import NavBar from "./../../components/SecondaryNavBar";
 import Footer from "../../components/Footer";
+
+import isEmail from "validator/lib/isEmail";
+import isEmpty from "validator/lib/isEmpty";
 
 const Container = styled.div`
   ${tw`
@@ -54,8 +57,10 @@ const HorizontalLine = styled.hr`
   border: 1px solid #f3f3f3;
 `;
 const PartnerSignin = () => {
+  const { error } = useSelector((state) => ({ ...state.partnersAuth }));
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [clientError, setClientError] = useState(false);
 
   const formValue = {
     email: email,
@@ -66,7 +71,15 @@ const PartnerSignin = () => {
   //console.log(formValue);
   const handleLogin = (e) => {
     e.preventDefault();
-    dispach(partnersLogin({ formValue, navigate }));
+    if (isEmpty(email) || isEmpty(password)) {
+      return setClientError("All fields are required.");
+    } else if (!isEmail(email)) {
+      return setClientError("Valid email is required.");
+    } else if (error) {
+      return setClientError(error);
+    } else {
+      dispach(partnersLogin({ formValue, navigate }));
+    }
   };
 
   return (
@@ -74,13 +87,19 @@ const PartnerSignin = () => {
       <Container>
         <NavBar />
         <FormContainer>
-          <form onSubmit={(e) => handleLogin(e)}>
+          <form onSubmit={(e) => handleLogin(e)} noValidate>
+            {clientError && (
+              <div className="bg-red-300 py-2 px-3 mb-3">
+                <p>{clientError}</p>
+              </div>
+            )}
             <p className="text-2xl font-bold mb-5">
               Sign in to manage your property
             </p>
             <label>Email address</label>
             <br />
             <Input
+              name="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -90,6 +109,7 @@ const PartnerSignin = () => {
             <label>Password</label>
             <br />
             <Input
+              name="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
