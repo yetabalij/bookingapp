@@ -14,6 +14,7 @@ import { gustRegister } from "../../redux/features/Gust/gustAuthSlice";
 
 import isEmail from "validator/lib/isEmail";
 import isEmpty from "validator/lib/isEmpty";
+import isStrongPassword from "validator/lib/isStrongPassword";
 
 const Input = styled.input`
   ${tw`
@@ -41,7 +42,12 @@ const Register = () => {
     if (isEmpty(username) || isEmpty(email) || isEmpty(password)) {
       return setError("All fields are required.");
     } else if (!isEmail(email)) {
-      return setError("Email is required.");
+      return setError("Valid email is required.");
+    } else if (!isStrongPassword(password)) {
+      setError(
+        "Password must contains at least 8 characters with a minimum of 1 number, 1 uppercase, 1 lowercase and 1 special character. "
+      );
+      //console.log(returnScore);
     } else {
       dispach(gustRegister({ formValue, navigate }));
     }
