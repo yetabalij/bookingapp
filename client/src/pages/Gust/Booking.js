@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-//import { useLocation } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Container from "../../components/Container";
@@ -8,8 +7,6 @@ import Card from "../../components/Card";
 import Button from "../../components/Button";
 
 const Booking = () => {
-  //const location = useLocation();
-  //console.log(location.state);
   const savedProperty = JSON.parse(localStorage.getItem("savedProperty"));
   const gust = JSON.parse(localStorage.getItem("gustProfile"));
   const navigator = useNavigate();
