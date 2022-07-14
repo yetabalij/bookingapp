@@ -11,6 +11,7 @@ const Booking = () => {
   //const location = useLocation();
   //console.log(location.state);
   const savedProperty = JSON.parse(localStorage.getItem("savedProperty"));
+  const gust = JSON.parse(localStorage.getItem("gustProfile"));
   const navigator = useNavigate();
   return (
     <div>
