@@ -13,7 +13,6 @@ const Restaurant = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const gust = JSON.parse(localStorage.getItem("gustProfile"));
   const navigator = useNavigate();
-  // const [error, setError] = useState("");
   const pages = new Array(totalPages).fill(null).map((v, i) => i);
 
   useEffect(() => {
@@ -25,7 +24,6 @@ const Restaurant = () => {
       })
       .catch((error) => console.log(error));
   }, [pageNumber]);
-  // console.log(`${error}`);
   const onBookHandler = (restarurant) => {
     if (gust === null) {
       localStorage.setItem("savedProperty", JSON.stringify(restarurant));
@@ -39,7 +37,6 @@ const Restaurant = () => {
     <div>
       <NavBar />
       <Container>
-        {/* {error !== null && <p>{error}</p>} */}
         {restaurants === null ? (
           <p>...Loading</p>
         ) : (
