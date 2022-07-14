@@ -8,12 +8,13 @@ import Header from "../../components/Header";
 
 const Home = () => {
   const savedProperty = JSON.parse(localStorage.getItem("savedProperty"));
+  const gust = JSON.parse(localStorage.getItem("gustProfile"));
   const navigator = useNavigate();
   useEffect(() => {
-    if (savedProperty) {
+    if (savedProperty && gust) {
       navigator("/booking");
     }
-  });
+  }, []);
   return (
     <div>
       <Header />
