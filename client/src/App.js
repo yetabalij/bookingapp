@@ -31,11 +31,13 @@ import Finance from "./pages/Partners/Finance";
 import AddEditRooms from "./pages/Properties/AddEditRooms";
 
 //Gust
+import GustProtected from "./components/GustProtected";
 import Booking from "./pages/Gust/Booking";
 
 function App() {
   const dispach = useDispatch();
   const partner = JSON.parse(localStorage.getItem("partnerProfile"));
+  const gust = JSON.parse(localStorage.getItem("gustProfile"));
   useEffect(() => {
     dispach(setPartnerUser(partner));
   }, []);
@@ -70,7 +72,9 @@ function App() {
           <Route path="/finance" element={<Finance />} />
           <Route path="/addeditrooms" element={<AddEditRooms />} />
         </Route>
-        <Route path="/booking" element={<Booking />} />
+        <Route element={<GustProtected gust={gust} />}>
+          <Route path="/booking" element={<Booking />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
