@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/Header";
 import Card from "./../../components/Card";
 import Container from "../../components/Container";
@@ -9,7 +10,8 @@ const Spa = () => {
   const [spa, setSpa] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
-  // const [error, setError] = useState("");
+  const navigator = useNavigate();
+  const gust = JSON.parse(localStorage.getItem("gustProfile"));
   const pages = new Array(totalPages).fill(null).map((v, i) => i);
 
   useEffect(() => {
@@ -21,12 +23,20 @@ const Spa = () => {
       })
       .catch((error) => console.log(error));
   }, [pageNumber]);
-  // console.log(`${error}`);
+
+  const onBookHandler = (spa) => {
+    if (gust === null) {
+      localStorage.setItem("savedProperty", JSON.stringify(spa));
+      navigator("/signin");
+    } else {
+      localStorage.setItem("savedProperty", JSON.stringify(spa));
+      navigator("/booking");
+    }
+  };
   return (
     <div>
       <NavBar />
       <Container>
-        {/* {error !== null && <p>{error}</p>} */}
         {spa === null ? (
           <p>...Loading</p>
         ) : (
@@ -57,7 +67,10 @@ const Spa = () => {
                     <p>Price ${spa.price}</p>
                     <p>Room Type {spa.roomType}</p>
                     <p>Language {spa.language}</p>
-                    <button className="bg-primary-color text-white py-1 px-4 mt-2">
+                    <button
+                      className="bg-primary-color text-white py-1 px-4 mt-2"
+                      onClick={() => onBookHandler(spa)}
+                    >
                       Book Now
                     </button>
                   </div>
