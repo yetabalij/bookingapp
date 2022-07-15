@@ -24,6 +24,7 @@ const Restaurant = () => {
       })
       .catch((error) => console.log(error));
   }, [pageNumber]);
+
   const onBookHandler = (restarurant) => {
     if (gust === null) {
       localStorage.setItem("savedProperty", JSON.stringify(restarurant));
@@ -33,6 +34,7 @@ const Restaurant = () => {
       navigator("/booking");
     }
   };
+
   return (
     <div>
       <NavBar />
