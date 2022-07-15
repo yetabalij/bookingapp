@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer";
 import axios from "axios";
 import Header from "../../components/Header";
@@ -10,7 +11,8 @@ const Bar = () => {
   const [bar, setBar] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
-  // const [error, setError] = useState("");
+  const gust = JSON.parse(localStorage.getItem("gustProfile"));
+  const navigator = useNavigate();
   const pages = new Array(totalPages).fill(null).map((v, i) => i);
 
   useEffect(() => {
@@ -22,12 +24,20 @@ const Bar = () => {
       })
       .catch((error) => console.log(error));
   }, [pageNumber]);
-  // console.log(`${error}`);
+
+  const onBookHandler = (bar) => {
+    if (gust === null) {
+      localStorage.setItem("savedProperty", JSON.stringify(bar));
+      navigator("/signin");
+    } else {
+      localStorage.setItem("savedProperty", JSON.stringify(bar));
+      navigator("/booking");
+    }
+  };
   return (
     <div>
       <Header />
       <Container>
-        {/* {error !== null && <p>{error}</p>} */}
         {bar === null ? (
           <p>...Loading</p>
         ) : (
@@ -59,7 +69,7 @@ const Bar = () => {
                     <p>Room Type {bar.roomType}</p>
                     <p>Language {bar.language}</p>
                     <Button
-                      onClick={() => alert(bar.hotel.name)}
+                      onClick={() => onBookHandler(bar)}
                       className="bg-primary-color text-white py-1 px-4 mt-2"
                     >
                       Book Now
