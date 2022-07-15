@@ -16,8 +16,8 @@ const Booking = () => {
       <Container>
         <Card>
           <h5>Booking Summary</h5>
-          <p>{savedProperty.hotel.name}</p>
-          <img alt="hotel" src={savedProperty.hotel.image} />
+          <p>{savedProperty?.hotel?.name}</p>
+          <img alt="hotel" src={savedProperty?.hotel?.image} />
           <div className="flex mt-5">
             <Button className="text-white bg-secondary-color py-2 px-3 mr-3">
               Reserve Room
