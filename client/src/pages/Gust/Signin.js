@@ -80,7 +80,7 @@ const Signin = () => {
               />
               <div className="w-full bg-secondary-color text-white py-3 flex justify-center cursor-pointer">
                 <Button type={"submit"} className={"w-full"}>
-                  Register
+                  SignIn
                 </Button>
               </div>
             </form>
