@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/Header";
 import Card from "./../../components/Card";
 import Container from "./../../components/Container";
@@ -9,7 +10,8 @@ const Sauna = () => {
   const [sauna, setSauna] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
-  // const [error, setError] = useState("");
+  const gust = JSON.parse(localStorage.getItem("gustProfile"));
+  const navigator = useNavigate();
   const pages = new Array(totalPages).fill(null).map((v, i) => i);
   console.log(pages);
 
@@ -22,7 +24,17 @@ const Sauna = () => {
       })
       .catch((error) => console.log(error));
   }, [pageNumber]);
-  // console.log(`${error}`);
+
+  const onBookHandler = (sauna) => {
+    if (gust === null) {
+      localStorage.setItem("savedProperty", JSON.stringify(sauna));
+      navigator("/signin");
+    } else {
+      localStorage.setItem("savedProperty", JSON.stringify(sauna));
+      navigator("/booking");
+    }
+  };
+
   return (
     <div>
       <NavBar />
@@ -58,7 +70,10 @@ const Sauna = () => {
                     <p>Price ${sauna.price}</p>
                     <p>Room Type {sauna.roomType}</p>
                     <p>Language {sauna.language}</p>
-                    <button className="bg-primary-color text-white py-1 px-4 mt-2">
+                    <button
+                      className="bg-primary-color text-white py-1 px-4 mt-2"
+                      onClick={() => onBookHandler(sauna)}
+                    >
                       Book Now
                     </button>
                   </div>
