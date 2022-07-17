@@ -77,14 +77,13 @@ const HelpContainer = styled.div`
 const ListYourPropertyContainer = styled.div`
   ${tw`
     text-white
+    bg-third-color
     px-1
     md:px-3
     md:py-2
     mr-4
     justify-items-center
   `}
-  border-style: solid;
-  border-width: 1px;
 `;
 
 const Navigation = styled.div`

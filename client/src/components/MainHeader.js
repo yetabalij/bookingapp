@@ -60,6 +60,7 @@ const SigninRegisterButton = styled.button`
         text-white
         font-semibold
     `}
+  box-shadow: -1px 1px 10px 1px #003580;
 `;
 
 const MainHeader = () => {
