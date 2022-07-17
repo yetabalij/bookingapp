@@ -11,7 +11,7 @@ cloudinary.config({
 //CREATE
 exports.createHotel = async (req, res, next) => {
   const hotel = req.body;
-  const { image } = hotel;
+  const { image, type, city } = hotel;
 
   try {
     const photoResponse = await cloudinary.uploader.upload(image, {
@@ -21,6 +21,8 @@ exports.createHotel = async (req, res, next) => {
     const NewHotel = new Hotel({
       ...hotel,
       image: photosrul,
+      type: type.toLowerCase(),
+      city: type.toLowerCase(),
     });
     const savedHotel = await NewHotel.save();
     res.status(200).json(savedHotel);
