@@ -7,32 +7,43 @@ import { searchHotels } from "./../../../redux/features/searchSlice";
 
 const HotelPickerContainer = styled.div`
   ${tw`
-    overflow-hidden
     flex
     md:w-4/5
     2xl:w-3/5
     mx-auto
-    mt--6
+    mt-6
     justify-items-center
-    bg-white
     `}
-  border-style: solid;
-  border-width: 2px;
-  border-color: #febb02;
 `;
 const InputContainer = styled.div`
   ${tw`
-        grid
-        xl:flex
+        flex
+        md:flex-row
+        flex-col
+        // justify-center
+        // justify-items-center
+        // content-between
+        items-center
     `}
 `;
 const CheckInContainer = styled.div`
   ${tw`
-
+    bg-primary-color
+    text-white
+    py-2
+    px-8
     `}
-  border-style: solid;
-  border-width: 2px;
-  border-color: #febb02;
+`;
+const Input = styled.input`
+  ${tw`
+    mr-4
+  `}
+  border: none;
+  background: #f2f2f2;
+  padding: 12px;
+  border-radius: 3px;
+  width: 250px;
+  font-size: 14px;
 `;
 
 const HotelPicker = () => {
@@ -48,43 +59,40 @@ const HotelPicker = () => {
   const navigate = useNavigate();
 
   const onFormSubmitHandler = (e) => {
-    //e.preventDefaulet();
     dispach(searchHotels({ formValue, navigate }));
     navigate("/searchhotels", { state: formValue });
   };
 
   return (
-    <div>
-      <HotelPickerContainer>
-        <InputContainer>
-          {/* <form onSubmit={onFormSubmitHandler}> */}
-          <input
+    <HotelPickerContainer>
+      <InputContainer>
+        <div className="">
+          <Input
+            className=""
             placeholder="max People"
             type="text"
             name="maxPeople"
             value={maxPeople}
             onChange={(e) => setmaxPeople(e.target.value)}
           />
-          <input
+        </div>
+        <div>
+          <Input
+            className=""
             placeholder="city"
             type="text"
             name="city"
             value={city}
             onChange={(e) => setcity(e.target.value)}
           />
-          <CheckInContainer>
-            <button
-              onClick={onFormSubmitHandler}
-              //type="submit"
-              //style={{ paddingLeft: "109px" }}
-            >
-              Search
-            </button>
-          </CheckInContainer>
-          {/* </form> */}
-        </InputContainer>
-      </HotelPickerContainer>
-    </div>
+        </div>
+        <CheckInContainer>
+          <button className="" onClick={onFormSubmitHandler}>
+            Search
+          </button>
+        </CheckInContainer>
+      </InputContainer>
+    </HotelPickerContainer>
   );
 };
 

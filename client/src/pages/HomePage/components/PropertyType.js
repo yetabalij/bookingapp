@@ -40,7 +40,7 @@ const Container = styled.div`
     md:w-4/5
     2xl:w-3/5
     mx-auto
-    mt-14
+    mt-4
     mb-16
   `}
 `;
