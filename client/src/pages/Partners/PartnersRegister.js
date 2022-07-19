@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./../../components/SecondaryNavBar";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -88,6 +88,10 @@ const PartnersRegister = () => {
       dispach(partnersRegister({ formValue, navigate }));
     }
   };
+
+  useEffect(() => {
+    submitHandler();
+  }, [error]);
 
   const FormRenderer = () => {
     if (CompState === 0) {
