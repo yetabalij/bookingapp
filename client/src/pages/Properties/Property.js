@@ -41,6 +41,7 @@ const Button = styled.button`
 
 const Property = () => {
   const Partners = JSON.parse(localStorage.getItem("partnerProfile"));
+  const { loading } = useSelector((state) => ({ ...state.properties }));
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -86,6 +87,7 @@ const Property = () => {
   };
   return (
     <Container>
+      {loading !== "" && loading === true ? <p>...loading</p> : ""}
       <form onSubmit={(e) => handleSubmit(e)}>
         <h1 className="text-2xl font-bold text-slate-800">
           Want to Create New Property
