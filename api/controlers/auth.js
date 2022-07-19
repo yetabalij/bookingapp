@@ -5,9 +5,12 @@ const { createError } = require("./../utils/error");
 
 exports.register = async (req, res, next) => {
   try {
-    const userExists = User.findOne({ email: req.body.email });
-    if (userExists) {
-      return next(createError(409, "User already exists."));
+    const userExist = await User.findOne({
+      email: req.body.email,
+    });
+
+    if (userExist) {
+      return next(createError(409, "User alredy existed."));
     }
 
     const salt = bcrypt.genSaltSync(10);
