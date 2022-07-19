@@ -38,35 +38,35 @@ const Spa = () => {
       <NavBar />
       <Container>
         {spa === null ? (
-          <p>...Loading</p>
+          <p>No Content</p>
         ) : (
           spa.map((spa) => {
             return (
-              <Card key={spa._id}>
+              <Card key={spa?._id}>
                 <div className="grid grid-cols-4 gap-4">
                   <div>
-                    <img src={spa.hotel.image} alt="Hotel" />
+                    <img src={spa?.hotel?.image} alt="Hotel" />
                   </div>
                   <div>
-                    <p>{spa.hotel.name}</p>
-                    <p>{spa.hotel.city}</p>
-                    <p>{spa.hotel.address}</p>
-                    <p>{spa.hotel.distances}</p>
+                    <p>{spa?.hotel?.name}</p>
+                    <p>{spa?.hotel?.city}</p>
+                    <p>{spa?.hotel?.address}</p>
+                    <p>{spa?.hotel?.distances}</p>
                   </div>
                   <div>
-                    {spa.spa === true ? <p>spa</p> : null}
-                    {spa.breakfast === "Yes" ? <p>Breakfast</p> : null}
-                    {spa.freeWifi === true ? <p>Frer WiFi</p> : null}
-                    {spa.frontDesk === true ? <p>24/7 Front Desk</p> : null}
-                    {spa.hotTube === true ? <p>Sauna Bath</p> : null}
-                    {spa.parking === "Yes" ? <p>Parking</p> : null}
-                    {spa.spa === true ? <p>Spa</p> : null}
-                    {spa.smoking === true ? <p>Smokking Area</p> : null}
+                    {spa?.spa === true ? <p>spa</p> : null}
+                    {spa?.breakfast === "Yes" ? <p>Breakfast</p> : null}
+                    {spa?.freeWifi === true ? <p>Frer WiFi</p> : null}
+                    {spa?.frontDesk === true ? <p>24/7 Front Desk</p> : null}
+                    {spa?.hotTube === true ? <p>Sauna Bath</p> : null}
+                    {spa?.parking === "Yes" ? <p>Parking</p> : null}
+                    {spa?.spa === true ? <p>Spa</p> : null}
+                    {spa?.smoking === true ? <p>Smokking Area</p> : null}
                   </div>
                   <div>
-                    <p>Price ${spa.price}</p>
-                    <p>Room Type {spa.roomType}</p>
-                    <p>Language {spa.language}</p>
+                    <p>Price ${spa?.price}</p>
+                    <p>Room Type {spa?.roomType}</p>
+                    <p>Language {spa?.language}</p>
                     <button
                       className="bg-primary-color text-white py-1 px-4 mt-2"
                       onClick={() => onBookHandler(spa)}
