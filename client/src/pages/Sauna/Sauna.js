@@ -13,7 +13,6 @@ const Sauna = () => {
   const gust = JSON.parse(localStorage.getItem("gustProfile"));
   const navigator = useNavigate();
   const pages = new Array(totalPages).fill(null).map((v, i) => i);
-  console.log(pages);
 
   useEffect(() => {
     axios
@@ -39,37 +38,36 @@ const Sauna = () => {
     <div>
       <NavBar />
       <Container>
-        {/* {error !== null && <p>{error}</p>} */}
         {sauna === null ? (
-          <p>...Loading</p>
+          <p>No Content</p>
         ) : (
           sauna.map((sauna) => {
             return (
-              <Card key={sauna._id}>
+              <Card key={sauna?._id}>
                 <div className="grid grid-cols-4 gap-4">
                   <div>
-                    <img src={sauna.hotel.image} alt="hotel" />
+                    <img src={sauna?.hotel?.image} alt="hotel" />
                   </div>
                   <div>
-                    <p>{sauna.hotel.name}</p>
-                    <p>{sauna.hotel.city}</p>
-                    <p>{sauna.hotel.address}</p>
-                    <p>{sauna.hotel.distances}</p>
+                    <p>{sauna?.hotel?.name}</p>
+                    <p>{sauna?.hotel?.city}</p>
+                    <p>{sauna?.hotel?.address}</p>
+                    <p>{sauna?.hotel?.distances}</p>
                   </div>
                   <div>
-                    {sauna.bar === true ? <p>Bar</p> : null}
-                    {sauna.breakfast === "Yes" ? <p>Breakfast</p> : null}
-                    {sauna.freeWifi === true ? <p>Frer WiFi</p> : null}
-                    {sauna.frontDesk === true ? <p>24/7 Front Desk</p> : null}
-                    {sauna.hotTube === true ? <p>Sauna Bath</p> : null}
-                    {sauna.parking === "Yes" ? <p>Parking</p> : null}
-                    {sauna.spa === true ? <p>Spa</p> : null}
-                    {sauna.smoking === true ? <p>Smokking Area</p> : null}
+                    {sauna?.bar === true ? <p>Bar</p> : null}
+                    {sauna?.breakfast === "Yes" ? <p>Breakfast</p> : null}
+                    {sauna?.freeWifi === true ? <p>Frer WiFi</p> : null}
+                    {sauna?.frontDesk === true ? <p>24/7 Front Desk</p> : null}
+                    {sauna?.hotTube === true ? <p>Sauna Bath</p> : null}
+                    {sauna?.parking === "Yes" ? <p>Parking</p> : null}
+                    {sauna?.spa === true ? <p>Spa</p> : null}
+                    {sauna?.smoking === true ? <p>Smokking Area</p> : null}
                   </div>
                   <div>
-                    <p>Price ${sauna.price}</p>
-                    <p>Room Type {sauna.roomType}</p>
-                    <p>Language {sauna.language}</p>
+                    <p>Price ${sauna?.price}</p>
+                    <p>Room Type {sauna?.roomType}</p>
+                    <p>Language {sauna?.language}</p>
                     <button
                       className="bg-primary-color text-white py-1 px-4 mt-2"
                       onClick={() => onBookHandler(sauna)}
