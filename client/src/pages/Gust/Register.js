@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -55,6 +55,10 @@ const Register = () => {
     }
   };
 
+  // useEffect(() => {
+  //   onSubmitHandler();
+  // }, [error]);
+
   return (
     <div>
       <ThirdNavBar />
@@ -64,7 +68,11 @@ const Register = () => {
             <h3 className="font-bold text-xl">Register</h3>
           </div>
           <div className="flex justify-center mt-3 pb-4">
-            <form onSubmit={onSubmitHandler} className="w-3/6" noValidate>
+            <form
+              onSubmit={(e) => onSubmitHandler(e)}
+              className="w-3/6"
+              noValidate
+            >
               {clientError && (
                 <div className="bg-red-300 py-2 px-3 mb-3">
                   <p>{clientError}</p>
@@ -104,7 +112,11 @@ const Register = () => {
                 }}
               />
               <div className="w-full bg-secondary-color text-white py-3 flex justify-center cursor-pointer">
-                <Button type={"submit"} className={"w-full"}>
+                <Button
+                  // onClick={onSubmitHandler}
+                  type={"submit"}
+                  className={"w-full"}
+                >
                   Register
                 </Button>
               </div>
