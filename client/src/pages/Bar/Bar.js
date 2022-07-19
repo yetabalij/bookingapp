@@ -39,35 +39,35 @@ const Bar = () => {
       <Header />
       <Container>
         {bar === null ? (
-          <p>...Loading</p>
+          <p>no Content </p>
         ) : (
           bar.map((bar) => {
             return (
-              <Card key={bar._id}>
+              <Card key={bar?._id}>
                 <div className="grid grid-cols-4 gap-4">
                   <div>
-                    <img src={bar.hotel.image} alt="Hotel" />
+                    <img src={bar?.hotel?.image} alt="Hotel" />
                   </div>
                   <div>
-                    <p>{bar.hotel.name}</p>
-                    <p>{bar.hotel.city}</p>
-                    <p>{bar.hotel.address}</p>
-                    <p>{bar.hotel.distances}</p>
+                    <p>{bar?.hotel?.name}</p>
+                    <p>{bar?.hotel?.city}</p>
+                    <p>{bar?.hotel?.address}</p>
+                    <p>{bar?.hotel?.distances}</p>
                   </div>
                   <div>
-                    {bar.bar === true ? <p>Bar</p> : null}
-                    {bar.breakfast === "Yes" ? <p>Breakfast</p> : null}
-                    {bar.freeWifi === true ? <p>Frer WiFi</p> : null}
-                    {bar.frontDesk === true ? <p>24/7 Front Desk</p> : null}
-                    {bar.hotTube === true ? <p>Sauna Bath</p> : null}
-                    {bar.parking === "Yes" ? <p>Parking</p> : null}
-                    {bar.spa === true ? <p>Spa</p> : null}
-                    {bar.smoking === true ? <p>Smokking Area</p> : null}
+                    {bar?.bar === true ? <p>Bar</p> : null}
+                    {bar?.breakfast === "Yes" ? <p>Breakfast</p> : null}
+                    {bar?.freeWifi === true ? <p>Frer WiFi</p> : null}
+                    {bar?.frontDesk === true ? <p>24/7 Front Desk</p> : null}
+                    {bar?.hotTube === true ? <p>Sauna Bath</p> : null}
+                    {bar?.parking === "Yes" ? <p>Parking</p> : null}
+                    {bar?.spa === true ? <p>Spa</p> : null}
+                    {bar?.smoking === true ? <p>Smokking Area</p> : null}
                   </div>
                   <div>
-                    <p>Price ${bar.price}</p>
-                    <p>Room Type {bar.roomType}</p>
-                    <p>Language {bar.language}</p>
+                    <p>Price ${bar?.price}</p>
+                    <p>Room Type {bar?.roomType}</p>
+                    <p>Language {bar?.language}</p>
                     <Button
                       onClick={() => onBookHandler(bar)}
                       className="bg-primary-color text-white py-1 px-4 mt-2"
