@@ -68,11 +68,7 @@ const Register = () => {
             <h3 className="font-bold text-xl">Register</h3>
           </div>
           <div className="flex justify-center mt-3 pb-4">
-            <form
-              onSubmit={(e) => onSubmitHandler(e)}
-              className="w-3/6"
-              noValidate
-            >
+            <form onSubmit={onSubmitHandler} className="w-3/6" noValidate>
               {clientError && (
                 <div className="bg-red-300 py-2 px-3 mb-3">
                   <p>{clientError}</p>
