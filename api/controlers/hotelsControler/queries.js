@@ -9,7 +9,7 @@ exports.searchHotels = async (req, res, next) => {
       maxNumber: req.body.maxNumber,
     }).populate({
       path: "hotel",
-      match: { city: { $eq: req.body.city } },
+      match: { city: { $eq: req.body.city.toLowerCase() } },
     });
     const newResult = [];
     result.map((res) => {
