@@ -40,37 +40,39 @@ const Restaurant = () => {
       <NavBar />
       <Container>
         {restaurants === null ? (
-          <p>...Loading</p>
+          <p>no content to show</p>
         ) : (
           restaurants.map((restarurant) => {
             return (
-              <Card key={restarurant._id}>
+              <Card key={restarurant?._id}>
                 <div className="grid grid-cols-4 gap-4">
                   <div>
-                    <img src={restarurant.hotel.image} alt="hotel" />
+                    <img src={restarurant?.hotel?.image} alt="hotel" />
                   </div>
                   <div>
-                    <p>{restarurant.hotel.name}</p>
-                    <p>{restarurant.hotel.city}</p>
-                    <p>{restarurant.hotel.address}</p>
-                    <p>{restarurant.hotel.distances}</p>
+                    <p>{restarurant?.hotel?.name}</p>
+                    <p>{restarurant?.hotel?.city}</p>
+                    <p>{restarurant?.hotel?.address}</p>
+                    <p>{restarurant?.hotel?.distances}</p>
                   </div>
                   <div>
-                    {restarurant.bar === true ? <p>Bar</p> : null}
-                    {restarurant.breakfast === "Yes" ? <p>Breakfast</p> : null}
-                    {restarurant.freeWifi === true ? <p>Frer WiFi</p> : null}
-                    {restarurant.frontDesk === true ? (
+                    {restarurant?.bar === true ? <p>Bar</p> : null}
+                    {restarurant?.breakfast === "Yes" ? <p>Breakfast</p> : null}
+                    {restarurant?.freeWifi === true ? <p>Frer WiFi</p> : null}
+                    {restarurant?.frontDesk === true ? (
                       <p>24/7 Front Desk</p>
                     ) : null}
-                    {restarurant.hotTube === true ? <p>Sauna Bath</p> : null}
-                    {restarurant.parking === "Yes" ? <p>Parking</p> : null}
-                    {restarurant.spa === true ? <p>Spa</p> : null}
-                    {restarurant.smoking === true ? <p>Smokking Area</p> : null}
+                    {restarurant?.hotTube === true ? <p>Sauna Bath</p> : null}
+                    {restarurant?.parking === "Yes" ? <p>Parking</p> : null}
+                    {restarurant?.spa === true ? <p>Spa</p> : null}
+                    {restarurant?.smoking === true ? (
+                      <p>Smokking Area</p>
+                    ) : null}
                   </div>
                   <div>
-                    <p>Price ${restarurant.price}</p>
-                    <p>Room Type {restarurant.roomType}</p>
-                    <p>Language {restarurant.language}</p>
+                    <p>Price ${restarurant?.price}</p>
+                    <p>Room Type {restarurant?.roomType}</p>
+                    <p>Language {restarurant?.language}</p>
                     <Button
                       className={"bg-primary-color text-white py-1 px-4 mt-2"}
                       onClick={() => onBookHandler(restarurant)}
