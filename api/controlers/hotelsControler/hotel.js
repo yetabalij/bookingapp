@@ -22,7 +22,7 @@ exports.createHotel = async (req, res, next) => {
       ...hotel,
       image: photosrul,
       type: type.toLowerCase(),
-      city: type.toLowerCase(),
+      city: city.toLowerCase(),
     });
     const savedHotel = await NewHotel.save();
     res.status(200).json(savedHotel);
