@@ -15,7 +15,7 @@ const Header = () => {
     <header>
       <div className="BodyContainer">
         <div className="HeaderContainer">
-          <div className="HeaderSection md:w-4/5 2xl:w-3/5 mx-auto flex justify-between">
+          <div className="HeaderSection md:w-4/5 2xl:w-3/5 mx-auto md:flex justify-between">
             <div className="LeaftSection">
               {toggle === true ? (
                 <div className="LeftSectionOne ">
