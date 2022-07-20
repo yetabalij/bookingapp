@@ -46,7 +46,7 @@ const partnersAuthSclise = createSlice({
       state.Partners = action.payload;
     },
     setPartnerLogout: (state, action) => {
-      localStorage.clear();
+      localStorage.removeItem("partnerProfile");
       state.Partners = null;
     },
   },
