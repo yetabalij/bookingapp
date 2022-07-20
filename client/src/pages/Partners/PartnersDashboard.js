@@ -1,4 +1,7 @@
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { partnerProperty } from "../../redux/features/Properties/propertySlice";
 
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -36,7 +39,18 @@ const Button = styled.button`
 `;
 
 const PartnersDashboard = () => {
+  const Partners = JSON.parse(localStorage.getItem("partnerProfile"));
   const { Property } = useSelector((state) => ({ ...state.properties }));
+
+  const formValue = {
+    partnerId: Partners?._id,
+  };
+  const dispach = useDispatch();
+
+  useEffect(() => {
+    dispach(partnerProperty(formValue));
+  }, [Partners?._id]);
+
   return (
     <Container>
       <NavBar />
