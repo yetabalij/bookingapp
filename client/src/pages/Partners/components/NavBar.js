@@ -45,7 +45,7 @@ const Button = styled.button`
 `;
 
 const NavBar = () => {
-  const { Partners } = useSelector((state) => ({ ...state.partnersAuth }));
+  const Partners = JSON.parse(localStorage.getItem("partnerProfile"));
   const { Property } = useSelector((state) => ({ ...state.properties }));
 
   const formValue = {
