@@ -42,11 +42,11 @@ const propertySlice = createSlice({
     loading: "",
   },
   reducers: {
-    setPartnerProperty: (state, action) => {
-      state.Property = action.payload;
-    },
+    // setPartnerProperty: (state, action) => {
+    //   state.Property = action.payload;
+    // },
     clearPartnerProperty: (state, action) => {
-      localStorage.clear();
+      localStorage.removeItem("partnerProperty");
       state.Property = null;
     },
   },
@@ -56,7 +56,10 @@ const propertySlice = createSlice({
     },
     [createHotel.fulfilled]: (state, action) => {
       state.loading = false;
-      //localStorage.setItem("property", JSON.stringify({ ...action.payload }));
+      localStorage.setItem(
+        "partnerProperty",
+        JSON.stringify({ ...action.payload })
+      );
       state.Property = action.payload;
     },
     [createHotel.rejected]: (state, action) => {
