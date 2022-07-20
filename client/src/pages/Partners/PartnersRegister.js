@@ -45,7 +45,6 @@ const PartnersRegister = () => {
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [clientError, setClientError] = useState(false);
-  const [contactError, setContactError] = useState(false);
   const username = `${firstName} ${lastName}`;
 
   const navigate = useNavigate();
