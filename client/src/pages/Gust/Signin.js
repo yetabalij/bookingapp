@@ -43,7 +43,6 @@ const Signin = () => {
     } else if (!isEmail(email)) {
       return setError("Valid email is required.");
     }
-    console.log(formValue);
     dispach(gustSignIn({ formValue, navigate }));
   };
 
