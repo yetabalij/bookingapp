@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const createHotel = createAsyncThunk(
   "create/hotel",
-  async ({ formValue, navigate }) => {
+  async ({ formValue, navigate }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         "http://localhost:8000/api/hotels/createhotel",
@@ -13,7 +13,7 @@ export const createHotel = createAsyncThunk(
       navigate("/partnersdashboard");
       return response.data;
     } catch (err) {
-      console.log(err);
+      return rejectWithValue(err.response.data);
     }
   }
 );
@@ -42,9 +42,6 @@ const propertySlice = createSlice({
     loading: "",
   },
   reducers: {
-    // setPartnerProperty: (state, action) => {
-    //   state.Property = action.payload;
-    // },
     clearPartnerProperty: (state, action) => {
       localStorage.removeItem("partnerProperty");
       state.Property = null;
