@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -35,18 +35,18 @@ const Signin = () => {
     email,
     password,
   };
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
     if (isEmpty(email) || isEmpty(password)) {
       return setError("All fields are required.");
     } else if (!isEmail(email)) {
       return setError("Valid email is required.");
-    } else if (error) {
-      return setError(error);
-    } else {
-      dispach(gustSignIn({ formValue, navigate }));
     }
+    console.log(formValue);
+    dispach(gustSignIn({ formValue, navigate }));
   };
+
   return (
     <div>
       <NavBar />
@@ -62,13 +62,21 @@ const Signin = () => {
                   <p>{clientError}</p>
                 </div>
               )}
+              {error && (
+                <div className="bg-red-300 py-2 px-3 mb-3">
+                  <p>{error}</p>
+                </div>
+              )}
               <label>Email</label>
               <Input
                 name="email"
                 placeholder="Email"
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setError(false);
+                }}
               />
               <label>Password</label>
               <Input
@@ -76,7 +84,10 @@ const Signin = () => {
                 placeholder="Password"
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setError(false);
+                }}
               />
               <div className="w-full bg-secondary-color text-white py-3 flex justify-center cursor-pointer">
                 <Button type={"submit"} className={"w-full"}>
