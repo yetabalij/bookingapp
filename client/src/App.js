@@ -1,6 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
 
 import Home from "./pages/HomePage/Home";
 import Restaurant from "./pages/Restaurant/Restaurant";
@@ -34,9 +32,6 @@ import GustProtected from "./components/GustProtected";
 import Booking from "./pages/Gust/Booking";
 
 function App() {
-  const dispach = useDispatch();
-  const gust = JSON.parse(localStorage.getItem("gustProfile"));
-
   return (
     <BrowserRouter>
       <Routes>
@@ -68,7 +63,7 @@ function App() {
           <Route path="/finance" element={<Finance />} />
           <Route path="/addeditrooms" element={<AddEditRooms />} />
         </Route>
-        <Route element={<GustProtected gust={gust} />}>
+        <Route element={<GustProtected />}>
           <Route path="/booking" element={<Booking />} />
         </Route>
       </Routes>
