@@ -20,7 +20,7 @@ const Container = styled.div`
   ${tw`
     `}
 `;
-const FormContainer = styled.div`
+const FormContainer = styled.form`
   ${tw`
   w-[400px]
   mr-auto
@@ -73,24 +73,24 @@ const PartnersRegister = () => {
       setCompState((prevState) => prevState + 1);
     }
   };
+  const resetCount = () => {
+    if (CompState > 2) {
+      setCompState(0);
+    }
+  };
 
-  const submitHandler = () => {
+  const submitHandler = (e) => {
+    e.preventDefault();
     if (isEmpty(password)) {
       return setClientError("All fields are required.");
     } else if (!isStrongPassword(password)) {
       return setClientError(
         "Password must contains at least 8 characters with a minimum of 1 upercase, 1 lowercase 1 number and 1 special character"
       );
-    } else if (error) {
-      setClientError(error);
     } else {
       dispach(partnersRegister({ formValue, navigate }));
     }
   };
-
-  useEffect(() => {
-    submitHandler();
-  }, [error]);
 
   const FormRenderer = () => {
     if (CompState === 0) {
@@ -129,9 +129,14 @@ const PartnersRegister = () => {
     <div>
       <NavBar />
       <Container>
-        <FormContainer>
+        <FormContainer onSubmit={submitHandler}>
+          {error && (
+            <div className="bg-red-300 py-2 px-3 mb-3">
+              <p>{error}</p>
+            </div>
+          )}
           {FormRenderer()}
-          <Button onClick={CompState < 2 ? incrementCount : submitHandler}>
+          <Button onClick={CompState < 2 ? incrementCount : resetCount}>
             {CompState === 0 ? "Continue" : CompState === 1 ? "Next" : "Create"}
           </Button>
           {CompState === 0 && <SignInComp />}
