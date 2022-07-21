@@ -41,7 +41,7 @@ const Button = styled.button`
 
 const Property = () => {
   const Partners = JSON.parse(localStorage.getItem("partnerProfile"));
-  const { loading } = useSelector((state) => ({ ...state.properties }));
+  const { loading, error } = useSelector((state) => ({ ...state.properties }));
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -115,6 +115,11 @@ const Property = () => {
         <h1 className="text-2xl font-bold text-slate-800">
           Want to Create New Property
         </h1>
+        {error && (
+          <div className="bg-red-300 py-2 px-3 mt-3">
+            <p>{error}</p>
+          </div>
+        )}
         <br />
         <label>Name</label>
         <br />
