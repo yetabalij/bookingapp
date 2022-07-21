@@ -48,16 +48,10 @@ const Register = () => {
       setError(
         "Password must contains at least 8 characters with a minimum of 1 number, 1 uppercase, 1 lowercase and 1 special character. "
       );
-    } else if (error) {
-      setError(error);
     } else {
       dispach(gustRegister({ formValue, navigate }));
     }
   };
-
-  // useEffect(() => {
-  //   onSubmitHandler();
-  // }, [error]);
 
   return (
     <div>
@@ -72,6 +66,11 @@ const Register = () => {
               {clientError && (
                 <div className="bg-red-300 py-2 px-3 mb-3">
                   <p>{clientError}</p>
+                </div>
+              )}
+              {error && (
+                <div className="bg-red-300 py-2 px-3 mb-3">
+                  <p>{error}</p>
                 </div>
               )}
               <label>User Name</label>
