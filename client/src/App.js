@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
 import Home from "./pages/HomePage/Home";
 import Restaurant from "./pages/Restaurant/Restaurant";
@@ -34,7 +35,6 @@ import Booking from "./pages/Gust/Booking";
 
 function App() {
   const dispach = useDispatch();
-  const partner = JSON.parse(localStorage.getItem("partnerProfile"));
   const gust = JSON.parse(localStorage.getItem("gustProfile"));
 
   return (
@@ -60,7 +60,7 @@ function App() {
         <Route path="/partnershelpcenter" element={<PartnersHelpCenter />} />
         <Route path="/privacystatement" element={<PrivacyStatemnt />} />
         <Route path="/termsandconditions" element={<TermsAndConditions />} />
-        <Route element={<Protected partner={partner} />}>
+        <Route element={<Protected />}>
           <Route path="/createproperty" element={<Property />} />
           <Route path="/partnersdashboard" element={<PartnersDashboard />} />
           <Route path="/reservation" element={<Reservation />} />
