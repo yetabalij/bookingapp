@@ -23,15 +23,17 @@ const Container = styled.div`
 `;
 const TopContainer = styled.div`
   ${tw`
-    grid
-    grid-cols-2 gap-4
+    sm:grid
+    sm:grid-cols-2 
+    sm:gap-4
     mb-4
     `}
 `;
 const BottomContainer = styled.div`
   ${tw`
-    grid
-    grid-cols-3 gap-4
+    sm:grid
+    sm:grid-cols-3 
+    sm:gap-4
     `}
 `;
 const CardContainer = styled.div`
@@ -66,14 +68,14 @@ const CityProperty = () => {
     <Container>
       <TopContainer>
         <CardContainer>
-          <Image src={Ethiopia} alt="" className="" />
+          <Image src={Ethiopia} alt="Addis Ababa" className="mb-4" />
           <TextContainer>
             <h1 className="text-2xl text-white font-bold">Addis Ababa</h1>
             <p className="text-white">{cityProperty.addis} properties</p>
           </TextContainer>
         </CardContainer>
         <CardContainer>
-          <Image src={Kenya} alt="" />
+          <Image src={Kenya} alt="Kenya" />
           <TextContainer>
             <h1 className="text-2xl text-white font-bold">Nairobi</h1>
             <p className="text-white">{cityProperty.nairobi} properties</p>
@@ -82,21 +84,21 @@ const CityProperty = () => {
       </TopContainer>
       <BottomContainer>
         <CardContainer>
-          <Image src={Australia} alt="" />
+          <Image src={Australia} alt="Sydney" className="mb-4" />
           <TextContainer>
             <h1 className="text-2xl text-white font-bold">Sydney</h1>
             <p className="text-white">{cityProperty.sydney} properties</p>
           </TextContainer>
         </CardContainer>
         <CardContainer>
-          <Image src={Canada} alt="" />
+          <Image src={Canada} alt="Toronto" className="mb-4" />
           <TextContainer>
             <h1 className="text-2xl text-white font-bold">Toronto</h1>
             <p className="text-white">{cityProperty.toronto} properties</p>
           </TextContainer>
         </CardContainer>
         <CardContainer>
-          <Image src={Dubai} alt="" />
+          <Image src={Dubai} alt="Dubai" />
           <TextContainer>
             <h1 className="text-2xl text-white font-bold">Dubai</h1>
             <p className="text-white">{cityProperty.dubai} properties</p>
