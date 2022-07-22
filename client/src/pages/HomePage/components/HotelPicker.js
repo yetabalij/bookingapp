@@ -18,11 +18,9 @@ const HotelPickerContainer = styled.div`
 const InputContainer = styled.div`
   ${tw`
         flex
-        md:flex-row
+        w-full
+        sm:flex-row
         flex-col
-        // justify-center
-        // justify-items-center
-        // content-between
         items-center
     `}
 `;
@@ -66,7 +64,7 @@ const HotelPicker = () => {
   return (
     <HotelPickerContainer>
       <InputContainer>
-        <div className="">
+        <div className="mb-2">
           <Input
             className=""
             placeholder="max People"
@@ -76,7 +74,7 @@ const HotelPicker = () => {
             onChange={(e) => setmaxPeople(e.target.value)}
           />
         </div>
-        <div>
+        <div className="mb-2">
           <Input
             className=""
             placeholder="city"
