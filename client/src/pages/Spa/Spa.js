@@ -4,12 +4,14 @@ import NavBar from "../../components/Header";
 import Card from "./../../components/Card";
 import Container from "../../components/Container";
 import Footer from "../../components/Footer";
+import Spinner from "./../../components/Spinner";
 import axios from "axios";
 
 const Spa = () => {
   const [spa, setSpa] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
+  const [loading, setLoading] = useState(true);
   const navigator = useNavigate();
   const gust = JSON.parse(localStorage.getItem("gustProfile"));
   const pages = new Array(totalPages).fill(null).map((v, i) => i);
@@ -20,6 +22,7 @@ const Spa = () => {
       .then((res) => {
         setSpa(res.data.Spa);
         setTotalPages(res.data.totalPages);
+        setLoading(false);
       })
       .catch((error) => console.log(error));
   }, [pageNumber]);
@@ -36,6 +39,7 @@ const Spa = () => {
   return (
     <div>
       <NavBar />
+      {loading && <Spinner loading={loading} />}
       <Container>
         {spa === null ? (
           <p>No Content</p>
