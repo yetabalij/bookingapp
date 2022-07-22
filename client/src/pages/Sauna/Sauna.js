@@ -4,12 +4,14 @@ import NavBar from "../../components/Header";
 import Card from "./../../components/Card";
 import Container from "./../../components/Container";
 import Footer from "../../components/Footer";
+import Spinner from "./../../components/Spinner";
 import axios from "axios";
 
 const Sauna = () => {
   const [sauna, setSauna] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
+  const [loading, setLoading] = useState(true);
   const gust = JSON.parse(localStorage.getItem("gustProfile"));
   const navigator = useNavigate();
   const pages = new Array(totalPages).fill(null).map((v, i) => i);
@@ -20,6 +22,7 @@ const Sauna = () => {
       .then((res) => {
         setSauna(res.data.Sauna);
         setTotalPages(res.data.totalPages);
+        setLoading(false);
       })
       .catch((error) => console.log(error));
   }, [pageNumber]);
@@ -38,6 +41,7 @@ const Sauna = () => {
     <div>
       <NavBar />
       <Container>
+        {loading && <Spinner loading={loading} />}
         {sauna === null ? (
           <p>No Content</p>
         ) : (
