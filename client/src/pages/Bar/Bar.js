@@ -5,12 +5,14 @@ import axios from "axios";
 import Header from "../../components/Header";
 import Card from "./../../components/Card";
 import Container from "./../../components/Container";
+import Spinner from "./../../components/Spinner";
 import Button from "./../../components/Button";
 
 const Bar = () => {
   const [bar, setBar] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
+  const [loading, setLoading] = useState(true);
   const gust = JSON.parse(localStorage.getItem("gustProfile"));
   const navigator = useNavigate();
   const pages = new Array(totalPages).fill(null).map((v, i) => i);
@@ -21,6 +23,7 @@ const Bar = () => {
       .then((res) => {
         setBar(res.data.Bar);
         setTotalPages(res.data.totalPages);
+        setLoading(false);
       })
       .catch((error) => console.log(error));
   }, [pageNumber]);
@@ -38,6 +41,7 @@ const Bar = () => {
     <div>
       <Header />
       <Container>
+        {loading && <Spinner loading={loading} />}
         {bar === null ? (
           <p>no Content </p>
         ) : (
