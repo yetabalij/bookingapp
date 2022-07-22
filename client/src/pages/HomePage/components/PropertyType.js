@@ -67,7 +67,7 @@ const PropertyType = () => {
       setPropertyCount(res.data);
     });
   }, []);
-  //console.log(propertyCount.appartment);
+
   return (
     <Container>
       <h1 className="text-2xl font-bold mb-3">Browse by property type</h1>
