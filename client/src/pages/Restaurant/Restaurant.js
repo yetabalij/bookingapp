@@ -5,10 +5,12 @@ import Card from "./../../components/Card";
 import Button from "./../../components/Button";
 import Container from "./../../components/Container";
 import Footer from "../../components/Footer";
+import Spinner from "../../components/Spinner";
 import axios from "axios";
 
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
   const gust = JSON.parse(localStorage.getItem("gustProfile"));
@@ -21,6 +23,7 @@ const Restaurant = () => {
       .then((res) => {
         setRestaurants(res.data.Restaurants);
         setTotalPages(res.data.totalPages);
+        setLoading(false);
       })
       .catch((error) => console.log(error));
   }, [pageNumber]);
@@ -39,6 +42,7 @@ const Restaurant = () => {
     <div>
       <NavBar />
       <Container>
+        <Spinner loading={loading} />
         {restaurants === null ? (
           <p>no content to show</p>
         ) : (
