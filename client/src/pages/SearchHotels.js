@@ -5,6 +5,8 @@ import NavBar from "./../components/Header";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
 import Container from "./../components/Container";
+import { useSelector } from "react-redux";
+import Spinner from "../components/Spinner";
 
 const SearchHotels = () => {
   const location = useLocation();
@@ -12,6 +14,7 @@ const SearchHotels = () => {
   const gust = JSON.parse(localStorage.getItem("gustProfile"));
   const navigator = useNavigate();
   const searchResult = JSON.parse(localStorage.getItem("searchedProperties"));
+  const { loading } = useSelector((state) => ({ ...state.searchHotels }));
 
   useEffect(() => {
     if (searchResult !== null) {
@@ -33,6 +36,7 @@ const SearchHotels = () => {
     <div>
       <NavBar />
       <Container>
+        {loading && <Spinner loading={loading} />}
         {data.length === 0 ? (
           <Card>
             <p>No Content to show</p>
