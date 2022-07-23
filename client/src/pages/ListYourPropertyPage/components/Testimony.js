@@ -59,18 +59,20 @@ const Testimony = () => {
           </TitleContainer>
           <CardContainer>
             <Card>
-              <img className="w-2/5" src={Person} alt="person" />
-              <TextDiv>
-                <p className="text-3xl font-bold pl-12 pt-14 pr-14 tracking-wide leading-10">
-                  “It makes me more confident to know that I can report guest
-                  misconduct for all the properties in my portfolio on
-                  Booking.com.”
-                </p>
-                <p className="pl-12 mt-8 font-bold text-xl">Elvira Cuéllar</p>
-                <p className="pl-12 text-gray-500">
-                  Palma Homes Mallorca, Mallorca
-                </p>
-              </TextDiv>
+              <div>
+                <img className="sm:w-2/5" src={Person} alt="person" />
+                <TextDiv>
+                  <p className="text-3xl font-bold pl-12 pt-14 pr-14 tracking-wide leading-10">
+                    “It makes me more confident to know that I can report guest
+                    misconduct for all the properties in my portfolio on
+                    Booking.com.”
+                  </p>
+                  <p className="pl-12 mt-8 font-bold text-xl">Elvira Cuéllar</p>
+                  <p className="pl-12 text-gray-500">
+                    Palma Homes Mallorca, Mallorca
+                  </p>
+                </TextDiv>
+              </div>
             </Card>
           </CardContainer>
         </Container>
