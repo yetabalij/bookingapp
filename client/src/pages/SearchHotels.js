@@ -45,17 +45,19 @@ const SearchHotels = () => {
           data.map((d) => {
             return (
               <Card key={d._id}>
-                <div className="grid grid-cols-4 gap-4">
+                <div className="sm:grid sm:grid-cols-4 sm:gap-4">
                   <div>
                     <img src={d?.hotel?.image} alt="'" />
                   </div>
-                  <div>
+                  <div className="mb-2">
+                    <h3 className="font-bold">Property Information</h3>
                     <p>{d?.hotel?.name}</p>
                     <p>{d?.hotel?.city}</p>
                     <p>{d?.hotel?.address}</p>
                     <p>{d?.hotel?.distances}</p>
                   </div>
-                  <div>
+                  <div className="mb-2">
+                    <h3 className="font-bold">Facilities</h3>
                     {d?.bar === true ? <p>Bar</p> : null}
                     {d?.breakfast === "Yes" ? <p>Breakfast</p> : null}
                     {d?.freeWifi === true ? <p>Frer WiFi</p> : null}
@@ -66,6 +68,7 @@ const SearchHotels = () => {
                     {d?.smoking === true ? <p>Smokking Area</p> : null}
                   </div>
                   <div>
+                    <h3 className="font-bold">Room Information</h3>
                     <p>Price ${d.price}</p>
                     <p>Room Type {d.roomType}</p>
                     <p>Language {d.language}</p>
