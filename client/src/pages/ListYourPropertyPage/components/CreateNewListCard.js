@@ -9,9 +9,10 @@ const CardContainer = styled.div`
   ${tw`
    bg-white
    p-6
-   mt-8
+   sm:mt-8
+   sm:w-[420px]
+   w-[320px]
     `}
-  width:420px;
   height: 450px;
   border-radius: 5px;
 `;
@@ -30,7 +31,6 @@ const Lists = styled.div`
   ${tw`
     mt-4
     flex
-
   `}
 `;
 const ListText = styled.div`
@@ -119,7 +119,7 @@ function CreateNewListCard() {
         <HorizontalLine />
         <ThiredSection>
           <p className="font-bold mt-4">Already started a registration?</p>
-          <p className="text-blue-400 font-medium">
+          <p className="text-blue-400 font-medium mt-2">
             <Link to="/partnersignin">LogIn</Link>
           </p>
         </ThiredSection>
