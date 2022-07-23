@@ -17,7 +17,7 @@ const Container = styled.div`
     2xl:pt-12
     mt-12
     mb-24
-    flex
+    sm:flex
     justify-between
     justify-items-center
     `}
