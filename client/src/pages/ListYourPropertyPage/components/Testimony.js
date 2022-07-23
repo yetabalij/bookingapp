@@ -59,7 +59,7 @@ const Testimony = () => {
           </TitleContainer>
           <CardContainer>
             <Card>
-              <div>
+              <div className="sm:flex">
                 <img className="sm:w-2/5" src={Person} alt="person" />
                 <TextDiv>
                   <p className="text-3xl font-bold pl-12 pt-14 pr-14 tracking-wide leading-10">
