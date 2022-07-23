@@ -19,7 +19,7 @@ const Container = styled.div`
 const ListContainer = styled.div`
   ${tw`
     mt-24
-    grid grid-cols-2 gap-12
+    sm:grid sm:grid-cols-2 sm:gap-12
     
     `}
 `;
