@@ -48,17 +48,19 @@ const Bar = () => {
           bar.map((bar) => {
             return (
               <Card key={bar?._id}>
-                <div className="grid grid-cols-4 gap-4">
+                <div className="sm:grid sm:grid-cols-4 sm:gap-4">
                   <div>
                     <img src={bar?.hotel?.image} alt="Hotel" />
                   </div>
-                  <div>
+                  <div className="mb-2">
+                    <h3 className="font-bold">Property Information</h3>
                     <p>{bar?.hotel?.name}</p>
                     <p>{bar?.hotel?.city}</p>
                     <p>{bar?.hotel?.address}</p>
                     <p>{bar?.hotel?.distances}</p>
                   </div>
-                  <div>
+                  <div className="mb-2">
+                    <h3 className="font-bold">Facilities</h3>
                     {bar?.bar === true ? <p>Bar</p> : null}
                     {bar?.breakfast === "Yes" ? <p>Breakfast</p> : null}
                     {bar?.freeWifi === true ? <p>Frer WiFi</p> : null}
@@ -69,6 +71,7 @@ const Bar = () => {
                     {bar?.smoking === true ? <p>Smokking Area</p> : null}
                   </div>
                   <div>
+                    <h3 className="font-bold">Room Information</h3>
                     <p>Price ${bar?.price}</p>
                     <p>Room Type {bar?.roomType}</p>
                     <p>Language {bar?.language}</p>
