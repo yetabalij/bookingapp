@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 
 const Help = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <SecondaryNavBar />
       <HelpContacts />
       <FrequentlyAsked />
