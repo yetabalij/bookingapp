@@ -16,6 +16,7 @@ import CreditCard from "./CreditCard";
 
 const FrequentlAskedContainer = styled.div`
   ${tw`
+    w-11/12
     md:w-4/5
     2xl:w-3/5
     mx-auto
@@ -34,7 +35,7 @@ const Card = styled.div`
 `;
 const TabContainer = styled.div`
   ${tw`
-    flex
+    sm:flex
     border-b-2
     p-6
     `}
@@ -48,8 +49,7 @@ const Tab = styled.div`
 const IconContainer = styled.div`
   ${tw`
      
-    `}
-  transform: translate(30%,-20%)
+    `}// transform: translate(30%,-20%)
 `;
 const PanelContainer = styled.div`
   ${tw`
