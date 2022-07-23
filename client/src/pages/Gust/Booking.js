@@ -32,7 +32,7 @@ const Booking = () => {
           <img
             alt="hotel"
             src={savedProperty?.hotel?.image}
-            className="w-1/3"
+            className="sm:w-1/3"
           />
           <div className="flex mt-5">
             <Button
