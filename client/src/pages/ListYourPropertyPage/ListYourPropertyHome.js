@@ -8,7 +8,7 @@ import Footer from "../../components/Footer";
 
 const ListYourPropertyHome = () => {
   return (
-    <div className="AppContainer">
+    <div className="AppContainer overflow-hidden">
       <NavBar />
       <HeaderComp />
       <YourPeaceOfMind />
