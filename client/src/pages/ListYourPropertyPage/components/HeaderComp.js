@@ -15,7 +15,7 @@ const Header = () => {
     <header>
       <div className="BodyContainer">
         <div className="HeaderContainer">
-          <div className="HeaderSection md:w-4/5 2xl:w-3/5 mx-auto md:flex justify-between">
+          <div className="HeaderSection w-11/12 md:w-4/5 2xl:w-3/5 mx-auto md:flex justify-between">
             <div className="LeaftSection">
               {toggle === true ? (
                 <div className="LeftSectionOne ">
@@ -23,8 +23,10 @@ const Header = () => {
                   <p className="text-5xl text-third-color font-bold mb-2">
                     anything
                   </p>
-                  <p className="text-5xl font-bold mb-2">on Booking.com</p>
-                  <p className="mt-4 text-2xl">
+                  <p className="text-2xl sm:text-5xl font-bold mb-2">
+                    on Booking.com
+                  </p>
+                  <p className="mt-4 text-sm sm:text-2xl">
                     Registration is free and can take as little as 15 minutes to
                     complete get started today
                   </p>
@@ -49,8 +51,10 @@ const Header = () => {
                       beed and breakfast
                     </p>
                   </div>
-                  <p className="text-5xl font-bold ">on Booking.com</p>
-                  <p className="mt-4 text-2xl">
+                  <p className="text-2xl sm:text-5xl font-bold ">
+                    on Booking.com
+                  </p>
+                  <p className="mt-4 text-sm sm:text-2xl">
                     Registration is free and can take as little as 15 minutes to
                     complete get started today
                   </p>
