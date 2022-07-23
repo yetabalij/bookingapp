@@ -18,7 +18,8 @@ const Container = styled.div`
 `;
 const FormContainer = styled.div`
   ${tw`
-    w-[400px]
+    w-[300px]
+    sm:w-[400px]
     mr-auto
     ml-auto
     mt-8
