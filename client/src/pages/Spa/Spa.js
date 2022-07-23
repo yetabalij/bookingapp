@@ -47,17 +47,19 @@ const Spa = () => {
           spa.map((spa) => {
             return (
               <Card key={spa?._id}>
-                <div className="grid grid-cols-4 gap-4">
+                <div className="sm:grid sm:grid-cols-4 sm:gap-4">
                   <div>
                     <img src={spa?.hotel?.image} alt="Hotel" />
                   </div>
-                  <div>
+                  <div className="mb-2">
+                    <h3 className="font-bold">Property Information</h3>
                     <p>{spa?.hotel?.name}</p>
                     <p>{spa?.hotel?.city}</p>
                     <p>{spa?.hotel?.address}</p>
                     <p>{spa?.hotel?.distances}</p>
                   </div>
-                  <div>
+                  <div className="mb-2">
+                    <h3 className="font-bold">Facilities</h3>
                     {spa?.spa === true ? <p>spa</p> : null}
                     {spa?.breakfast === "Yes" ? <p>Breakfast</p> : null}
                     {spa?.freeWifi === true ? <p>Frer WiFi</p> : null}
@@ -68,6 +70,7 @@ const Spa = () => {
                     {spa?.smoking === true ? <p>Smokking Area</p> : null}
                   </div>
                   <div>
+                    <h3 className="font-bold">Room Information</h3>
                     <p>Price ${spa?.price}</p>
                     <p>Room Type {spa?.roomType}</p>
                     <p>Language {spa?.language}</p>
