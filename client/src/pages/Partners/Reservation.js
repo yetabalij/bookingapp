@@ -39,7 +39,7 @@ const Reservation = () => {
       <Container>
         <NavBar />
         <ContentContainer>
-          <Card>Reservations</Card>
+          <Card>Under Development...</Card>
         </ContentContainer>
       </Container>
       <Footer />
