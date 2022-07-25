@@ -139,13 +139,13 @@ const Room = () => {
                           onDeleteHandler();
                         }}
                       />
-                      <FontAwesomeIcon
+                      {/* <FontAwesomeIcon
                         className="text-secondary-color mr-2"
                         icon={faPen}
                         onClick={() => {
                           navigate("/addeditrooms", { state: item });
                         }}
-                      />
+                      /> */}
                     </div>
                   </Card>
                 );
