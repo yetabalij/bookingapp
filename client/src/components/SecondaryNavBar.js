@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import MobSecondaryNavBar from "./MobSecondaryNavBar";
 
 const NavBarContainer = styled.div`
   ${tw`
@@ -96,34 +98,70 @@ const BtnSignin = styled.button`
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 640px)" });
+  const [pressed, setPressed] = useState(false);
+
+  const pressHandler = () => {
+    setPressed(true);
+  };
+
+  const closeHandler = () => {
+    setPressed(false);
+  };
+
   return (
     <div>
       <NavBarContainer>
-        <Brand>
-          <BrandLeft>
-            <BrandText>
-              <Link to="/">Real Time</Link>
-            </BrandText>
-          </BrandLeft>
-          <BrandRight>
-            <HelpContainer>
-              <Link to="/help">
-                <FontAwesomeIcon
-                  style={{ color: "white" }}
-                  icon={faCircleQuestion}
-                  size="xl"
-                />
-              </Link>
-            </HelpContainer>
-            <ListYourPropertyContainer>
-              <Link to="/listyourpropertyhome">List Your Property</Link>
-            </ListYourPropertyContainer>
-            <BtnRegister onClick={() => navigate("/register")}>
-              Register
-            </BtnRegister>
-            <BtnSignin onClick={() => navigate("/signin")}>Sign in</BtnSignin>
-          </BrandRight>
-        </Brand>
+        {isTabletOrMobile ? (
+          <div className="flex justify-end ">
+            <MobSecondaryNavBar pressed={pressed} closeHandler={closeHandler} />
+            <div className="pr-5 pt-5">
+              <button onClick={pressHandler}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 20 20"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    stroke="white"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ) : (
+          <Brand>
+            <BrandLeft>
+              <BrandText>
+                <Link to="/">Real Time</Link>
+              </BrandText>
+            </BrandLeft>
+            <BrandRight>
+              <HelpContainer>
+                <Link to="/help">
+                  <FontAwesomeIcon
+                    style={{ color: "white" }}
+                    icon={faCircleQuestion}
+                    size="xl"
+                  />
+                </Link>
+              </HelpContainer>
+              <ListYourPropertyContainer>
+                <Link to="/listyourpropertyhome">List Your Property</Link>
+              </ListYourPropertyContainer>
+              <BtnRegister onClick={() => navigate("/register")}>
+                Register
+              </BtnRegister>
+              <BtnSignin onClick={() => navigate("/signin")}>Sign in</BtnSignin>
+            </BrandRight>
+          </Brand>
+        )}
       </NavBarContainer>
     </div>
   );
