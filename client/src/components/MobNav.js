@@ -54,6 +54,7 @@ const LiContainer = styled.li`
     mt-2
     text-sm
   `}
+  list-style:none;
 `;
 
 const MobNavContainer = styled.div`
