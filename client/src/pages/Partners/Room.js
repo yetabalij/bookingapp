@@ -11,6 +11,8 @@ import Card from "./../../components/Card";
 import Footer from "../../components/Footer";
 
 import WarnningDialog from "../../components/WarnningDialog";
+import { useMediaQuery } from "react-responsive";
+import PartnersMobNavBar from "./components/PartnersMobNavBar";
 
 const Container = styled.div`
   ${tw`
@@ -48,6 +50,17 @@ const Room = () => {
   const [isDelete, setIsDelete] = useState(false);
   const navigate = useNavigate();
 
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 740px)" });
+  const [pressed, setPressed] = useState(false);
+
+  const pressHandler = () => {
+    setPressed(true);
+  };
+
+  const closeHandler = () => {
+    setPressed(false);
+  };
+
   useEffect(() => {
     if (Property !== null && Property[0]?._id) {
       axios
@@ -77,7 +90,32 @@ const Room = () => {
   return (
     <div>
       <Container>
-        <NavBar />
+        {isTabletOrMobile ? (
+          <div className="flex justify-end ">
+            <PartnersMobNavBar pressed={pressed} closeHandler={closeHandler} />
+            <div className="pr-5 pt-5">
+              <button onClick={pressHandler}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 20 20"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    stroke="blue"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ) : (
+          <NavBar />
+        )}
         <ContentContainer>
           {isDelete === true ? (
             <WarnningDialog
