@@ -337,12 +337,12 @@ const Rooms = () => {
               </div>
             </div>
           </Card>
-          <Card>
+          {/* <Card>
             <div className=" w-4/6 ml-[auto] mr-[auto]">
               Photo
               <Input type="file"></Input>
             </div>
-          </Card>
+          </Card> */}
           <Card>
             <Button type="submit">Add Room</Button>
           </Card>
