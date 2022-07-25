@@ -39,7 +39,7 @@ const Finance = () => {
       <Container>
         <NavBar />
         <ContentContainer>
-          <Card>Finance</Card>
+          <Card>Under Development...</Card>
         </ContentContainer>
       </Container>
       <Footer />
