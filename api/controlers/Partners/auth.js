@@ -52,10 +52,11 @@ exports.partnerLogin = async (req, res, next) => {
 
     const token = jwt.sign(
       { id: user._id, username: user.username, role: user.role },
-      process.env.JWT_SEKRETE
+      process.env.JWT_SEKRETE,
+      { expiresIn: "1h" }
     );
     const { password, role, ...otherDetails } = user._doc;
-    return res
+    res
       .cookie("access_token", token, { httpOnly: true })
       .status(200)
       .json(otherDetails);
